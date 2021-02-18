@@ -1,0 +1,30 @@
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csprojAssemblyReference.cache
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.Properties.Resources.resources
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csproj.GenerateResource.cache
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csproj.CoreCompileInputs.cache
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\Projetos C#\Testes\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.exe
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csprojAssemblyReference.cache
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.Properties.Resources.resources
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csproj.GenerateResource.cache
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csproj.CoreCompileInputs.cache
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.exe
+C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\bin\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csprojAssemblyReference.cache
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.Properties.Resources.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csproj.GenerateResource.cache
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.csproj.CoreCompileInputs.cache
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.pdb

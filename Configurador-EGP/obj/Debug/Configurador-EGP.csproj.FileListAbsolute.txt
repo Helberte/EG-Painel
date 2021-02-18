@@ -1,0 +1,10 @@
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\bin\Debug\Configurador-EGP.exe.config
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\bin\Debug\Configurador-EGP.exe
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\bin\Debug\Configurador-EGP.pdb
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\obj\Debug\Configurador-EGP.csprojAssemblyReference.cache
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\obj\Debug\Configurador_EGP.Form1.resources
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\obj\Debug\Configurador_EGP.Properties.Resources.resources
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\obj\Debug\Configurador-EGP.csproj.GenerateResource.cache
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\obj\Debug\Configurador-EGP.csproj.CoreCompileInputs.cache
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\obj\Debug\Configurador-EGP.exe
+C:\PROJETOS - C#\EGP-PAINEL\Configurador-EGP\obj\Debug\Configurador-EGP.pdb

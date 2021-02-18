@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configurador-EGP", "Configurador-EGP.csproj", "{ACBA73FA-D36C-43FB-8383-24E5CA2540DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACBA73FA-D36C-43FB-8383-24E5CA2540DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACBA73FA-D36C-43FB-8383-24E5CA2540DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACBA73FA-D36C-43FB-8383-24E5CA2540DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACBA73FA-D36C-43FB-8383-24E5CA2540DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B166B71-51A5-49BD-9A1E-661FABE32AF7}
+	EndGlobalSection
+EndGlobal

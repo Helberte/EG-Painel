@@ -1,0 +1,17 @@
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\bin\Release\EGP_Tela_Inicial_04_02.exe.config
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\bin\Release\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\bin\Release\EGP_Tela_Inicial_04_02.pdb
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EG_PAINEL.csprojAssemblyReference.cache
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_Tela_Inicial_04_02.Form_principal.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_PAINEL.Formularios.form_cadastro_camara.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_PAINEL.Formularios.form_cadastro_de_partido.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_PAINEL.Formularios.form_cadastro_funcoes.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_PAINEL.Formularios.form_cadastro_participante.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_PAINEL.Formularios.form_cadastro_projeto.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_PAINEL.Formularios.Form_discusao.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_Tela_Inicial_04_02.Formulario_login_inicial.Form_login_inicial.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_Tela_Inicial_04_02.Properties.Resources.resources
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EG_PAINEL.csproj.GenerateResource.cache
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EG_PAINEL.csproj.CoreCompileInputs.cache
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\Projetos C#\EGP\EGP_Tela_Inicial_04_02\obj\Release\EGP_Tela_Inicial_04_02.pdb
