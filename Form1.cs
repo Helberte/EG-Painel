@@ -305,9 +305,18 @@ namespace EGP_Tela_Inicial_04_02
             Image image_backup = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\backup.ico");
             Image image_sair = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico");
 
+            // Imagens do menu Configurações_6
 
-            Image [] images = new Image 
+            Image[] images = new Image[8] { Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\meu_cadastro.ico"),
+                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\trocar_senha.ico"),
+                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\abrir_chamado.ico"),
+                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\novidades.ico"),
+                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico"),
+                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\vereadores.ico"),
+                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\backup.ico"),
+                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico")};
 
+            string[] nomes = new string[8] {"Meu cadastro", "Trocar senha", "Abrir chamado"}
 
             ToolStripSeparator linha_separadora_1 = new ToolStripSeparator();
             ToolStripSeparator linha_separadora_2 = new ToolStripSeparator();
@@ -355,7 +364,7 @@ namespace EGP_Tela_Inicial_04_02
                       
         }
 
-        void AddItensSuspensosMenu(ToolStripMenuItem menu, string [] nomes)
+        void AddItensSuspensosMenu(ToolStripMenuItem menu, string [] nomes, Image[] imagens)
         {
             List<ToolStripSeparator> separadores = new List<ToolStripSeparator>();
             List<ToolStripMenuItem> itens = new List<ToolStripMenuItem>();
