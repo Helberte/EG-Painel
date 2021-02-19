@@ -21,7 +21,14 @@ namespace EGP_Tela_Inicial_04_02
     {
         int left_panel;
         PictureBox mostra_menu_lateral;
-        
+
+        string[] nomes_menu;
+
+
+
+        string[] itens_configuracao_nomes;
+       
+
 
         public Form_principal()
         {         
@@ -283,79 +290,95 @@ namespace EGP_Tela_Inicial_04_02
 
             // cadastro 1          
 
-            ConfiguraMenu("CADASTRO", menu_cadastro_1);
-            ConfiguraMenu("CADASTRO", menu_cadastro_2);
-            ConfiguraMenu("CADASTRO", menu_cadastro_3);
-            ConfiguraMenu("CADASTRO", menu_cadastro_4);
-            ConfiguraMenu("CADASTRO", menu_cadastro_5);
-            ConfiguraMenu("CONFIGURAÇÃO", menu_configuracoes_6);
-            ConfiguraMenu("AJUDA", menu_ajuda_7);
+            nomes_menu = new string[7] { "CADASTRO 1", "CADASTRO 2", "CADASTRO 3", "CADASTRO 4", "CADASTRO 5", "CONFIGURAÇÃO", "AJUDA" };
+
+            menu_cadastro_1.Tag      = 0;
+            menu_cadastro_2.Tag      = 1;
+            menu_cadastro_3.Tag      = 2;
+            menu_cadastro_4.Tag      = 3;
+            menu_cadastro_5.Tag      = 4;
+            menu_configuracoes_6.Tag = 5;
+            menu_ajuda_7.Tag         = 6;
+
+            ConfiguraMenu(nomes_menu[0], menu_cadastro_1);
+            ConfiguraMenu(nomes_menu[1], menu_cadastro_2);
+            ConfiguraMenu(nomes_menu[2], menu_cadastro_3);
+            ConfiguraMenu(nomes_menu[3], menu_cadastro_4);
+            ConfiguraMenu(nomes_menu[4], menu_cadastro_5);
+            ConfiguraMenu(nomes_menu[5], menu_configuracoes_6);
+            ConfiguraMenu(nomes_menu[6], menu_ajuda_7);
 
             // itens menu CONFIGURAÇÃO
 
             // icones da lista suspensa
             
 
-            Image image_cad = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\meu_cadastro.ico");
-            Image image_senha = Image.FromFile(Directory.GetCurrentDirectory() +  @"\Icones\trocar_senha.ico");
-            Image image_abrir_chamado = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\abrir_chamado.ico");
-            Image image_novidades = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\novidades.ico");
-            Image image_mesa_diretora = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico");
-            Image image_vereadores = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\vereadores.ico");
-            Image image_backup = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\backup.ico");
-            Image image_sair = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico");
+            //Image image_cad = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\meu_cadastro.ico");
+            //Image image_senha = Image.FromFile(Directory.GetCurrentDirectory() +  @"\Icones\trocar_senha.ico");
+            //Image image_abrir_chamado = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\abrir_chamado.ico");
+            //Image image_novidades = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\novidades.ico");
+            //Image image_mesa_diretora = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico");
+            //Image image_vereadores = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\vereadores.ico");
+            //Image image_backup = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\backup.ico");
+            //Image image_sair = Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico");
 
             // Imagens do menu Configurações_6
 
-            Image[] images = new Image[8] { Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\meu_cadastro.ico"),
-                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\trocar_senha.ico"),
-                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\abrir_chamado.ico"),
-                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\novidades.ico"),
-                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico"),
-                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\vereadores.ico"),
-                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\backup.ico"),
-                                            Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico")};
+            Image[] itens_configuracao_images = new Image[8] {  Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\meu_cadastro.ico"),
+                                                                Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\trocar_senha.ico"),
+                                                                Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\abrir_chamado.ico"),
+                                                                Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\novidades.ico"),
+                                                                Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico"),
+                                                                Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\vereadores.ico"),
+                                                                Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\backup.ico"),
+                                                                Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico")};
 
-            string[] nomes = new string[8] {"Meu cadastro", "Trocar senha", "Abrir chamado"}
+            itens_configuracao_nomes = new string[8] {  "Meu cadastro",
+                                                        "Trocar senha",
+                                                        "Abrir chamado",
+                                                        "Novidades",
+                                                        "Mesa diretora",
+                                                        "Vereadores",
+                                                        "Backup",
+                                                        "Sair"};
 
-            ToolStripSeparator linha_separadora_1 = new ToolStripSeparator();
-            ToolStripSeparator linha_separadora_2 = new ToolStripSeparator();
-            ToolStripSeparator linha_separadora_3 = new ToolStripSeparator();
-            ToolStripSeparator linha_separadora_4 = new ToolStripSeparator();
-            ToolStripSeparator linha_separadora_5 = new ToolStripSeparator();
-            ToolStripSeparator linha_separadora_6 = new ToolStripSeparator();
-            ToolStripSeparator linha_separadora_7 = new ToolStripSeparator();
+            AddItensSuspensosMenu(menu_configuracoes_6, itens_configuracao_nomes, itens_configuracao_images);
 
-         
+            //ToolStripSeparator linha_separadora_1 = new ToolStripSeparator();
+            //ToolStripSeparator linha_separadora_2 = new ToolStripSeparator();
+            //ToolStripSeparator linha_separadora_3 = new ToolStripSeparator();
+            //ToolStripSeparator linha_separadora_4 = new ToolStripSeparator();
+            //ToolStripSeparator linha_separadora_5 = new ToolStripSeparator();
+            //ToolStripSeparator linha_separadora_6 = new ToolStripSeparator();
+            //ToolStripSeparator linha_separadora_7 = new ToolStripSeparator();         
 
-            ToolStripMenuItem item_meu_cadastro = new ToolStripMenuItem("Meu cadastro", image_cad, new EventHandler(item_meu_cadastro_click));
-            ToolStripMenuItem item_trocar_senha = new ToolStripMenuItem("Trocar senha", image_senha, new EventHandler(item_trocar_senha_click));
-            ToolStripMenuItem item_abrir_chamado = new ToolStripMenuItem("Abrir chamado", image_abrir_chamado, new EventHandler(item_abrir_chamado_click));
-            ToolStripMenuItem item_novidaes = new ToolStripMenuItem("Novidades", image_novidades, new EventHandler(item_novidaes_click));
-            ToolStripMenuItem item_mesa_diretora = new ToolStripMenuItem("Mesa Diretora", image_mesa_diretora, new EventHandler(item_mesa_diretora_click));
-            ToolStripMenuItem item_vereadores = new ToolStripMenuItem("Vereadores", image_vereadores, new EventHandler(item_vereadores_click));
-            ToolStripMenuItem item_backup = new ToolStripMenuItem("Backup", image_backup, new EventHandler(item_backup_click));
-            ToolStripMenuItem item_sair = new ToolStripMenuItem("Sair", image_sair, new EventHandler(item_sair_click));
+            //ToolStripMenuItem item_meu_cadastro = new ToolStripMenuItem("Meu cadastro", image_cad, new EventHandler(item_meu_cadastro_click));
+            //ToolStripMenuItem item_trocar_senha = new ToolStripMenuItem("Trocar senha", image_senha, new EventHandler(item_trocar_senha_click));
+            //ToolStripMenuItem item_abrir_chamado = new ToolStripMenuItem("Abrir chamado", image_abrir_chamado, new EventHandler(item_abrir_chamado_click));
+            //ToolStripMenuItem item_novidaes = new ToolStripMenuItem("Novidades", image_novidades, new EventHandler(item_novidaes_click));
+            //ToolStripMenuItem item_mesa_diretora = new ToolStripMenuItem("Mesa Diretora", image_mesa_diretora, new EventHandler(item_mesa_diretora_click));
+            //ToolStripMenuItem item_vereadores = new ToolStripMenuItem("Vereadores", image_vereadores, new EventHandler(item_vereadores_click));
+            //ToolStripMenuItem item_backup = new ToolStripMenuItem("Backup", image_backup, new EventHandler(item_backup_click));
+            //ToolStripMenuItem item_sair = new ToolStripMenuItem("Sair", image_sair, new EventHandler(item_sair_click));
 
+            //((ToolStripDropDownMenu)(menu_configuracoes_6.DropDown)).ShowImageMargin = true;
+            //((ToolStripDropDownMenu)(menu_configuracoes_6.DropDown)).ShowCheckMargin = false;
 
-            ((ToolStripDropDownMenu)(menu_configuracoes_6.DropDown)).ShowImageMargin = true;
-            ((ToolStripDropDownMenu)(menu_configuracoes_6.DropDown)).ShowCheckMargin = false;
-
-            menu_configuracoes_6.DropDownItems.Add(item_meu_cadastro);
-            menu_configuracoes_6.DropDownItems.Add(linha_separadora_1);
-            menu_configuracoes_6.DropDownItems.Add(item_trocar_senha);
-            menu_configuracoes_6.DropDownItems.Add(linha_separadora_2);
-            menu_configuracoes_6.DropDownItems.Add(item_abrir_chamado);
-            menu_configuracoes_6.DropDownItems.Add(linha_separadora_3);
-            menu_configuracoes_6.DropDownItems.Add(item_novidaes);
-            menu_configuracoes_6.DropDownItems.Add(linha_separadora_4);
-            menu_configuracoes_6.DropDownItems.Add(item_mesa_diretora);
-            menu_configuracoes_6.DropDownItems.Add(linha_separadora_5);
-            menu_configuracoes_6.DropDownItems.Add(item_vereadores);
-            menu_configuracoes_6.DropDownItems.Add(linha_separadora_6);
-            menu_configuracoes_6.DropDownItems.Add(item_backup);
-            menu_configuracoes_6.DropDownItems.Add(linha_separadora_7);
-            menu_configuracoes_6.DropDownItems.Add(item_sair);
+            //menu_configuracoes_6.DropDownItems.Add(item_meu_cadastro);
+            //menu_configuracoes_6.DropDownItems.Add(linha_separadora_1);
+            //menu_configuracoes_6.DropDownItems.Add(item_trocar_senha);
+            //menu_configuracoes_6.DropDownItems.Add(linha_separadora_2);
+            //menu_configuracoes_6.DropDownItems.Add(item_abrir_chamado);
+            //menu_configuracoes_6.DropDownItems.Add(linha_separadora_3);
+            //menu_configuracoes_6.DropDownItems.Add(item_novidaes);
+            //menu_configuracoes_6.DropDownItems.Add(linha_separadora_4);
+            //menu_configuracoes_6.DropDownItems.Add(item_mesa_diretora);
+            //menu_configuracoes_6.DropDownItems.Add(linha_separadora_5);
+            //menu_configuracoes_6.DropDownItems.Add(item_vereadores);
+            //menu_configuracoes_6.DropDownItems.Add(linha_separadora_6);
+            //menu_configuracoes_6.DropDownItems.Add(item_backup);
+            //menu_configuracoes_6.DropDownItems.Add(linha_separadora_7);
+            //menu_configuracoes_6.DropDownItems.Add(item_sair);
 
             left_panel = panel_cab_3.Width - panel_menu_lateral.Width;
 
@@ -371,10 +394,56 @@ namespace EGP_Tela_Inicial_04_02
 
             for (int i = 0; i < nomes.Length; i++)
             {
+                separadores.Add(new ToolStripSeparator());
+                itens.Add(new ToolStripMenuItem(nomes[i], imagens[i], new EventHandler(Itens_menu_click)));
+
+                itens[i].Tag = nomes_menu[(int)menu.Tag].ToString() + "_" + nomes[i];
+
+                menu.DropDownItems.Add(itens[i]);
+                menu.DropDownItems.Add(separadores[i]);
+            }
+
+            ((ToolStripDropDownMenu)(menu.DropDown)).ShowImageMargin = true;
+            ((ToolStripDropDownMenu)(menu.DropDown)).ShowCheckMargin = false;
+        }
+
+        void Itens_menu_click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem menu = sender as ToolStripMenuItem;
+
+            if (menu.Tag.ToString().StartsWith(nomes_menu[0]))
+            {
+               
+            }
+            else if (menu.Tag.ToString().StartsWith(nomes_menu[1]))
+            {
+
+            }
+            else if (menu.Tag.ToString().StartsWith(nomes_menu[2]))
+            {
+
+            }
+            else if (menu.Tag.ToString().StartsWith(nomes_menu[3]))
+            {
+
+            }
+            else if (menu.Tag.ToString().StartsWith(nomes_menu[4]))
+            {
+
+            }
+            else if (menu.Tag.ToString().StartsWith(nomes_menu[5]))
+            {
+                if (menu.Tag.ToString().Contains(itens_configuracao_nomes[0]))
+                {
+                    form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
+                    form_Cadastro_Participante.ShowDialog();
+                }
+            }
+            else if (menu.Tag.ToString().StartsWith(nomes_menu[6]))
+            {
 
             }
         }
-
 
 
         private void ConfiguraMenu(string nomeMenu, ToolStripMenuItem menu)

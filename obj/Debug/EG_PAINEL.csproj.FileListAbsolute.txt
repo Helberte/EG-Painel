@@ -49,3 +49,20 @@ C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.GenerateResource.c
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.CoreCompileInputs.cache
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.exe
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csprojAssemblyReference.cache
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_camara.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_de_partido.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_funcoes.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_participante.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_projeto.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.Form_discusao.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formulario_login_inicial.Form_login_inicial.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Properties.Resources.resources
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.GenerateResource.cache
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.CoreCompileInputs.cache
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
+C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe
+C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.pdb
