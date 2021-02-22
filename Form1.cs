@@ -352,12 +352,13 @@ namespace EGP_Tela_Inicial_04_02
 
             #endregion
 
-            itens_menu_opcoes_0_nomes = new string[6] { "Entidade",
+            itens_menu_opcoes_0_nomes = new string[7] { "Entidade",
                                                         "Legislatura",
                                                         "Pessoas",
                                                         "Novidades",
                                                         "Parlamentares",
-                                                        "Microfone" };
+                                                        "Microfone",
+                                                        "Sair"};
 
             AddItensSuspensosMenu(menu_opcoes_0, itens_menu_opcoes_0_nomes, null);
 
@@ -405,6 +406,10 @@ namespace EGP_Tela_Inicial_04_02
                 {
                     form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
                     form_Cadastro_Participante.ShowDialog();
+                }
+                else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[6]))
+                {
+                    this.Close();
                 }
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[1]))             // REGISTRO
