@@ -73,6 +73,9 @@
             this.lbl_exibir_ao_publico = new System.Windows.Forms.Label();
             this.pictureBox_exibir_ao_publico = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox_cab_notificacao_1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_cab_notificacao_2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_cab_notificacao_3 = new System.Windows.Forms.PictureBox();
             this.panel_cab_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_versao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_6)).BeginInit();
@@ -80,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_icone_suporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_4)).BeginInit();
+            this.panel_cab_notificacoes.SuspendLayout();
             this.panel_cab_usuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_3)).BeginInit();
             this.panel_cab_camara.SuspendLayout();
@@ -93,6 +97,9 @@
             this.panel_menu_lateral.SuspendLayout();
             this.panel_exibir_ao_publico.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_exibir_ao_publico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_cab_1
@@ -161,8 +168,9 @@
             // pictureBox_icone_suporte
             // 
             this.pictureBox_icone_suporte.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox_icone_suporte.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_icone_suporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_icone_suporte.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources.suporte_32;
+            this.pictureBox_icone_suporte.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_icone_suporte.Image")));
             this.pictureBox_icone_suporte.Location = new System.Drawing.Point(6, 9);
             this.pictureBox_icone_suporte.Name = "pictureBox_icone_suporte";
             this.pictureBox_icone_suporte.Size = new System.Drawing.Size(40, 35);
@@ -205,6 +213,9 @@
             // panel_cab_notificacoes
             // 
             this.panel_cab_notificacoes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_cab_notificacoes.Controls.Add(this.pictureBox_cab_notificacao_3);
+            this.panel_cab_notificacoes.Controls.Add(this.pictureBox_cab_notificacao_2);
+            this.panel_cab_notificacoes.Controls.Add(this.pictureBox_cab_notificacao_1);
             this.panel_cab_notificacoes.Location = new System.Drawing.Point(499, 3);
             this.panel_cab_notificacoes.Name = "panel_cab_notificacoes";
             this.panel_cab_notificacoes.Size = new System.Drawing.Size(132, 58);
@@ -351,54 +362,89 @@
             this.menu_opcoes_0.AutoSize = false;
             this.menu_opcoes_0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menu_opcoes_0.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_opcoes_0.Image = ((System.Drawing.Image)(resources.GetObject("menu_opcoes_0.Image")));
+            this.menu_opcoes_0.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.menu_opcoes_0.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_0.Name = "menu_opcoes_0";
             this.menu_opcoes_0.Size = new System.Drawing.Size(122, 56);
             this.menu_opcoes_0.Text = "Cadastro";
+            this.menu_opcoes_0.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_0.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // menu_opcoes_1
             // 
+            this.menu_opcoes_1.AutoSize = false;
+            this.menu_opcoes_1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menu_opcoes_1.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.menu_opcoes_1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_1.Image = ((System.Drawing.Image)(resources.GetObject("menu_opcoes_1.Image")));
+            this.menu_opcoes_1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu_opcoes_1.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_1.Name = "menu_opcoes_1";
-            this.menu_opcoes_1.Size = new System.Drawing.Size(62, 56);
+            this.menu_opcoes_1.Size = new System.Drawing.Size(78, 56);
             this.menu_opcoes_1.Text = "Cadastro";
+            this.menu_opcoes_1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // menu_opcoes_2
             // 
             this.menu_opcoes_2.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_opcoes_2.Image = ((System.Drawing.Image)(resources.GetObject("menu_opcoes_2.Image")));
+            this.menu_opcoes_2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu_opcoes_2.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_2.Name = "menu_opcoes_2";
-            this.menu_opcoes_2.Size = new System.Drawing.Size(62, 56);
+            this.menu_opcoes_2.Size = new System.Drawing.Size(78, 56);
             this.menu_opcoes_2.Text = "Cadastro";
+            this.menu_opcoes_2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // menu_opcoes_3
             // 
             this.menu_opcoes_3.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_opcoes_3.Image = ((System.Drawing.Image)(resources.GetObject("menu_opcoes_3.Image")));
+            this.menu_opcoes_3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu_opcoes_3.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_3.Name = "menu_opcoes_3";
-            this.menu_opcoes_3.Size = new System.Drawing.Size(62, 56);
+            this.menu_opcoes_3.Size = new System.Drawing.Size(78, 56);
             this.menu_opcoes_3.Text = "Cadastro";
+            this.menu_opcoes_3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // menu_opcoes_4
             // 
             this.menu_opcoes_4.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_opcoes_4.Image = ((System.Drawing.Image)(resources.GetObject("menu_opcoes_4.Image")));
+            this.menu_opcoes_4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu_opcoes_4.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_4.Name = "menu_opcoes_4";
-            this.menu_opcoes_4.Size = new System.Drawing.Size(62, 56);
+            this.menu_opcoes_4.Size = new System.Drawing.Size(78, 56);
             this.menu_opcoes_4.Text = "Cadastro";
+            this.menu_opcoes_4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // menu_opcoes_5
             // 
             this.menu_opcoes_5.BackColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_5.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_opcoes_5.Image = ((System.Drawing.Image)(resources.GetObject("menu_opcoes_5.Image")));
+            this.menu_opcoes_5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu_opcoes_5.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_5.Name = "menu_opcoes_5";
-            this.menu_opcoes_5.Size = new System.Drawing.Size(88, 56);
+            this.menu_opcoes_5.Size = new System.Drawing.Size(104, 56);
             this.menu_opcoes_5.Text = "Configurações";
+            this.menu_opcoes_5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // menu_opcoes_6
             // 
             this.menu_opcoes_6.Font = new System.Drawing.Font("Calibri", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_opcoes_6.Image = ((System.Drawing.Image)(resources.GetObject("menu_opcoes_6.Image")));
+            this.menu_opcoes_6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.menu_opcoes_6.ImageTransparentColor = System.Drawing.Color.Transparent;
             this.menu_opcoes_6.Name = "menu_opcoes_6";
-            this.menu_opcoes_6.Size = new System.Drawing.Size(47, 56);
+            this.menu_opcoes_6.Size = new System.Drawing.Size(63, 56);
             this.menu_opcoes_6.Text = "Ajuda";
+            this.menu_opcoes_6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.menu_opcoes_6.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // panel_cab_2
             // 
@@ -425,6 +471,7 @@
             this.panel_menu_inferior.Name = "panel_menu_inferior";
             this.panel_menu_inferior.Size = new System.Drawing.Size(866, 71);
             this.panel_menu_inferior.TabIndex = 7;
+            this.panel_menu_inferior.Visible = false;
             // 
             // panel_ultimo_backup
             // 
@@ -437,6 +484,7 @@
             this.panel_ultimo_backup.Name = "panel_ultimo_backup";
             this.panel_ultimo_backup.Size = new System.Drawing.Size(219, 62);
             this.panel_ultimo_backup.TabIndex = 0;
+            this.panel_ultimo_backup.Visible = false;
             // 
             // pictureBox_backup
             // 
@@ -526,6 +574,36 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Menu";
             // 
+            // pictureBox_cab_notificacao_1
+            // 
+            this.pictureBox_cab_notificacao_1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_1.Image")));
+            this.pictureBox_cab_notificacao_1.Location = new System.Drawing.Point(18, 9);
+            this.pictureBox_cab_notificacao_1.Name = "pictureBox_cab_notificacao_1";
+            this.pictureBox_cab_notificacao_1.Size = new System.Drawing.Size(25, 35);
+            this.pictureBox_cab_notificacao_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_cab_notificacao_1.TabIndex = 0;
+            this.pictureBox_cab_notificacao_1.TabStop = false;
+            // 
+            // pictureBox_cab_notificacao_2
+            // 
+            this.pictureBox_cab_notificacao_2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_2.Image")));
+            this.pictureBox_cab_notificacao_2.Location = new System.Drawing.Point(49, 9);
+            this.pictureBox_cab_notificacao_2.Name = "pictureBox_cab_notificacao_2";
+            this.pictureBox_cab_notificacao_2.Size = new System.Drawing.Size(25, 35);
+            this.pictureBox_cab_notificacao_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_cab_notificacao_2.TabIndex = 1;
+            this.pictureBox_cab_notificacao_2.TabStop = false;
+            // 
+            // pictureBox_cab_notificacao_3
+            // 
+            this.pictureBox_cab_notificacao_3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_3.Image")));
+            this.pictureBox_cab_notificacao_3.Location = new System.Drawing.Point(80, 9);
+            this.pictureBox_cab_notificacao_3.Name = "pictureBox_cab_notificacao_3";
+            this.pictureBox_cab_notificacao_3.Size = new System.Drawing.Size(25, 35);
+            this.pictureBox_cab_notificacao_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_cab_notificacao_3.TabIndex = 2;
+            this.pictureBox_cab_notificacao_3.TabStop = false;
+            // 
             // Form_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,6 +633,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_icone_suporte)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_4)).EndInit();
+            this.panel_cab_notificacoes.ResumeLayout(false);
             this.panel_cab_usuario.ResumeLayout(false);
             this.panel_cab_usuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_3)).EndInit();
@@ -572,6 +651,9 @@
             this.panel_exibir_ao_publico.ResumeLayout(false);
             this.panel_exibir_ao_publico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_exibir_ao_publico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -621,6 +703,9 @@
         private System.Windows.Forms.Label lbl_dia;
         private System.Windows.Forms.Label lbl_ultimo_backup;
         private System.Windows.Forms.ToolStripMenuItem menu_opcoes_0;
+        private System.Windows.Forms.PictureBox pictureBox_cab_notificacao_3;
+        private System.Windows.Forms.PictureBox pictureBox_cab_notificacao_2;
+        private System.Windows.Forms.PictureBox pictureBox_cab_notificacao_1;
     }
 }
 

@@ -151,6 +151,22 @@ namespace EGP_Tela_Inicial_04_02
             panel_cab_notificacoes.Width = 180;
             panel_cab_notificacoes.Location = new Point(panel_cab_notificacoes.Left, 0);
 
+            int espaco = 20;
+            pictureBox_cab_notificacao_1.Width = 25;
+            pictureBox_cab_notificacao_1.Left = ((panel_cab_notificacoes.Width / 2) - ((pictureBox_cab_notificacao_1.Width + espaco) * 3) / 2) + 3;
+            pictureBox_cab_notificacao_1.Height = 35;
+            pictureBox_cab_notificacao_1.Top = (panel_cab_notificacoes.Height / 2) - (pictureBox_cab_notificacao_1.Height / 2);
+
+            pictureBox_cab_notificacao_2.Width = pictureBox_cab_notificacao_1.Width;
+            pictureBox_cab_notificacao_2.Left = pictureBox_cab_notificacao_1.Left + pictureBox_cab_notificacao_1.Width + espaco;
+            pictureBox_cab_notificacao_2.Height = pictureBox_cab_notificacao_1.Height;
+            pictureBox_cab_notificacao_2.Top = pictureBox_cab_notificacao_1.Top;
+
+            pictureBox_cab_notificacao_3.Width = pictureBox_cab_notificacao_2.Width;
+            pictureBox_cab_notificacao_3.Left = pictureBox_cab_notificacao_2.Left + pictureBox_cab_notificacao_2.Width + espaco;
+            pictureBox_cab_notificacao_3.Height = pictureBox_cab_notificacao_2.Height;
+            pictureBox_cab_notificacao_3.Top = pictureBox_cab_notificacao_2.Top;
+
             pictureBox_div_5.Left = panel_cab_notificacoes.Left + panel_cab_notificacoes.Width;
             pictureBox_div_5.Width = largura_divisorias;
             pictureBox_div_5.Height = panel_cab_1.Height;
@@ -208,51 +224,55 @@ namespace EGP_Tela_Inicial_04_02
             panel_roda_3.Height = barras_altura;
             panel_roda_3.BackColor = Color.FromArgb(243, 129, 33);
 
-            panel_menu_inferior.Height = 53;
-            panel_menu_inferior.AutoScroll = true;
-            panel_menu_inferior.BackColor = Color.FromArgb(234, 244, 253);
+            //panel_menu_inferior.Height = 53;
+            //panel_menu_inferior.AutoScroll = true;
+            //panel_menu_inferior.BackColor = Color.FromArgb(234, 244, 253);
+
+
+            #region CONFIGURAÇÃO DA INFORMAÇÃO DO ULTIMO BACKUP
 
             // CONFIGURAÇÃO DA INFORMAÇÃO DO ULTIMO BACKUP
 
-            panel_ultimo_backup.Height = panel_menu_inferior.Height;
-            panel_ultimo_backup.Width = 300;
-            panel_ultimo_backup.Left = panel_menu_inferior.Width - panel_ultimo_backup.Width;
-            panel_ultimo_backup.Top = 0;
-            panel_ultimo_backup.BackColor = Color.FromArgb(234, 244, 253);
-            panel_ultimo_backup.BorderStyle = BorderStyle.None;
+            //panel_ultimo_backup.Height = panel_menu_inferior.Height;
+            //panel_ultimo_backup.Width = 300;
+            //panel_ultimo_backup.Left = panel_menu_inferior.Width - panel_ultimo_backup.Width;
+            //panel_ultimo_backup.Top = 0;
+            //panel_ultimo_backup.BackColor = Color.FromArgb(234, 244, 253);
+            //panel_ultimo_backup.BorderStyle = BorderStyle.None;
 
-            lbl_ultimo_backup.Text = "Último Backup realizado";
-            lbl_ultimo_backup.Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Regular);
-            lbl_ultimo_backup.AutoSize = true;
-            lbl_ultimo_backup.ForeColor = Color.FromArgb(143, 143, 146);
+            //lbl_ultimo_backup.Text = "Último Backup realizado";
+            //lbl_ultimo_backup.Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Regular);
+            //lbl_ultimo_backup.AutoSize = true;
+            //lbl_ultimo_backup.ForeColor = Color.FromArgb(143, 143, 146);
 
-            pictureBox_backup.Height = panel_ultimo_backup.Height - 17;
-            pictureBox_backup.Width = pictureBox_backup.Height;
-            pictureBox_backup.BorderStyle = BorderStyle.None;
-            pictureBox_backup.Left = (panel_ultimo_backup.Width / 2) - ((lbl_ultimo_backup.Width + pictureBox_backup.Width) / 2);
-            pictureBox_backup.Top = (panel_ultimo_backup.Height / 2) - (pictureBox_backup.Height / 2);
-            pictureBox_backup.SizeMode = PictureBoxSizeMode.StretchImage;
+            //pictureBox_backup.Height = panel_ultimo_backup.Height - 17;
+            //pictureBox_backup.Width = pictureBox_backup.Height;
+            //pictureBox_backup.BorderStyle = BorderStyle.None;
+            //pictureBox_backup.Left = (panel_ultimo_backup.Width / 2) - ((lbl_ultimo_backup.Width + pictureBox_backup.Width) / 2);
+            //pictureBox_backup.Top = (panel_ultimo_backup.Height / 2) - (pictureBox_backup.Height / 2);
+            //pictureBox_backup.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            lbl_data_backup.Text = "08.02.2021";
-            lbl_data_backup.Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Bold);
-            lbl_data_backup.AutoSize = true;
-            lbl_data_backup.ForeColor = Color.FromArgb(143,143,146);
+            //lbl_data_backup.Text = "08.02.2021";
+            //lbl_data_backup.Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Bold);
+            //lbl_data_backup.AutoSize = true;
+            //lbl_data_backup.ForeColor = Color.FromArgb(143,143,146);
 
-            lbl_dia.Text = "Dia ";
-            lbl_dia.Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Regular);
-            lbl_dia.AutoSize = true;
-            lbl_dia.ForeColor = Color.FromArgb(143, 143, 146);
+            //lbl_dia.Text = "Dia ";
+            //lbl_dia.Font = new Font(FontFamily.GenericSansSerif, 9, FontStyle.Regular);
+            //lbl_dia.AutoSize = true;
+            //lbl_dia.ForeColor = Color.FromArgb(143, 143, 146);
 
-            lbl_ultimo_backup.Left = pictureBox_backup.Left + pictureBox_backup.Width + 10;
-            lbl_ultimo_backup.Top = (panel_ultimo_backup.Height / 2) - ((lbl_ultimo_backup.Height + lbl_dia.Height) / 2);
+            //lbl_ultimo_backup.Left = pictureBox_backup.Left + pictureBox_backup.Width + 10;
+            //lbl_ultimo_backup.Top = (panel_ultimo_backup.Height / 2) - ((lbl_ultimo_backup.Height + lbl_dia.Height) / 2);
 
-            lbl_dia.Left = (lbl_ultimo_backup.Left + (lbl_ultimo_backup.Width / 2)) - ((lbl_dia.Width + lbl_data_backup.Width) / 2);
-            lbl_dia.Top = lbl_ultimo_backup.Top + lbl_ultimo_backup.Height;
+            //lbl_dia.Left = (lbl_ultimo_backup.Left + (lbl_ultimo_backup.Width / 2)) - ((lbl_dia.Width + lbl_data_backup.Width) / 2);
+            //lbl_dia.Top = lbl_ultimo_backup.Top + lbl_ultimo_backup.Height;
 
-            lbl_data_backup.Left = lbl_dia.Left + lbl_dia.Width;
-            lbl_data_backup.Top = lbl_dia.Top;
+            //lbl_data_backup.Left = lbl_dia.Left + lbl_dia.Width;
+            //lbl_data_backup.Top = lbl_dia.Top;
 
             // menu lateral direita 
+            #endregion
 
 
             panel_exibir_ao_publico.Height = 38;
@@ -267,7 +287,9 @@ namespace EGP_Tela_Inicial_04_02
             pictureBox_exibir_ao_publico.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox_exibir_ao_publico.BorderStyle = BorderStyle.None;
 
-            panel_menu_lateral.Height = panel_menu_inferior.Top - (panel_cab_3.Top + panel_cab_3.Height);
+            //panel_menu_lateral.Height = panel_menu_inferior.Top - (panel_cab_3.Top + panel_cab_3.Height);
+
+            panel_menu_lateral.Height = panel_roda_3.Top - (panel_cab_3.Top + panel_cab_3.Height);
             panel_menu_lateral.Width = lbl_exibir_ao_publico.Width + pictureBox_exibir_ao_publico.Width + 55;
             panel_menu_lateral.Left = panel_cab_3.Width - panel_menu_lateral.Width;
             panel_menu_lateral.Location = new Point(panel_menu_lateral.Left, panel_cab_3.Top + panel_cab_3.Height);
@@ -280,6 +302,8 @@ namespace EGP_Tela_Inicial_04_02
             lbl_exibir_ao_publico.Left = pictureBox_exibir_ao_publico.Left + pictureBox_exibir_ao_publico.Width;
             lbl_exibir_ao_publico.Location = new Point(lbl_exibir_ao_publico.Left, (panel_exibir_ao_publico.Height / 2) - (lbl_exibir_ao_publico.Height / 2));
 
+            AdicionandoItensMenuLateral(panel_menu_lateral);
+
             // menu
 
             menuStrip_principal.Left = 0;
@@ -287,9 +311,7 @@ namespace EGP_Tela_Inicial_04_02
             menuStrip_principal.Width = panel_cab_3.Width;
             menuStrip_principal.Location = new Point(menuStrip_principal.Left, panel_cab_3.Top + panel_cab_3.Height);
             menuStrip_principal.BackColor = Color.FromArgb(234, 244, 253);
-            menuStrip_principal.Renderer = new MyRenderer();
-
-            // cadastro 1          
+            menuStrip_principal.Renderer = new MyRenderer();      
 
             nomes_menu = new string[7] {    "CADASTRO", 
                                             "REGISTRO", 
@@ -314,6 +336,7 @@ namespace EGP_Tela_Inicial_04_02
             ConfiguraMenu(nomes_menu[5], menu_opcoes_5);
             ConfiguraMenu(nomes_menu[6], menu_opcoes_6);
 
+            #region Imagens_itens_menu_configuração
             // itens menu CONFIGURAÇÃO
 
             // icones da lista suspensa                      
@@ -327,26 +350,22 @@ namespace EGP_Tela_Inicial_04_02
             //                                                    Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\backup.ico"),
             //                                                    Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico")};
 
-            itens_menu_opcoes_0_nomes = new string[11] { "Entidade",
+            #endregion
+
+            itens_menu_opcoes_0_nomes = new string[6] { "Entidade",
                                                         "Legislatura",
                                                         "Pessoas",
                                                         "Novidades",
                                                         "Parlamentares",
-                                                        "Microfone",
-                                                        "Entidade",
-                                                        "Entidade",
-                                                        "Entidade",
-                                                        "Entidade",
-                                                        "Entidade"};
+                                                        "Microfone" };
 
             AddItensSuspensosMenu(menu_opcoes_0, itens_menu_opcoes_0_nomes, null);
 
             
             left_panel = panel_cab_3.Width - panel_menu_lateral.Width;
 
-            AdicionandoItensMenuLateral(panel_menu_lateral);
-            AdicionaBotoesRodape(panel_menu_inferior);
-                      
+            // foi retirado devido à alteração
+            //AdicionaBotoesRodape(panel_menu_inferior);                      
         }
 
         void AddItensSuspensosMenu(ToolStripMenuItem menu, string [] nomes, Image[] imagens)
@@ -426,190 +445,171 @@ namespace EGP_Tela_Inicial_04_02
             menu.Font = new Font(fontFamily, 10, FontStyle.Bold);
         }
 
-        void AdicionaBotoesRodape(Panel panel_rodape)
-        {
-            // 19 BOTÕES
-            
-            List<Button> botoes = new List<Button>();
-            List<Image> images_rodape = new List<Image>();
+        #region AdicionaBotoesRodape(Panel panel_rodape)
+        //void AdicionaBotoesRodape(Panel panel_rodape)
+        //{
+        //    // 19 BOTÕES
 
-            images_rodape.Add(Image.FromFile("planeta_32.ico"));
-            images_rodape.Add(Image.FromFile("porta_32.ico"));
-            images_rodape.Add(Image.FromFile("calentdario_rodape_32.ico"));
-            images_rodape.Add(Image.FromFile("notas_32.ico"));
-            images_rodape.Add(Image.FromFile("leitura_32.ico"));
-            images_rodape.Add(Image.FromFile("pasta_32.ico"));
-            images_rodape.Add(Image.FromFile("manutencao_32.ico"));
-            images_rodape.Add(Image.FromFile("quadrado_bola_cubo.ico"));
-            images_rodape.Add(Image.FromFile("escrever_32.ico"));
-            images_rodape.Add(Image.FromFile("livro_a_b.ico"));
-            images_rodape.Add(Image.FromFile("documento_32.ico"));
-            images_rodape.Add(Image.FromFile("microfone_32.ico"));
-            images_rodape.Add(Image.FromFile("monitor_32.ico"));
-            images_rodape.Add(Image.FromFile("porta_2_32.ico"));
-            images_rodape.Add(Image.FromFile("hexagono_32.ico"));
-            images_rodape.Add(Image.FromFile("mouse_32.ico"));
-            images_rodape.Add(Image.FromFile("botao_32.ico"));
-            images_rodape.Add(Image.FromFile("telemarketing_32.ico"));
-            images_rodape.Add(Image.FromFile("internet_explorer_32.ico"));
+        //    List<Button> botoes = new List<Button>();
+        //    List<Image> images_rodape = new List<Image>();
 
-            int esquerda_botao = 70;
+        //    images_rodape.Add(Image.FromFile("planeta_32.ico"));
+        //    images_rodape.Add(Image.FromFile("porta_32.ico"));
+        //    images_rodape.Add(Image.FromFile("calentdario_rodape_32.ico"));
+        //    images_rodape.Add(Image.FromFile("notas_32.ico"));
+        //    images_rodape.Add(Image.FromFile("leitura_32.ico"));
+        //    images_rodape.Add(Image.FromFile("pasta_32.ico"));
+        //    images_rodape.Add(Image.FromFile("manutencao_32.ico"));
+        //    images_rodape.Add(Image.FromFile("quadrado_bola_cubo.ico"));
+        //    images_rodape.Add(Image.FromFile("escrever_32.ico"));
+        //    images_rodape.Add(Image.FromFile("livro_a_b.ico"));
+        //    images_rodape.Add(Image.FromFile("documento_32.ico"));
+        //    images_rodape.Add(Image.FromFile("microfone_32.ico"));
+        //    images_rodape.Add(Image.FromFile("monitor_32.ico"));
+        //    images_rodape.Add(Image.FromFile("porta_2_32.ico"));
+        //    images_rodape.Add(Image.FromFile("hexagono_32.ico"));
+        //    images_rodape.Add(Image.FromFile("mouse_32.ico"));
+        //    images_rodape.Add(Image.FromFile("botao_32.ico"));
+        //    images_rodape.Add(Image.FromFile("telemarketing_32.ico"));
+        //    images_rodape.Add(Image.FromFile("internet_explorer_32.ico"));
 
-            for (int i = 0; i < 19; i++)
-            {
-                botoes.Add(new Button());
+        //    int esquerda_botao = 70;
 
-                botoes[i].FlatStyle = FlatStyle.Standard;
-                botoes[i].Height = panel_rodape.Height - 7;
-                botoes[i].Width = botoes[i].Height;
-                botoes[i].BackColor = Color.White;
-                botoes[i].BackgroundImageLayout = ImageLayout.Center;
-                botoes[i].Image = images_rodape[i];
+        //    for (int i = 0; i < 19; i++)
+        //    {
+        //        botoes.Add(new Button());
 
-                panel_rodape.Controls.Add(botoes[i]);
+        //        botoes[i].FlatStyle = FlatStyle.Standard;
+        //        botoes[i].Height = panel_rodape.Height - 7;
+        //        botoes[i].Width = botoes[i].Height;
+        //        botoes[i].BackColor = Color.White;
+        //        botoes[i].BackgroundImageLayout = ImageLayout.Center;
+        //        botoes[i].Image = images_rodape[i];
 
-                botoes[i].Left = esquerda_botao;
-                botoes[i].Location = new Point(botoes[i].Left, (panel_rodape.Height / 2) - (botoes[i].Height / 2));
+        //        panel_rodape.Controls.Add(botoes[i]);
 
-                if (i == 5 || i == 14)                
-                    esquerda_botao += botoes[i].Width + 15;                
-                else                
-                    esquerda_botao += botoes[i].Width;               
-            }
-        }
+        //        botoes[i].Left = esquerda_botao;
+        //        botoes[i].Location = new Point(botoes[i].Left, (panel_rodape.Height / 2) - (botoes[i].Height / 2));
+
+        //        if (i == 5 || i == 14)                
+        //            esquerda_botao += botoes[i].Width + 15;                
+        //        else                
+        //            esquerda_botao += botoes[i].Width;               
+        //    }
+        //}
+        #endregion
+
 
         void AdicionandoItensMenuLateral(Panel panel_lateral)
         {
             List<Panel> panels = new List<Panel>();
-            List<Button> botoes = new List<Button>();
-            List<Label> lbl_tela_de = new List<Label>();
+
+            //List<Button> botoes = new List<Button>();
+            //List<Label> lbl_tela_de = new List<Label>();
+
             List<Image> images = new List<Image>();
 
-            List<string> nomes_botoes = new List<string>();
-            List<Label> lbl_nomes = new List<Label>();
+            #region Alteração
+            //List<string> nomes_botoes = new List<string>();
+            //List<Label> lbl_nomes = new List<Label>();
 
-            nomes_botoes.Add("PAUTA DO DIA");           // 0
-            nomes_botoes.Add("ATA");                    // 1
-            nomes_botoes.Add("PALAVRA LIVRE");          // 2
-            nomes_botoes.Add("DISCUSSÃO");              // 3
-            nomes_botoes.Add("VOTAÇÃO");                // 4
-            nomes_botoes.Add("MENSAGENS");              // 5
+            //nomes_botoes.Add("PAUTA DO DIA");           // 0
+            //nomes_botoes.Add("ATA");                    // 1
+            //nomes_botoes.Add("PALAVRA LIVRE");          // 2
+            //nomes_botoes.Add("DISCUSSÃO");              // 3
+            //nomes_botoes.Add("VOTAÇÃO");                // 4
+            //nomes_botoes.Add("MENSAGENS");              // 5
+            #endregion
 
-            images.Add(Image.FromFile("calendario_32.ico"));
-            images.Add(Image.FromFile("ata_32.ico"));
-            images.Add(Image.FromFile("palavra_livre_32.ico"));
-            images.Add(Image.FromFile("discussao_32.ico"));
-            images.Add(Image.FromFile("votacao_32.ico"));
-            images.Add(Image.FromFile("mensagens_32.ico"));
+            images.Add(Image.FromFile("pauta.jpg"));
+            images.Add(Image.FromFile("ata.jpg"));
+            images.Add(Image.FromFile("palavra livre.jpg"));
+            images.Add(Image.FromFile("discusao.jpg"));
+            images.Add(Image.FromFile("votacao.jpg"));
+            images.Add(Image.FromFile("mensagens.jpg"));
 
             int topo = panel_exibir_ao_publico.Top + panel_exibir_ao_publico.Height + 10;
 
             for (int i = 0; i < 6; i++)
             {
-                panels.Add(new Panel());
-                botoes.Add(new Button());
-                lbl_tela_de.Add(new Label());
-
-                lbl_nomes.Add(new Label());
+                panels.Add(new Panel());                              
                
-                panels[i].Height = 75;
+                panels[i].Height = 85;
                 panels[i].Width = 95;
                 panels[i].BackColor = Color.FromArgb(215, 231, 246);
                 panels[i].BorderStyle = BorderStyle.None;
+                panels[i].BackgroundImage = images[i];
+                panels[i].BackgroundImageLayout = ImageLayout.Stretch;
+                panels[i].Click += Panels_menu_lateral_Click1;
+                panels[i].Tag = i;
 
-                botoes[i].Height = 45;
-                botoes[i].Width = 45;
-                botoes[i].BackColor = Color.White;
-                botoes[i].FlatStyle = FlatStyle.Standard;
-                botoes[i].BackgroundImage = images[i];
-                botoes[i].BackgroundImageLayout = ImageLayout.Center;
-                botoes[i].Tag = i;
-                botoes[i].Click += Form_principal_Click;
+                #region ALTERAÇÃO
+                //botoes.Add(new Button());
+                //lbl_tela_de.Add(new Label());
 
-                lbl_tela_de[i].Text = "Tela de";
-                lbl_tela_de[i].Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular);
+                //lbl_nomes.Add(new Label());
 
-                panels[i].Controls.Add(botoes[i]);
-               
-                botoes[i].Left = (panels[i].Width / 2) - (botoes[i].Width / 2);
-                botoes[i].Location = new Point(botoes[i].Left, 4);
+                //botoes[i].Height = 45;
+                //botoes[i].Width = 45;
+                //botoes[i].BackColor = Color.White;
+                //botoes[i].FlatStyle = FlatStyle.Standard;
+                //botoes[i].BackgroundImage = images[i];
+                //botoes[i].BackgroundImageLayout = ImageLayout.Center;
+                //botoes[i].Tag = i;
+                //botoes[i].Click += Form_principal_Click;
 
-                panels[i].Controls.Add(lbl_tela_de[i]);
+                //lbl_tela_de[i].Text = "Tela de";
+                //lbl_tela_de[i].Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular);
 
-                lbl_tela_de[i].AutoSize = true;
-                lbl_tela_de[i].Left = (panels[i].Width / 2) - (lbl_tela_de[i].Width / 2);
-                lbl_tela_de[i].Location = new Point(lbl_tela_de[i].Left, botoes[i].Top + botoes[i].Height);
-                lbl_tela_de[i].BackColor = Color.Transparent;
+                //panels[i].Controls.Add(botoes[i]);
 
-                panels[i].Controls.Add(lbl_nomes[i]);
+                //botoes[i].Left = (panels[i].Width / 2) - (botoes[i].Width / 2);
+                //botoes[i].Location = new Point(botoes[i].Left, 4);
 
-                lbl_nomes[i].Text = nomes_botoes[i];
-                lbl_nomes[i].AutoSize = true;
-                lbl_nomes[i].Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular);
-                lbl_nomes[i].Left = (panels[i].Width / 2) - (lbl_nomes[i].Width / 2);
-                lbl_nomes[i].Location = new Point(lbl_nomes[i].Left, lbl_tela_de[i].Top + lbl_tela_de[i].Height);
+                //panels[i].Controls.Add(lbl_tela_de[i]);
+
+                //lbl_tela_de[i].AutoSize = true;
+                //lbl_tela_de[i].Left = (panels[i].Width / 2) - (lbl_tela_de[i].Width / 2);
+                //lbl_tela_de[i].Location = new Point(lbl_tela_de[i].Left, botoes[i].Top + botoes[i].Height);
+                //lbl_tela_de[i].BackColor = Color.Transparent;
+
+                //panels[i].Controls.Add(lbl_nomes[i]);
+
+                //lbl_nomes[i].Text = nomes_botoes[i];
+                //lbl_nomes[i].AutoSize = true;
+                //lbl_nomes[i].Font = new Font(FontFamily.GenericSansSerif, 7, FontStyle.Regular);
+                //lbl_nomes[i].Left = (panels[i].Width / 2) - (lbl_nomes[i].Width / 2);
+                //lbl_nomes[i].Location = new Point(lbl_nomes[i].Left, lbl_tela_de[i].Top + lbl_tela_de[i].Height);
+
+                #endregion
 
                 panel_lateral.Controls.Add(panels[i]);
 
                 panels[i].Left = (panel_lateral.Width / 2) - (panels[i].Width / 2);
+                
 
                 panels[i].Location = new Point(panels[i].Left, topo);
 
-                topo += panels[i].Height + 7;
+                int resto = ((panel_menu_lateral.Height - (panel_exibir_ao_publico.Top + panel_exibir_ao_publico.Height)) + 10) - (panels[i].Height * 6);
+                int espaco = resto / 8;
+
+                if (espaco < 0)                
+                    espaco = 10;
+                
+                topo += panels[i].Height + espaco;         
             }
         }
 
-        private void Form_principal_Click(object sender, EventArgs e)
+        private void Panels_menu_lateral_Click1(object sender, EventArgs e)
         {
-            Button botao = sender as Button;
+            Panel panel = sender as Panel;
 
-            if ((int)botao.Tag == 3)
+            if ((int)panel.Tag == 3)
             {
                 Form_discusao form_ = new Form_discusao();
                 form_.ShowDialog();
-            }            
-        }
-
-        void item_sair_click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        void item_backup_click(object sender, EventArgs e)
-        {
-
-        }
-
-        void item_vereadores_click(object sender, EventArgs e)
-        {
-
-        }
-
-        void item_mesa_diretora_click(object sender, EventArgs e)
-        {
-
-        }
-
-        void item_novidaes_click(object sender, EventArgs e)
-        {
-
-        }
-
-        void item_abrir_chamado_click(object sender, EventArgs e)
-        {
-             
-        }
-
-        void item_meu_cadastro_click(object sender, EventArgs e)
-        {
-            form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
-            form_Cadastro_Participante.ShowDialog();
-        }
-
-        void item_trocar_senha_click(object sender, EventArgs e)
-        { 
-
-        }             
+            }
+        }                
        
         // este código impede o usuário de redimensionar o formulário
         protected override void WndProc(ref Message m) 
