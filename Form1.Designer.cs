@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_principal));
             this.panel_cab_1 = new System.Windows.Forms.Panel();
-            this.pictureBox_versao = new System.Windows.Forms.PictureBox();
             this.pictureBox_div_6 = new System.Windows.Forms.PictureBox();
             this.panel_cab_suporte = new System.Windows.Forms.Panel();
             this.lbl_telefone_suporte = new System.Windows.Forms.Label();
@@ -40,6 +39,9 @@
             this.pictureBox_div_5 = new System.Windows.Forms.PictureBox();
             this.pictureBox_div_4 = new System.Windows.Forms.PictureBox();
             this.panel_cab_notificacoes = new System.Windows.Forms.Panel();
+            this.pictureBox_cab_notificacao_3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_cab_notificacao_2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox_cab_notificacao_1 = new System.Windows.Forms.PictureBox();
             this.panel_cab_usuario = new System.Windows.Forms.Panel();
             this.lbl_nome_usuario = new System.Windows.Forms.Label();
             this.lbl_usuario = new System.Windows.Forms.Label();
@@ -73,17 +75,18 @@
             this.lbl_exibir_ao_publico = new System.Windows.Forms.Label();
             this.pictureBox_exibir_ao_publico = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox_cab_notificacao_1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_cab_notificacao_2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox_cab_notificacao_3 = new System.Windows.Forms.PictureBox();
+            this.panel_cab_versao = new System.Windows.Forms.Panel();
+            this.lbl_versao = new System.Windows.Forms.Label();
             this.panel_cab_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_versao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_6)).BeginInit();
             this.panel_cab_suporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_icone_suporte)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_4)).BeginInit();
             this.panel_cab_notificacoes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_1)).BeginInit();
             this.panel_cab_usuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_3)).BeginInit();
             this.panel_cab_camara.SuspendLayout();
@@ -97,14 +100,13 @@
             this.panel_menu_lateral.SuspendLayout();
             this.panel_exibir_ao_publico.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_exibir_ao_publico)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_3)).BeginInit();
+            this.panel_cab_versao.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_cab_1
             // 
-            this.panel_cab_1.Controls.Add(this.pictureBox_versao);
+            this.panel_cab_1.AutoScroll = true;
+            this.panel_cab_1.Controls.Add(this.panel_cab_versao);
             this.panel_cab_1.Controls.Add(this.pictureBox_div_6);
             this.panel_cab_1.Controls.Add(this.panel_cab_suporte);
             this.panel_cab_1.Controls.Add(this.pictureBox_div_5);
@@ -121,17 +123,6 @@
             this.panel_cab_1.Name = "panel_cab_1";
             this.panel_cab_1.Size = new System.Drawing.Size(866, 64);
             this.panel_cab_1.TabIndex = 0;
-            // 
-            // pictureBox_versao
-            // 
-            this.pictureBox_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox_versao.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources.EGP___VERSAO3;
-            this.pictureBox_versao.Location = new System.Drawing.Point(185, 3);
-            this.pictureBox_versao.Name = "pictureBox_versao";
-            this.pictureBox_versao.Size = new System.Drawing.Size(79, 58);
-            this.pictureBox_versao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox_versao.TabIndex = 12;
-            this.pictureBox_versao.TabStop = false;
             // 
             // pictureBox_div_6
             // 
@@ -221,6 +212,36 @@
             this.panel_cab_notificacoes.Size = new System.Drawing.Size(132, 58);
             this.panel_cab_notificacoes.TabIndex = 7;
             // 
+            // pictureBox_cab_notificacao_3
+            // 
+            this.pictureBox_cab_notificacao_3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_3.Image")));
+            this.pictureBox_cab_notificacao_3.Location = new System.Drawing.Point(80, 9);
+            this.pictureBox_cab_notificacao_3.Name = "pictureBox_cab_notificacao_3";
+            this.pictureBox_cab_notificacao_3.Size = new System.Drawing.Size(25, 35);
+            this.pictureBox_cab_notificacao_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_cab_notificacao_3.TabIndex = 2;
+            this.pictureBox_cab_notificacao_3.TabStop = false;
+            // 
+            // pictureBox_cab_notificacao_2
+            // 
+            this.pictureBox_cab_notificacao_2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_2.Image")));
+            this.pictureBox_cab_notificacao_2.Location = new System.Drawing.Point(49, 9);
+            this.pictureBox_cab_notificacao_2.Name = "pictureBox_cab_notificacao_2";
+            this.pictureBox_cab_notificacao_2.Size = new System.Drawing.Size(25, 35);
+            this.pictureBox_cab_notificacao_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_cab_notificacao_2.TabIndex = 1;
+            this.pictureBox_cab_notificacao_2.TabStop = false;
+            // 
+            // pictureBox_cab_notificacao_1
+            // 
+            this.pictureBox_cab_notificacao_1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_1.Image")));
+            this.pictureBox_cab_notificacao_1.Location = new System.Drawing.Point(18, 9);
+            this.pictureBox_cab_notificacao_1.Name = "pictureBox_cab_notificacao_1";
+            this.pictureBox_cab_notificacao_1.Size = new System.Drawing.Size(25, 35);
+            this.pictureBox_cab_notificacao_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_cab_notificacao_1.TabIndex = 0;
+            this.pictureBox_cab_notificacao_1.TabStop = false;
+            // 
             // panel_cab_usuario
             // 
             this.panel_cab_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -304,7 +325,7 @@
             // 
             // pictureBox_logo
             // 
-            this.pictureBox_logo.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources.EGP___LOGO___MENU;
+            this.pictureBox_logo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_logo.Image")));
             this.pictureBox_logo.Location = new System.Drawing.Point(3, 0);
             this.pictureBox_logo.Name = "pictureBox_logo";
             this.pictureBox_logo.Size = new System.Drawing.Size(165, 64);
@@ -574,35 +595,24 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Menu";
             // 
-            // pictureBox_cab_notificacao_1
+            // panel_cab_versao
             // 
-            this.pictureBox_cab_notificacao_1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_1.Image")));
-            this.pictureBox_cab_notificacao_1.Location = new System.Drawing.Point(18, 9);
-            this.pictureBox_cab_notificacao_1.Name = "pictureBox_cab_notificacao_1";
-            this.pictureBox_cab_notificacao_1.Size = new System.Drawing.Size(25, 35);
-            this.pictureBox_cab_notificacao_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_cab_notificacao_1.TabIndex = 0;
-            this.pictureBox_cab_notificacao_1.TabStop = false;
+            this.panel_cab_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_cab_versao.Controls.Add(this.lbl_versao);
+            this.panel_cab_versao.Location = new System.Drawing.Point(185, 3);
+            this.panel_cab_versao.Name = "panel_cab_versao";
+            this.panel_cab_versao.Size = new System.Drawing.Size(79, 58);
+            this.panel_cab_versao.TabIndex = 12;
             // 
-            // pictureBox_cab_notificacao_2
+            // lbl_versao
             // 
-            this.pictureBox_cab_notificacao_2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_2.Image")));
-            this.pictureBox_cab_notificacao_2.Location = new System.Drawing.Point(49, 9);
-            this.pictureBox_cab_notificacao_2.Name = "pictureBox_cab_notificacao_2";
-            this.pictureBox_cab_notificacao_2.Size = new System.Drawing.Size(25, 35);
-            this.pictureBox_cab_notificacao_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_cab_notificacao_2.TabIndex = 1;
-            this.pictureBox_cab_notificacao_2.TabStop = false;
-            // 
-            // pictureBox_cab_notificacao_3
-            // 
-            this.pictureBox_cab_notificacao_3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_cab_notificacao_3.Image")));
-            this.pictureBox_cab_notificacao_3.Location = new System.Drawing.Point(80, 9);
-            this.pictureBox_cab_notificacao_3.Name = "pictureBox_cab_notificacao_3";
-            this.pictureBox_cab_notificacao_3.Size = new System.Drawing.Size(25, 35);
-            this.pictureBox_cab_notificacao_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox_cab_notificacao_3.TabIndex = 2;
-            this.pictureBox_cab_notificacao_3.TabStop = false;
+            this.lbl_versao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_versao.AutoSize = true;
+            this.lbl_versao.Location = new System.Drawing.Point(21, 23);
+            this.lbl_versao.Name = "lbl_versao";
+            this.lbl_versao.Size = new System.Drawing.Size(38, 13);
+            this.lbl_versao.TabIndex = 0;
+            this.lbl_versao.Text = "V 1.00";
             // 
             // Form_principal
             // 
@@ -626,7 +636,6 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_principal_FormClosing);
             this.Load += new System.EventHandler(this.Form_principal_Load);
             this.panel_cab_1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_versao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_6)).EndInit();
             this.panel_cab_suporte.ResumeLayout(false);
             this.panel_cab_suporte.PerformLayout();
@@ -634,6 +643,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_4)).EndInit();
             this.panel_cab_notificacoes.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_1)).EndInit();
             this.panel_cab_usuario.ResumeLayout(false);
             this.panel_cab_usuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_3)).EndInit();
@@ -651,9 +663,8 @@
             this.panel_exibir_ao_publico.ResumeLayout(false);
             this.panel_exibir_ao_publico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_exibir_ao_publico)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cab_notificacao_3)).EndInit();
+            this.panel_cab_versao.ResumeLayout(false);
+            this.panel_cab_versao.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -677,7 +688,6 @@
         private System.Windows.Forms.Panel panel_cab_usuario;
         private System.Windows.Forms.PictureBox pictureBox_div_3;
         private System.Windows.Forms.Panel panel_cab_camara;
-        private System.Windows.Forms.PictureBox pictureBox_versao;
         private System.Windows.Forms.Label lbl_suporte;
         private System.Windows.Forms.Label lbl_usuario;
         private System.Windows.Forms.Label lbl_nome_camara;
@@ -706,6 +716,8 @@
         private System.Windows.Forms.PictureBox pictureBox_cab_notificacao_3;
         private System.Windows.Forms.PictureBox pictureBox_cab_notificacao_2;
         private System.Windows.Forms.PictureBox pictureBox_cab_notificacao_1;
+        private System.Windows.Forms.Panel panel_cab_versao;
+        private System.Windows.Forms.Label lbl_versao;
     }
 }
 

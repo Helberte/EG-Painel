@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using EGP_PAINEL.Classes;
+using System.IO;
 
 namespace EGP_PAINEL.Formularios
 {
@@ -166,7 +167,8 @@ namespace EGP_PAINEL.Formularios
         }
 
         private void bt_cancelar_Click(object sender, EventArgs e)
-        {
+        {            
+
             if (alterar)
             {
                 tabPage_nova.Controls.Remove(alteracao);
@@ -199,9 +201,16 @@ namespace EGP_PAINEL.Formularios
             dataGrid_funcao.RowHeadersVisible = false; // retira o cabeçalho das linhas
             AjustaGrid();
 
-            ed_consulta.Focus();
+            //ed_consulta.Focus();
 
             DesativaTextos();
+
+            panel_lupa.Left = ed_consulta.Left + ed_consulta.Width;
+
+            ed_consulta.Text = "Pesquise";
+            ed_consulta.ForeColor = Color.FromArgb(161,162,162);
+            ed_consulta.TextAlign = HorizontalAlignment.Center;           
+
         }
 
         private void DesativaTextos()
@@ -220,19 +229,14 @@ namespace EGP_PAINEL.Formularios
 
             bt_cancelar.Visible = true;
             bt_salvar.Visible = true;
-        }
-
-        private void ed_consulta_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+        }       
 
         private void ed_consulta_KeyUp(object sender, KeyEventArgs e)
         {
             ed_consulta.Text = ed_consulta.Text.Replace("'", "");
-            string cmd = "select f.ID_FUNCAO [Código], " +
-                                "f.NOME[Nome], " +
-				                "f.DESCRICAO[Descrição], " +
+            string cmd = "select upper( f.ID_FUNCAO ) [Código], " +
+                                " upper( f.NOME ) [Nome], " +
+				                " upper ( f.DESCRICAO ) [Descrição], " +
 				                "f.SERIAL_CAMARA[Serial da Câmara] from funcao f " +
                                 "where (CONVERT(VARCHAR(100), ID_FUNCAO, 103) + NOME + DESCRICAO) like '%" + ed_consulta.Text + "%'";
                         
@@ -271,7 +275,7 @@ namespace EGP_PAINEL.Formularios
             {
                 ed_nome.Text = dataGrid_funcao.CurrentRow.Cells[1].Value.ToString();
                 ed_descricao.Text = dataGrid_funcao.CurrentRow.Cells[2].Value.ToString();
-            }
+            }            
         }
 
         private void tabControl_funcao_Selecting(object sender, TabControlCancelEventArgs e)
@@ -284,7 +288,7 @@ namespace EGP_PAINEL.Formularios
 
         private void form_cadastro_funcoes_Shown(object sender, EventArgs e)
         {
-            ed_consulta.Focus();
+            //ed_consulta.Focus();
         }
 
         private void bt_excluir_Click(object sender, EventArgs e)
@@ -351,21 +355,28 @@ namespace EGP_PAINEL.Formularios
         
         private void AjustaCorLinhasGrid()
         {
-            int cor = 0;
+            // int cor = 0;
+            FontFamily fontFamily = new FontFamily("calibri");
 
             for (int i = 0; i < dataGrid_funcao.Rows.Count; i++)
             {
-                if (cor == 0)
-                {
-                    cor = 1;
-                    dataGrid_funcao.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 255);
-                }
-                else if (cor == 1)
-                {
-                    cor = 0;
-                    dataGrid_funcao.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(187, 238, 255);
-                }
+                dataGrid_funcao.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 254);
+                dataGrid_funcao.Rows[i].Height = 32;
+                dataGrid_funcao.Rows[i].DefaultCellStyle.Font = new Font(fontFamily, 12, FontStyle.Regular);
+                dataGrid_funcao.Rows[i].DefaultCellStyle.ForeColor = Color.FromArgb(110, 102, 100);
             }
+
+            //if (cor == 0)
+            //{
+            //    cor = 1;
+
+            //}
+            //else if (cor == 1)
+            //{
+            //    cor = 0;
+            //    dataGrid_funcao.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(255, 255, 254);
+            //    dataGrid_funcao.Rows[i].Height = 35;
+            //}
         }
 
         private void dataGrid_funcao_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -389,28 +400,30 @@ namespace EGP_PAINEL.Formularios
             //              |
             //              +--- ESTA PROPRIEDADE PERMITE ALTERAR OS ESTILOS PARA O CABEÇALHO
 
-
             // pripriedades para o cabeçalho
-            dataGrid_funcao.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGrid_funcao.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(169, 169, 169);
-            dataGrid_funcao.ColumnHeadersDefaultCellStyle.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
-            dataGrid_funcao.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(227, 241, 241);
-            dataGrid_funcao.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(169, 169, 169);
-            dataGrid_funcao.AutoResizeColumnHeadersHeight(); // ajusta a altura do cabeçalho automaticamente
+            dataGrid_funcao.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;    
+            dataGrid_funcao.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(48, 75, 109);
+            dataGrid_funcao.ColumnHeadersDefaultCellStyle.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);         
+            dataGrid_funcao.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(251, 250, 246);
+            dataGrid_funcao.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(169, 169, 169);          
+            //dataGrid_funcao.AutoResizeColumnHeadersHeight(); // ajusta a altura do cabeçalho automaticamente
+            dataGrid_funcao.ColumnHeadersHeight = 43; // ajusta altura da linha do cabeçalho
 
             dataGrid_funcao.RowHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
             dataGrid_funcao.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(112, 140, 237);
 
+            // mudar de cor quando seleciona a linha / texto
+            dataGrid_funcao.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 150, 65);
+            dataGrid_funcao.RowsDefaultCellStyle.SelectionForeColor = Color.FromArgb(255, 255, 254);
+
 
             // configurações para todas as células
-            dataGrid_funcao.DefaultCellStyle.SelectionForeColor = Color.Black; // cor da letra quando selecionada
-            dataGrid_funcao.DefaultCellStyle.SelectionBackColor = Color.FromArgb(112, 140, 237); // cor de fundo da celula quando selecionada
             dataGrid_funcao.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-
+            
             //modos de redicionamente para as colunas
             //dataGrid_funcao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dataGrid_funcao.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGrid_funcao.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
             dataGrid_funcao.Columns[3].Visible = false;
             dataGrid_funcao.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -418,22 +431,60 @@ namespace EGP_PAINEL.Formularios
             dataGrid_funcao.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
 
             AjustaCorLinhasGrid();
-
-            //dataGridView1.DefaultCellStyle.NullValue = "vazio"; // valor da coluna null
-            //dataGridView1.DefaultCellStyle.Padding = new Padding(10);
-            dataGrid_funcao.DefaultCellStyle.Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Regular);
+            
             dataGrid_funcao.ReadOnly = true; // indica que o usuário não vai poder editar linhas
 
             //controles do grid completo
 
             dataGrid_funcao.BorderStyle = BorderStyle.Fixed3D;
-            dataGrid_funcao.BackgroundColor = Color.FromArgb(240, 240, 240);
+            dataGrid_funcao.BackgroundColor = Color.FromArgb(255, 255, 254);
             dataGrid_funcao.CellBorderStyle = DataGridViewCellBorderStyle.Single;
             dataGrid_funcao.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single; // estilo da borda do cabeçalho
             dataGrid_funcao.ColumnHeadersVisible = true;
             dataGrid_funcao.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // quando clicar, seleciona a linha inteira
             dataGrid_funcao.MultiSelect = false; // o usuário não poderá selecionar muitas linhas
             dataGrid_funcao.RowHeadersVisible = false; // retira a primeira coluna 
+            //dataGrid_funcao.RowHeadersWidth = 15;
+
+            //Icon icon = new Icon(this.GetType(), "seta_colunas_grid.ico");
+            DataGridViewImageColumn iconcolumn = new DataGridViewImageColumn();
+            iconcolumn.Image = Image.FromFile("seta_colunas_grid_3.jpg");
+            iconcolumn.Name = "";
+            iconcolumn.HeaderText = "";
+            iconcolumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+            
+
+            dataGrid_funcao.Columns.Insert(0, iconcolumn);
+            dataGrid_funcao.Columns[0].Width = 40;
+            dataGrid_funcao.Columns[0].Resizable = DataGridViewTriState.False;
+
+            //dataGrid_funcao.rowheaders
+        }
+        private void ed_consulta_Enter(object sender, EventArgs e)
+        {
+            if (ed_consulta.Text == "Pesquise")
+            {
+                ed_consulta.Clear();
+                ed_consulta.TextAlign = HorizontalAlignment.Left;
+                ed_consulta.ForeColor = Color.Black;
+                ed_consulta.CharacterCasing = CharacterCasing.Upper;                
+            }
+        }
+
+        private void ed_consulta_Validating(object sender, CancelEventArgs e)
+        {         
+            if (string.IsNullOrWhiteSpace(ed_consulta.Text))
+            {                
+                ed_consulta.CharacterCasing = CharacterCasing.Normal;
+                ed_consulta.TextAlign = HorizontalAlignment.Center;
+                ed_consulta.Text = "Pesquise";
+                ed_consulta.ForeColor = Color.FromArgb(161, 162, 162);
+            }
+        }
+
+        private void ed_consulta_KeyDown(object sender, KeyEventArgs e)
+        {
+            
         }
     }
 }

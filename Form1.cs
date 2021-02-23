@@ -27,7 +27,7 @@ namespace EGP_Tela_Inicial_04_02
 
 
         string[] itens_menu_opcoes_0_nomes;
-       
+        string[] itens_menu_opcoes_6_nomes;
 
 
         public Form_principal()
@@ -92,15 +92,23 @@ namespace EGP_Tela_Inicial_04_02
             pictureBox_div_1.Width = largura_divisorias;
             pictureBox_div_1.Location = new Point(pictureBox_div_1.Left, 0);
 
-            pictureBox_versao.Height = panel_cab_1.Height;
-            pictureBox_versao.Width = 70;
-            pictureBox_versao.Left = pictureBox_div_1.Left + pictureBox_div_1.Width + 10;
-            pictureBox_versao.Location = new Point(pictureBox_versao.Left, 0);
+            panel_cab_versao.Height = panel_cab_1.Height;
+            panel_cab_versao.Width = 90;
+            panel_cab_versao.Left = pictureBox_div_1.Left + pictureBox_div_1.Width;
+            panel_cab_versao.Location = new Point(panel_cab_versao.Left, 0);
+
+            //FontFamily fontFamily = new FontFamily("Gotham");
+            lbl_versao.Text = "V 1.00";
+            lbl_versao.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            lbl_versao.ForeColor = Color.FromArgb(46, 84, 123);
+            lbl_versao.AutoSize = true;
+            lbl_versao.Left = (panel_cab_versao.Width / 2) - (lbl_versao.Width / 2);
+            lbl_versao.Top = (panel_cab_versao.Height / 2) - (lbl_versao.Height / 2);
 
             pictureBox_div_2.Height = panel_cab_1.Height;
-            pictureBox_div_2.Left = pictureBox_versao.Left + pictureBox_versao.Width + 13;
+            pictureBox_div_2.Left = panel_cab_versao.Left + panel_cab_versao.Width + 6;
             pictureBox_div_2.Width = largura_divisorias;
-            pictureBox_div_2.Location = new Point(pictureBox_div_2.Left + 6, 0);
+            pictureBox_div_2.Location = new Point(pictureBox_div_2.Left, 0);
 
             lbl_nome_camara.AutoSize = true;
             lbl_nome_camara.Text = "CÂMARA MUNICIPAL DE JI-PARANÁ";
@@ -313,13 +321,13 @@ namespace EGP_Tela_Inicial_04_02
             menuStrip_principal.BackColor = Color.FromArgb(234, 244, 253);
             menuStrip_principal.Renderer = new MyRenderer();      
 
-            nomes_menu = new string[7] {    "CADASTRO", 
-                                            "REGISTRO", 
-                                            "ACESSOS", 
-                                            "EXIBIR AO PÚPLICO",
-                                            "CONFIGURAÇÕES", 
-                                            "RELATÓRIO", 
-                                            "AJUDA" };
+            nomes_menu = new string[7] {    "CADASTRO",             //  0
+                                            "REGISTRO",             //  1
+                                            "ACESSOS",              //  2
+                                            "EXIBIR AO PÚPLICO",    //  3
+                                            "CONFIGURAÇÕES",        //  4
+                                            "RELATÓRIO",            //  5
+                                            "AJUDA" };              //  6
             menu_opcoes_0.Tag = 0;
             menu_opcoes_1.Tag = 1;
             menu_opcoes_2.Tag = 2;
@@ -360,7 +368,12 @@ namespace EGP_Tela_Inicial_04_02
                                                         "Microfone",
                                                         "Sair"};
 
+            itens_menu_opcoes_6_nomes = new string[3] { "Sobre",
+                                                        "Quem nós somos",
+                                                        "Nosso site"};
+
             AddItensSuspensosMenu(menu_opcoes_0, itens_menu_opcoes_0_nomes, null);
+            AddItensSuspensosMenu(menu_opcoes_6, itens_menu_opcoes_6_nomes, null);
 
             
             left_panel = panel_cab_3.Width - panel_menu_lateral.Width;
@@ -383,7 +396,11 @@ namespace EGP_Tela_Inicial_04_02
 
                 itens[i].Tag = nomes_menu[(int)menu.Tag].ToString() + "_" + nomes[i];
                 itens[i].Font = new Font(fontFamily, 9, FontStyle.Regular);
-               
+                itens[i].AutoSize = false;
+                itens[i].Width = menu.Width;
+                itens[i].Height = 20;
+                itens[i].TextAlign = ContentAlignment.MiddleCenter;
+
                 menu.DropDownItems.Add(itens[i]);
 
                 if (!(i == nomes.Length - 1))                
@@ -391,8 +408,10 @@ namespace EGP_Tela_Inicial_04_02
                 
             }
 
-            ((ToolStripDropDownMenu)(menu.DropDown)).ShowImageMargin = true;
+            ((ToolStripDropDownMenu)(menu.DropDown)).ShowImageMargin = false;
             ((ToolStripDropDownMenu)(menu.DropDown)).ShowCheckMargin = false;
+            ((ToolStripDropDownMenu)(menu.DropDown)).AutoSize = false;
+            ((ToolStripDropDownMenu)(menu.DropDown)).Width = menu.Width;
         }
 
         void Itens_menu_click(object sender, EventArgs e)
@@ -434,7 +453,10 @@ namespace EGP_Tela_Inicial_04_02
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[6]))             // AJUDA
             {
-
+                if (menu.Tag.ToString().Contains(itens_menu_opcoes_6_nomes[0]))
+                {
+                    MessageBox.Show("Voce escolheu \"sobre\"");
+                }
             }
         }
 
