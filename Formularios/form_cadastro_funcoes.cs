@@ -18,7 +18,8 @@ namespace EGP_PAINEL.Formularios
         class_cadastro_funcoes cadastro_funcoes;
         Label alteracao = new Label();
 
-        
+        DataGridViewImageColumn iconcolumn;
+
 
         bool alterar = false;
         bool novo = false;
@@ -61,7 +62,7 @@ namespace EGP_PAINEL.Formularios
                         alterando_id = 0;
                         int pos_atual = dataGrid_funcao.CurrentRow.Index; // guarda a posição atual do grid
 
-                        MessageBox.Show(cadastro_funcoes.Mensagem_Retorno, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show(cadastro_funcoes.Mensagem_Retorno, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         tabControl_funcao.SelectedTab = tabPage_funcao;
                         dataGrid_funcao.DataSource = cadastro_funcoes.PreencheGrid("exec usp_funcao 'c'").Tables[0];
 
@@ -96,19 +97,25 @@ namespace EGP_PAINEL.Formularios
 
                     if (cadastro_funcoes.Insert(ed_nome.Text, ed_descricao.Text)) // insere no banco, se der certo retorna true
                     {
-                        
-                        DesativaTextos();
+                        try
+                        {
+                            DesativaTextos();
 
-                        MessageBox.Show(cadastro_funcoes.Mensagem_Retorno, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        tabControl_funcao.SelectedTab = tabPage_funcao;
-                        dataGrid_funcao.DataSource = cadastro_funcoes.PreencheGrid("exec usp_funcao 'c'").Tables[0];
+                           // MessageBox.Show(cadastro_funcoes.Mensagem_Retorno, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tabControl_funcao.SelectedTab = tabPage_funcao;
+                            dataGrid_funcao.DataSource = cadastro_funcoes.PreencheGrid("exec usp_funcao 'c'").Tables[0];
 
-                        AjustaGrid();
+                            AjustaGrid();
 
-                        SelecionarLinhaNoGrid(cadastro_funcoes.ID); // seleciona a linha com base no conteudo da coluna id
+                            SelecionarLinhaNoGrid(cadastro_funcoes.ID); // seleciona a linha com base no conteudo da coluna id
 
-                        ed_nome.Text = dataGrid_funcao.Rows[index].Cells[1].Value.ToString();
-                        ed_descricao.Text = dataGrid_funcao.Rows[index].Cells[2].Value.ToString();
+                            ed_nome.Text = dataGrid_funcao.Rows[index].Cells[1].Value.ToString();
+                            ed_descricao.Text = dataGrid_funcao.Rows[index].Cells[2].Value.ToString();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, "Atenção",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        } 
                     }
                     else
                     {
@@ -123,9 +130,9 @@ namespace EGP_PAINEL.Formularios
         {
             for (int i = 0; i < dataGrid_funcao.Rows.Count ; i++)
             {
-                if (Convert.ToInt32(dataGrid_funcao.Rows[i].Cells[0].Value.ToString()) == linha)
+                if (Convert.ToInt32(dataGrid_funcao.Rows[i].Cells["CÓDIGO"].Value.ToString()) == linha)
                 {
-                    dataGrid_funcao.CurrentCell = dataGrid_funcao[0, i]; // desta forma ele altera o CurrentRows propriedade                    
+                    dataGrid_funcao.CurrentCell = dataGrid_funcao[dataGrid_funcao.Rows[i].Cells["CÓDIGO"].ColumnIndex, i]; // desta forma ele altera o CurrentRows propriedade                    
                     index = dataGrid_funcao.Rows[i].Index;
                     break;
                 }
@@ -199,6 +206,13 @@ namespace EGP_PAINEL.Formularios
         {
             dataGrid_funcao.DataSource = cadastro_funcoes.PreencheGrid("exec usp_funcao 'c'").Tables[0];
             dataGrid_funcao.RowHeadersVisible = false; // retira o cabeçalho das linhas
+
+            iconcolumn = new DataGridViewImageColumn();
+            iconcolumn.Image = Image.FromFile("seta_colunas_grid_3.jpg");
+            iconcolumn.Name = "teste";
+            iconcolumn.HeaderText = "";
+            iconcolumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
             AjustaGrid();
 
             //ed_consulta.Focus();
@@ -209,8 +223,7 @@ namespace EGP_PAINEL.Formularios
 
             ed_consulta.Text = "Pesquise";
             ed_consulta.ForeColor = Color.FromArgb(161,162,162);
-            ed_consulta.TextAlign = HorizontalAlignment.Center;           
-
+            ed_consulta.TextAlign = HorizontalAlignment.Center;            
         }
 
         private void DesativaTextos()
@@ -299,7 +312,7 @@ namespace EGP_PAINEL.Formularios
             }
             else
             {
-                int id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells[1].Value);
+                int id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells["CÓDIGO"].Value);
 
                 DialogResult result = MessageBox.Show("Excluir permanentemente a função n° " + id, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -310,7 +323,7 @@ namespace EGP_PAINEL.Formularios
                         dataGrid_funcao.DataSource = cadastro_funcoes.PreencheGrid("exec usp_funcao 'c'").Tables[0];
                         dataGrid_funcao.RowHeadersVisible = false;
                         AjustaGrid();
-                        MessageBox.Show(cadastro_funcoes.Mensagem_Retorno, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        //MessageBox.Show(cadastro_funcoes.Mensagem_Retorno, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -329,10 +342,10 @@ namespace EGP_PAINEL.Formularios
             }
             else
             {
-                ed_nome.Text = dataGrid_funcao.CurrentRow.Cells[2].Value.ToString();
-                ed_descricao.Text = dataGrid_funcao.CurrentRow.Cells[3].Value.ToString();
+                ed_nome.Text = dataGrid_funcao.CurrentRow.Cells["NOME"].Value.ToString();
+                ed_descricao.Text = dataGrid_funcao.CurrentRow.Cells["DESCRIÇÃO"].Value.ToString();
 
-                this.alterando_id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells[1].Value.ToString());
+                this.alterando_id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells["CÓDIGO"].Value.ToString());
 
                 alteracao.Text = "Alterando função \"" + ed_nome.Text + "\" ID = " + alterando_id;
                 alteracao.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Regular);
@@ -424,11 +437,7 @@ namespace EGP_PAINEL.Formularios
             //dataGrid_funcao.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dataGrid_funcao.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
-
-            dataGrid_funcao.Columns[3].Visible = false;
-            dataGrid_funcao.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGrid_funcao.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGrid_funcao.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                       
 
             AjustaCorLinhasGrid();
             
@@ -444,20 +453,38 @@ namespace EGP_PAINEL.Formularios
             dataGrid_funcao.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // quando clicar, seleciona a linha inteira
             dataGrid_funcao.MultiSelect = false; // o usuário não poderá selecionar muitas linhas
             dataGrid_funcao.RowHeadersVisible = false; // retira a primeira coluna 
-            //dataGrid_funcao.RowHeadersWidth = 15;
+                                                       //dataGrid_funcao.RowHeadersWidth = 15;
 
             //Icon icon = new Icon(this.GetType(), "seta_colunas_grid.ico");
-            DataGridViewImageColumn iconcolumn = new DataGridViewImageColumn();
-            iconcolumn.Image = Image.FromFile("seta_colunas_grid_3.jpg");
-            iconcolumn.Name = "";
-            iconcolumn.HeaderText = "";
-            iconcolumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+
+            dataGrid_funcao.Columns["Serial da Câmara"].Visible = false;
+
+            if (!(dataGrid_funcao.Columns[iconcolumn.Name] is null))
+            {
+                dataGrid_funcao.Columns.Remove(iconcolumn);
+
+                iconcolumn = new DataGridViewImageColumn();
+                iconcolumn.Image = Image.FromFile("seta_colunas_grid_3.jpg");
+                iconcolumn.Name = "teste";
+                iconcolumn.HeaderText = "";
+                iconcolumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+                dataGrid_funcao.Columns.Insert(0, iconcolumn);
+                dataGrid_funcao.Columns[0].Width = 40;
+                dataGrid_funcao.Columns[0].Resizable = DataGridViewTriState.False;
+            }
+            else
+            {
+                dataGrid_funcao.Columns.Insert(0, iconcolumn);
+                dataGrid_funcao.Columns[0].Width = 40;
+                dataGrid_funcao.Columns[0].Resizable = DataGridViewTriState.False;
+            }
+
+            dataGrid_funcao.Columns["CÓDIGO"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGrid_funcao.Columns["NOME"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGrid_funcao.Columns["DESCRIÇÃO"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             
-
-            dataGrid_funcao.Columns.Insert(0, iconcolumn);
-            dataGrid_funcao.Columns[0].Width = 40;
-            dataGrid_funcao.Columns[0].Resizable = DataGridViewTriState.False;
-
             //dataGrid_funcao.rowheaders
         }
         private void ed_consulta_Enter(object sender, EventArgs e)

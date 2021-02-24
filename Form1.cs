@@ -420,7 +420,18 @@ namespace EGP_Tela_Inicial_04_02
             if (menu.Tag.ToString().StartsWith(nomes_menu[0]))                  // CADASTRO
             {
                 // entidade
-                if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[0]))
+                if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[0])) 
+                {
+                    form_cadastro_camara form_Cadastro_Camara = new form_cadastro_camara();
+                    form_Cadastro_Camara.ShowDialog();
+                }
+                // legislatura
+                else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[1]))
+                {
+
+                }
+                // pessoas
+                else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[2]))
                 {
                     form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
                     form_Cadastro_Participante.ShowDialog();

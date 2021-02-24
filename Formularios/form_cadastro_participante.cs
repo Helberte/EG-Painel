@@ -135,7 +135,15 @@ namespace EGP_PAINEL.Formularios
         {
             form_cadastro_funcoes cad_funcoes = new form_cadastro_funcoes();
 
-            cad_funcoes.ShowDialog();
+            try
+            {
+                cad_funcoes.ShowDialog();
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show(erro.Message, "Atenção",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
