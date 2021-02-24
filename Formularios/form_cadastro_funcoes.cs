@@ -332,7 +332,7 @@ namespace EGP_PAINEL.Formularios
                 ed_nome.Text = dataGrid_funcao.CurrentRow.Cells[1].Value.ToString();
                 ed_descricao.Text = dataGrid_funcao.CurrentRow.Cells[2].Value.ToString();
 
-                this.alterando_id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells[0].Value.ToString());
+                this.alterando_id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells[1].Value.ToString());
 
                 alteracao.Text = "Alterando função \"" + ed_nome.Text + "\" ID = " + alterando_id;
                 alteracao.Font = new Font(FontFamily.GenericSansSerif, 12, FontStyle.Regular);
