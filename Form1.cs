@@ -25,7 +25,6 @@ namespace EGP_Tela_Inicial_04_02
         string[] nomes_menu;
 
 
-
         string[] itens_menu_opcoes_0_nomes;
         string[] itens_menu_opcoes_6_nomes;
 
@@ -548,12 +547,12 @@ namespace EGP_Tela_Inicial_04_02
             //nomes_botoes.Add("MENSAGENS");              // 5
             #endregion
 
-            images.Add(Image.FromFile("pauta.jpg"));
-            images.Add(Image.FromFile("ata.jpg"));
-            images.Add(Image.FromFile("palavra livre.jpg"));
-            images.Add(Image.FromFile("discusao.jpg"));
-            images.Add(Image.FromFile("votacao.jpg"));
-            images.Add(Image.FromFile("mensagens.jpg"));
+            images.Add(Image.FromFile(@"imagens\pauta.jpg"));
+            images.Add(Image.FromFile(@"imagens\ata.jpg"));
+            images.Add(Image.FromFile(@"imagens\palavra livre.jpg"));
+            images.Add(Image.FromFile(@"imagens\discusao.jpg"));
+            images.Add(Image.FromFile(@"imagens\votacao.jpg"));
+            images.Add(Image.FromFile(@"imagens\mensagens.jpg"));
 
             int topo = panel_exibir_ao_publico.Top + panel_exibir_ao_publico.Height + 10;
 

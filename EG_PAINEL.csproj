@@ -154,71 +154,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EGP - LOGO.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EGP - LOGO - MENU.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EGP - DIVISORIA - CABECALHO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EGP - VERSAO.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EGP - VERSAO1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EGP - VERSAO2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\EGP - VERSAO3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icone_borda.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\icone_borda1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\meu_cadastro.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\trocar_senha.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\abrir_chamado.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\novidades.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\mesa_diretora_sair.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\vereadores.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\backup.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Icones\exibir_ao_publico.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\calendario.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\calendario_32.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\suporte_32.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\nuvem_32.ico" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <None Include="Resources\500.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

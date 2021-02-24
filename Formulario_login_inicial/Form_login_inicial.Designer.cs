@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_login_inicial));
             this.pictureBox_bt_acessar = new System.Windows.Forms.PictureBox();
             this.pictureBox_bt_sair = new System.Windows.Forms.PictureBox();
             this.ed_senha = new System.Windows.Forms.TextBox();
@@ -108,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::EGP_Tela_Inicial_04_02.Properties.Resources._500;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(860, 501);
             this.Controls.Add(this.pictureBox_bt_acessar);

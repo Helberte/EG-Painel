@@ -299,7 +299,7 @@ namespace EGP_PAINEL.Formularios
             }
             else
             {
-                int id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells[0].Value);
+                int id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells[1].Value);
 
                 DialogResult result = MessageBox.Show("Excluir permanentemente a função n° " + id, "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -329,8 +329,8 @@ namespace EGP_PAINEL.Formularios
             }
             else
             {
-                ed_nome.Text = dataGrid_funcao.CurrentRow.Cells[1].Value.ToString();
-                ed_descricao.Text = dataGrid_funcao.CurrentRow.Cells[2].Value.ToString();
+                ed_nome.Text = dataGrid_funcao.CurrentRow.Cells[2].Value.ToString();
+                ed_descricao.Text = dataGrid_funcao.CurrentRow.Cells[3].Value.ToString();
 
                 this.alterando_id = Convert.ToInt32(dataGrid_funcao.CurrentRow.Cells[1].Value.ToString());
 

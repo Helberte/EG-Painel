@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_principal));
             this.panel_cab_1 = new System.Windows.Forms.Panel();
+            this.panel_cab_versao = new System.Windows.Forms.Panel();
+            this.lbl_versao = new System.Windows.Forms.Label();
             this.pictureBox_div_6 = new System.Windows.Forms.PictureBox();
             this.panel_cab_suporte = new System.Windows.Forms.Panel();
             this.lbl_telefone_suporte = new System.Windows.Forms.Label();
@@ -75,9 +77,8 @@
             this.lbl_exibir_ao_publico = new System.Windows.Forms.Label();
             this.pictureBox_exibir_ao_publico = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.panel_cab_versao = new System.Windows.Forms.Panel();
-            this.lbl_versao = new System.Windows.Forms.Label();
             this.panel_cab_1.SuspendLayout();
+            this.panel_cab_versao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_6)).BeginInit();
             this.panel_cab_suporte.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_icone_suporte)).BeginInit();
@@ -100,7 +101,6 @@
             this.panel_menu_lateral.SuspendLayout();
             this.panel_exibir_ao_publico.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_exibir_ao_publico)).BeginInit();
-            this.panel_cab_versao.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_cab_1
@@ -123,6 +123,25 @@
             this.panel_cab_1.Name = "panel_cab_1";
             this.panel_cab_1.Size = new System.Drawing.Size(866, 64);
             this.panel_cab_1.TabIndex = 0;
+            // 
+            // panel_cab_versao
+            // 
+            this.panel_cab_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_cab_versao.Controls.Add(this.lbl_versao);
+            this.panel_cab_versao.Location = new System.Drawing.Point(185, 3);
+            this.panel_cab_versao.Name = "panel_cab_versao";
+            this.panel_cab_versao.Size = new System.Drawing.Size(79, 58);
+            this.panel_cab_versao.TabIndex = 12;
+            // 
+            // lbl_versao
+            // 
+            this.lbl_versao.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_versao.AutoSize = true;
+            this.lbl_versao.Location = new System.Drawing.Point(21, 23);
+            this.lbl_versao.Name = "lbl_versao";
+            this.lbl_versao.Size = new System.Drawing.Size(38, 13);
+            this.lbl_versao.TabIndex = 0;
+            this.lbl_versao.Text = "V 1.00";
             // 
             // pictureBox_div_6
             // 
@@ -304,7 +323,7 @@
             // pictureBox_div_1
             // 
             this.pictureBox_div_1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox_div_1.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources.EGP___DIVISORIA___CABECALHO;
+            this.pictureBox_div_1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_div_1.Image")));
             this.pictureBox_div_1.Location = new System.Drawing.Point(172, 3);
             this.pictureBox_div_1.Name = "pictureBox_div_1";
             this.pictureBox_div_1.Size = new System.Drawing.Size(7, 58);
@@ -510,7 +529,7 @@
             // pictureBox_backup
             // 
             this.pictureBox_backup.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox_backup.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources.nuvem_32;
+            this.pictureBox_backup.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_backup.Image")));
             this.pictureBox_backup.Location = new System.Drawing.Point(22, 11);
             this.pictureBox_backup.Name = "pictureBox_backup";
             this.pictureBox_backup.Size = new System.Drawing.Size(40, 41);
@@ -579,7 +598,7 @@
             // pictureBox_exibir_ao_publico
             // 
             this.pictureBox_exibir_ao_publico.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox_exibir_ao_publico.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources.exibir_ao_publico;
+            this.pictureBox_exibir_ao_publico.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_exibir_ao_publico.Image")));
             this.pictureBox_exibir_ao_publico.Location = new System.Drawing.Point(3, 3);
             this.pictureBox_exibir_ao_publico.Name = "pictureBox_exibir_ao_publico";
             this.pictureBox_exibir_ao_publico.Size = new System.Drawing.Size(42, 29);
@@ -594,25 +613,6 @@
             this.toolTip1.IsBalloon = true;
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Menu";
-            // 
-            // panel_cab_versao
-            // 
-            this.panel_cab_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_cab_versao.Controls.Add(this.lbl_versao);
-            this.panel_cab_versao.Location = new System.Drawing.Point(185, 3);
-            this.panel_cab_versao.Name = "panel_cab_versao";
-            this.panel_cab_versao.Size = new System.Drawing.Size(79, 58);
-            this.panel_cab_versao.TabIndex = 12;
-            // 
-            // lbl_versao
-            // 
-            this.lbl_versao.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_versao.AutoSize = true;
-            this.lbl_versao.Location = new System.Drawing.Point(21, 23);
-            this.lbl_versao.Name = "lbl_versao";
-            this.lbl_versao.Size = new System.Drawing.Size(38, 13);
-            this.lbl_versao.TabIndex = 0;
-            this.lbl_versao.Text = "V 1.00";
             // 
             // Form_principal
             // 
@@ -636,6 +636,8 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_principal_FormClosing);
             this.Load += new System.EventHandler(this.Form_principal_Load);
             this.panel_cab_1.ResumeLayout(false);
+            this.panel_cab_versao.ResumeLayout(false);
+            this.panel_cab_versao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_6)).EndInit();
             this.panel_cab_suporte.ResumeLayout(false);
             this.panel_cab_suporte.PerformLayout();
@@ -663,8 +665,6 @@
             this.panel_exibir_ao_publico.ResumeLayout(false);
             this.panel_exibir_ao_publico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_exibir_ao_publico)).EndInit();
-            this.panel_cab_versao.ResumeLayout(false);
-            this.panel_cab_versao.PerformLayout();
             this.ResumeLayout(false);
 
         }
