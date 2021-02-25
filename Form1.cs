@@ -434,7 +434,7 @@ namespace EGP_Tela_Inicial_04_02
                 else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[2]))
                 {
                     form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
-                    form_Cadastro_Participante.ShowDialog();
+                    form_Cadastro_Participante.Show();
                 }
                 else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[6]))
                 {
@@ -651,20 +651,27 @@ namespace EGP_Tela_Inicial_04_02
         // este código impede o usuário de redimensionar o formulário
         protected override void WndProc(ref Message m) 
         {
-            switch (m.Msg)
+            try
             {
-                case 0x0112: // Esse é o codigo de uma mensagem referente a barra de titulo do formulario
-                    int command = m.WParam.ToInt32() & 0xfff0;
-                    // 0xF010 eh o codigo do comando "Restore"
-                    // 0xF120 eh o Duplo Clique da Barra
-                    if ((new int[] { 0xF010, 0xF120 }).Contains(command))
-                    {
-                        // Se for executado qq um desses casos ignorar o comando (nao passar para o windows) ao menos q o form esteje minimizado.. ai continua...
-                        if (this.WindowState != FormWindowState.Minimized) return;
-                    }
-                    break;
+                switch (m.Msg)
+                {
+                    case 0x0112: // Esse é o codigo de uma mensagem referente a barra de titulo do formulario
+                        int command = m.WParam.ToInt32() & 0xfff0;
+                        // 0xF010 eh o codigo do comando "Restore"
+                        // 0xF120 eh o Duplo Clique da Barra
+                        if ((new int[] { 0xF010, 0xF120 }).Contains(command))
+                        {
+                            // Se for executado qq um desses casos ignorar o comando (nao passar para o windows) ao menos q o form esteje minimizado.. ai continua...
+                            if (this.WindowState != FormWindowState.Minimized) return;
+                        }
+                        break;
+                }
+                base.WndProc(ref m);
             }
-            base.WndProc(ref m);
+            catch (Exception exe)
+            {
+                MessageBox.Show("[Metodo WndProc(ref Message m)] " + exe.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }            
         }
 
         private void Form_principal_FormClosing(object sender, FormClosingEventArgs e)

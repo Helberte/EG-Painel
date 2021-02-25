@@ -17,6 +17,7 @@ namespace EGP_PAINEL.Formularios
     public partial class form_cadastro_participante : Form
     {
         form_cadastro_participante frm_cad_participante;
+        form_cadastro_funcoes cad_funcoes;
         bool mouse_na_foto = false;
 
 
@@ -24,6 +25,7 @@ namespace EGP_PAINEL.Formularios
         {
             InitializeComponent();
             frm_cad_participante = this;
+            cad_funcoes = new form_cadastro_funcoes();
         }
 
         private void form_cadastro_participante_Load(object sender, EventArgs e)
@@ -133,8 +135,6 @@ namespace EGP_PAINEL.Formularios
 
         private void button1_Click(object sender, EventArgs e)
         {
-            form_cadastro_funcoes cad_funcoes = new form_cadastro_funcoes();
-
             try
             {
                 cad_funcoes.ShowDialog();
@@ -142,17 +142,7 @@ namespace EGP_PAINEL.Formularios
             catch (Exception erro)
             {
                 MessageBox.Show(erro.Message, "Atenção",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
-            
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            form_cadastro_de_partido cad_partido = new form_cadastro_de_partido();
-
-            Partido.Chamou_cad_participante = true;
-
-            cad_partido.ShowDialog();
+            }            
         }
 
         private void pictureBox_foto_DoubleClick(object sender, EventArgs e)
@@ -172,6 +162,15 @@ namespace EGP_PAINEL.Formularios
                     pictureBox_foto.ImageLocation = open.FileName;
                 }
             }
+        }
+
+        private void bt_add_partido_Click(object sender, EventArgs e)
+        {
+            form_cadastro_de_partido cad_partido = new form_cadastro_de_partido();
+
+            Partido.Chamou_cad_participante = true;
+
+            cad_partido.ShowDialog();
         }
     }
 }

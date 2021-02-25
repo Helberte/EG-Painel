@@ -48,7 +48,7 @@ namespace EGP_Tela_Inicial_04_02
                 }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Problemas na inicialização: " + e.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Problemas na inicialização: IP: " + arquivo.Ip + "\n" + e.ToString(), "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

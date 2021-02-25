@@ -61,7 +61,7 @@
             this.ed_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ed_nome.Location = new System.Drawing.Point(6, 37);
             this.ed_nome.Name = "ed_nome";
-            this.ed_nome.Size = new System.Drawing.Size(565, 22);
+            this.ed_nome.Size = new System.Drawing.Size(675, 22);
             this.ed_nome.TabIndex = 1;
             this.ed_nome.Tag = "0";
             this.ed_nome.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_nome_KeyPress);
@@ -86,7 +86,7 @@
             this.ed_descricao.Location = new System.Drawing.Point(6, 99);
             this.ed_descricao.Multiline = true;
             this.ed_descricao.Name = "ed_descricao";
-            this.ed_descricao.Size = new System.Drawing.Size(787, 282);
+            this.ed_descricao.Size = new System.Drawing.Size(806, 243);
             this.ed_descricao.TabIndex = 2;
             this.ed_descricao.Tag = "1";
             this.ed_descricao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_descricao_KeyPress);
@@ -108,7 +108,7 @@
             this.bt_salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_salvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_salvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.bt_salvar.Location = new System.Drawing.Point(12, 410);
+            this.bt_salvar.Location = new System.Drawing.Point(6, 351);
             this.bt_salvar.Name = "bt_salvar";
             this.bt_salvar.Size = new System.Drawing.Size(81, 39);
             this.bt_salvar.TabIndex = 3;
@@ -126,7 +126,7 @@
             this.tabControl_funcao.Location = new System.Drawing.Point(-4, 2);
             this.tabControl_funcao.Name = "tabControl_funcao";
             this.tabControl_funcao.SelectedIndex = 0;
-            this.tabControl_funcao.Size = new System.Drawing.Size(807, 482);
+            this.tabControl_funcao.Size = new System.Drawing.Size(826, 426);
             this.tabControl_funcao.TabIndex = 4;
             this.tabControl_funcao.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl_funcao_Selecting);
             // 
@@ -142,7 +142,7 @@
             this.tabPage_funcao.Location = new System.Drawing.Point(4, 22);
             this.tabPage_funcao.Name = "tabPage_funcao";
             this.tabPage_funcao.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_funcao.Size = new System.Drawing.Size(799, 427);
+            this.tabPage_funcao.Size = new System.Drawing.Size(818, 400);
             this.tabPage_funcao.TabIndex = 0;
             this.tabPage_funcao.Text = "Funções ";
             // 
@@ -151,9 +151,9 @@
             this.panel_lupa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_lupa.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel_lupa.BackgroundImage")));
             this.panel_lupa.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_lupa.Location = new System.Drawing.Point(209, 374);
+            this.panel_lupa.Location = new System.Drawing.Point(371, 351);
             this.panel_lupa.Name = "panel_lupa";
-            this.panel_lupa.Size = new System.Drawing.Size(41, 39);
+            this.panel_lupa.Size = new System.Drawing.Size(43, 39);
             this.panel_lupa.TabIndex = 7;
             // 
             // bt_novo
@@ -163,7 +163,7 @@
             this.bt_novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_novo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_novo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.bt_novo.Location = new System.Drawing.Point(707, 374);
+            this.bt_novo.Location = new System.Drawing.Point(726, 351);
             this.bt_novo.Name = "bt_novo";
             this.bt_novo.Size = new System.Drawing.Size(82, 39);
             this.bt_novo.TabIndex = 6;
@@ -178,7 +178,7 @@
             this.bt_alterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_alterar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_alterar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.bt_alterar.Location = new System.Drawing.Point(620, 374);
+            this.bt_alterar.Location = new System.Drawing.Point(639, 351);
             this.bt_alterar.Name = "bt_alterar";
             this.bt_alterar.Size = new System.Drawing.Size(82, 39);
             this.bt_alterar.TabIndex = 5;
@@ -193,7 +193,7 @@
             this.bt_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_excluir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_excluir.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.bt_excluir.Location = new System.Drawing.Point(533, 374);
+            this.bt_excluir.Location = new System.Drawing.Point(552, 351);
             this.bt_excluir.Name = "bt_excluir";
             this.bt_excluir.Size = new System.Drawing.Size(82, 39);
             this.bt_excluir.TabIndex = 4;
@@ -248,28 +248,29 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             this.dataGrid_funcao.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid_funcao.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid_funcao.Size = new System.Drawing.Size(796, 336);
+            this.dataGrid_funcao.Size = new System.Drawing.Size(815, 325);
             this.dataGrid_funcao.StandardTab = true;
             this.dataGrid_funcao.TabIndex = 1;
             this.dataGrid_funcao.VirtualMode = true;
             this.dataGrid_funcao.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGrid_funcao_CellClick);
             this.dataGrid_funcao.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGrid_funcao_ColumnHeaderMouseClick);
             this.dataGrid_funcao.SelectionChanged += new System.EventHandler(this.dataGrid_funcao_SelectionChanged);
+            this.dataGrid_funcao.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dataGrid_funcao_UserDeletingRow);
             // 
             // ed_consulta
             // 
             this.ed_consulta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ed_consulta.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ed_consulta.Location = new System.Drawing.Point(6, 374);
+            this.ed_consulta.Location = new System.Drawing.Point(6, 351);
             this.ed_consulta.MaxLength = 30;
             this.ed_consulta.Multiline = true;
             this.ed_consulta.Name = "ed_consulta";
-            this.ed_consulta.Size = new System.Drawing.Size(197, 39);
+            this.ed_consulta.Size = new System.Drawing.Size(370, 39);
             this.ed_consulta.TabIndex = 0;
+            this.ed_consulta.Tag = "c";
             this.ed_consulta.Text = "Pesquise";
             this.ed_consulta.Enter += new System.EventHandler(this.ed_consulta_Enter);
-            this.ed_consulta.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ed_consulta_KeyDown);
             this.ed_consulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_consulta_KeyPress);
             this.ed_consulta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ed_consulta_KeyUp);
             this.ed_consulta.Validating += new System.ComponentModel.CancelEventHandler(this.ed_consulta_Validating);
@@ -286,7 +287,7 @@
             this.tabPage_nova.Location = new System.Drawing.Point(4, 22);
             this.tabPage_nova.Name = "tabPage_nova";
             this.tabPage_nova.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_nova.Size = new System.Drawing.Size(799, 456);
+            this.tabPage_nova.Size = new System.Drawing.Size(818, 400);
             this.tabPage_nova.TabIndex = 1;
             this.tabPage_nova.Text = "Edição";
             // 
@@ -297,7 +298,7 @@
             this.bt_cancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_cancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.bt_cancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(254)))));
-            this.bt_cancelar.Location = new System.Drawing.Point(99, 410);
+            this.bt_cancelar.Location = new System.Drawing.Point(93, 351);
             this.bt_cancelar.Name = "bt_cancelar";
             this.bt_cancelar.Size = new System.Drawing.Size(81, 39);
             this.bt_cancelar.TabIndex = 4;
@@ -310,15 +311,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(803, 482);
+            this.ClientSize = new System.Drawing.Size(822, 426);
             this.Controls.Add(this.tabControl_funcao);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.KeyPreview = true;
             this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "form_cadastro_funcoes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Funções";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.form_cadastro_funcoes_FormClosing);
             this.Load += new System.EventHandler(this.form_cadastro_funcoes_Load);
             this.Shown += new System.EventHandler(this.form_cadastro_funcoes_Shown);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Cadastro_funcoes_KeyPress);

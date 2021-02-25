@@ -9,8 +9,7 @@ using System.Data;
 namespace EGP_PAINEL.Classes
 {
     public class Conexao
-    {
-        
+    {        
         string strConexao = "";
         SqlConnection conection;
         ArquivoConexao arquivoConexao;

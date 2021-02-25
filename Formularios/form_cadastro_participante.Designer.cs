@@ -315,7 +315,7 @@
             this.bt_add_partido.TabIndex = 16;
             this.bt_add_partido.Text = "...";
             this.bt_add_partido.UseVisualStyleBackColor = true;
-            this.bt_add_partido.Click += new System.EventHandler(this.button2_Click);
+            this.bt_add_partido.Click += new System.EventHandler(this.bt_add_partido_Click);
             // 
             // bt_add_funcao
             // 
