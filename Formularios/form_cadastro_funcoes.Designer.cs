@@ -266,7 +266,7 @@
             this.ed_consulta.MaxLength = 30;
             this.ed_consulta.Multiline = true;
             this.ed_consulta.Name = "ed_consulta";
-            this.ed_consulta.Size = new System.Drawing.Size(370, 39);
+            this.ed_consulta.Size = new System.Drawing.Size(366, 39);
             this.ed_consulta.TabIndex = 0;
             this.ed_consulta.Tag = "c";
             this.ed_consulta.Text = "Pesquise";

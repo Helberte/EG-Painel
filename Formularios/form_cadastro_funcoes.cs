@@ -173,7 +173,6 @@ namespace EGP_PAINEL.Formularios
 
         private void bt_cancelar_Click(object sender, EventArgs e)
         {            
-
             if (alterar)
             {
                 tabPage_nova.Controls.Remove(alteracao);
@@ -461,11 +460,11 @@ namespace EGP_PAINEL.Formularios
         private void ed_consulta_Enter(object sender, EventArgs e)
         {
             if (ed_consulta.Text == "Pesquise")
-            {
-                ed_consulta.Clear();
+            {               
                 ed_consulta.TextAlign = HorizontalAlignment.Left;
                 ed_consulta.ForeColor = Color.Black;
-                ed_consulta.CharacterCasing = CharacterCasing.Upper;                
+                ed_consulta.CharacterCasing = CharacterCasing.Upper;
+                ed_consulta.Clear();
             }
         }
 

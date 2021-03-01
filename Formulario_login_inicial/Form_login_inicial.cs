@@ -179,13 +179,17 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 
         private void pictureBox_bt_acessar_Click(object sender, EventArgs e)
         {
-            class_gerencia_login.Status = 1;
-            this.Close();
+            int codigo = 0;
+            Class_gerencia_login _Login = new Class_gerencia_login(int.TryParse(ed_codigo.Text, out codigo) ? codigo : 0, ed_usuario.Text, ed_senha.Text);
+
+            if (_Login.ValidarUsuario())            
+                this.Close();
+                                  
         }
 
         private void pictureBox_bt_sair_Click(object sender, EventArgs e)
         {
-            class_gerencia_login.Status = 0;
+            Class_gerencia_login.Status = 0;
             this.Close();
         }      
     }

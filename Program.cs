@@ -35,7 +35,7 @@ namespace EGP_Tela_Inicial_04_02
                         Form_login_inicial form_Login = new Form_login_inicial();
                         form_Login.ShowDialog();
 
-                        if (class_gerencia_login.Status == 1)
+                        if (Class_gerencia_login.Status == 1)
                         {
                             Application.Run(new Form_principal());
                         }                        

@@ -97,7 +97,7 @@
     <Compile Include="Formularios\Form_discusao.Designer.cs">
       <DependentUpon>Form_discusao.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formulario_login_inicial\class_gerencia_login.cs" />
+    <Compile Include="Formulario_login_inicial\Class_gerencia_login.cs" />
     <Compile Include="Formulario_login_inicial\Form_login_inicial.cs">
       <SubType>Form</SubType>
     </Compile>
