@@ -39,9 +39,16 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 
             if (this.usuario_login.ToUpper() == "ADMINISTRADOR")
             {
-                retorno = true;
-                Class_gerencia_login.Status = 1;
-                return retorno;
+                if (this.senha == "12345678")
+                {                   
+                    Class_gerencia_login.Status = 1;
+                    return true;
+                }
+                else
+                {                    
+                    MessageBox.Show("Senha incorreta!","Tente novamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return false;
+                }                
             }
 
             try
