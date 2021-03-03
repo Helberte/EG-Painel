@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -13,6 +15,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EGP_PAINEL.Classes;
 using EGP_PAINEL.Formularios;
+using EGP_Tela_Inicial_04_02.Classes;
 using EGP_Tela_Inicial_04_02.Formulario_login_inicial;
 
 namespace EGP_Tela_Inicial_04_02
@@ -21,12 +24,20 @@ namespace EGP_Tela_Inicial_04_02
     {
         int left_panel;
         PictureBox mostra_menu_lateral;
+        class_verifica_acessos acessos;
+        List<string> nomes = new List<string>();
+
 
         string[] nomes_menu;
 
 
-        string[] itens_menu_opcoes_0_nomes;
-        string[] itens_menu_opcoes_6_nomes;
+        List<string> itens_menu_opcoes_0_nomes = new List<string>();
+        List<string> itens_menu_opcoes_1_nomes = new List<string>();
+        List<string> itens_menu_opcoes_2_nomes = new List<string>();
+        List<string> itens_menu_opcoes_3_nomes = new List<string>();
+        List<string> itens_menu_opcoes_4_nomes = new List<string>();
+        List<string> itens_menu_opcoes_5_nomes = new List<string>();
+        List<string> itens_menu_opcoes_6_nomes = new List<string>();
 
 
         public Form_principal()
@@ -38,7 +49,8 @@ namespace EGP_Tela_Inicial_04_02
 
         private void Form_principal_Load(object sender, EventArgs e)
         {
-           
+            acessos = new class_verifica_acessos(Class_gerencia_login.ID_Usuario);
+
             DesenhaTelaInicial();
             mostra_menu_lateral = new PictureBox();
             mostra_menu_lateral.Height = 30;
@@ -318,15 +330,33 @@ namespace EGP_Tela_Inicial_04_02
             menuStrip_principal.Width = panel_cab_3.Width;
             menuStrip_principal.Location = new Point(menuStrip_principal.Left, panel_cab_3.Top + panel_cab_3.Height);
             menuStrip_principal.BackColor = Color.FromArgb(234, 244, 253);
-            menuStrip_principal.Renderer = new MyRenderer();      
+            menuStrip_principal.Renderer = new MyRenderer();
 
-            nomes_menu = new string[7] {    "CADASTRO",             //  0
-                                            "REGISTRO",             //  1
-                                            "ACESSOS",              //  2
-                                            "EXIBIR AO PÚPLICO",    //  3
-                                            "CONFIGURAÇÕES",        //  4
-                                            "RELATÓRIO",            //  5
-                                            "AJUDA" };              //  6
+            // analisando o tamanho da lista
+
+            AdicionaMenus();
+                             
+        }
+
+        void AdicionaMenus()
+        {
+            nomes = acessos.Nomes_menu_principal();
+
+            nomes_menu = new string[acessos.Quantidae_nomes_menu];
+
+            for (int i = 0; i < acessos.Quantidae_nomes_menu; i++)
+            {
+                nomes_menu[i] = nomes[i];
+            }
+
+            //nomes_menu = new string[7] {    "CADASTRO",             //  0
+            //                                "REGISTRO",             //  1
+            //                                "ACESSOS",              //  2
+            //                                "EXIBIR AO PÚPLICO",    //  3
+            //                                "CONFIGURAÇÕES",        //  4
+            //                                "RELATÓRIO",            //  5
+            //                                "AJUDA" };              //  6
+
             menu_opcoes_0.Tag = 0;
             menu_opcoes_1.Tag = 1;
             menu_opcoes_2.Tag = 2;
@@ -359,41 +389,87 @@ namespace EGP_Tela_Inicial_04_02
 
             #endregion
 
-            itens_menu_opcoes_0_nomes = new string[7] { "Entidade",
-                                                        "Legislatura",
-                                                        "Pessoas",
-                                                        "Novidades",
-                                                        "Parlamentares",
-                                                        "Microfone",
-                                                        "Sair"};
+            SqlDataReader reader_1;         
+            SortedList sortedList = new SortedList();
+            reader_1 = acessos.RetornaListaSuspensa();
+            
 
-            itens_menu_opcoes_6_nomes = new string[3] { "Sobre",
-                                                        "Quem nós somos",
-                                                        "Nosso site"};
+            try
+            {
+                while (reader_1.Read())
+                {
+                    if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("0"))
+                    {
+                        itens_menu_opcoes_0_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
+                    }
+                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("1"))
+                    {
+                        itens_menu_opcoes_1_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
+                    }
+                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("2"))
+                    {
+                        itens_menu_opcoes_2_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
+                    }
+                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("3"))
+                    {
+                        itens_menu_opcoes_3_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
+                    }
+                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("4"))
+                    {
+                        itens_menu_opcoes_4_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
+                    }
+                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("5"))
+                    {
+                        itens_menu_opcoes_5_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
+                    }
+                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("6"))
+                    {
+                        itens_menu_opcoes_6_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
+                    }
+                }                
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Deu ruim " + erro.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }                       
+
+            itens_menu_opcoes_0_nomes.Sort();
+            itens_menu_opcoes_1_nomes.Sort();
+            itens_menu_opcoes_2_nomes.Sort();
+            itens_menu_opcoes_3_nomes.Sort();
+            itens_menu_opcoes_4_nomes.Sort();
+            itens_menu_opcoes_5_nomes.Sort();
+            itens_menu_opcoes_6_nomes.Sort();
 
             AddItensSuspensosMenu(menu_opcoes_0, itens_menu_opcoes_0_nomes, null);
+            AddItensSuspensosMenu(menu_opcoes_1, itens_menu_opcoes_1_nomes, null);
+            AddItensSuspensosMenu(menu_opcoes_2, itens_menu_opcoes_2_nomes, null);
+            AddItensSuspensosMenu(menu_opcoes_3, itens_menu_opcoes_3_nomes, null);
+            AddItensSuspensosMenu(menu_opcoes_4, itens_menu_opcoes_4_nomes, null);
+            AddItensSuspensosMenu(menu_opcoes_5, itens_menu_opcoes_5_nomes, null);
             AddItensSuspensosMenu(menu_opcoes_6, itens_menu_opcoes_6_nomes, null);
 
-            
+
             left_panel = panel_cab_3.Width - panel_menu_lateral.Width;
 
             // foi retirado devido à alteração
-            //AdicionaBotoesRodape(panel_menu_inferior);                      
+            //AdicionaBotoesRodape(panel_menu_inferior);     
         }
 
-        void AddItensSuspensosMenu(ToolStripMenuItem menu, string [] nomes, Image[] imagens)
+
+        void AddItensSuspensosMenu(ToolStripMenuItem menu, List<string> nomes, Image[] imagens)
         {
             List<ToolStripSeparator> separadores = new List<ToolStripSeparator>();
             List<ToolStripMenuItem> itens = new List<ToolStripMenuItem>();
 
             FontFamily fontFamily = new FontFamily("calibri");
 
-            for (int i = 0; i < nomes.Length; i++)
+            for (int i = 0; i < nomes.Count; i++)
             {
                 separadores.Add(new ToolStripSeparator());
-                itens.Add(new ToolStripMenuItem(nomes[i], null, new EventHandler(Itens_menu_click)));
+                itens.Add(new ToolStripMenuItem(nomes[i].Substring(nomes[i].IndexOf("_"), nomes[i].Length - 1).Replace("_",""), null, new EventHandler(Itens_menu_click)));
 
-                itens[i].Tag = nomes_menu[(int)menu.Tag].ToString() + "_" + nomes[i];
+                itens[i].Tag = nomes_menu[(int)menu.Tag].ToString() + "_" + itens[i].ToString();
                 itens[i].Font = new Font(fontFamily, 9, FontStyle.Regular);
                 itens[i].AutoSize = false;
                 itens[i].Width = menu.Width;
@@ -402,7 +478,7 @@ namespace EGP_Tela_Inicial_04_02
 
                 menu.DropDownItems.Add(itens[i]);
 
-                if (!(i == nomes.Length - 1))                
+                if (!(i == nomes.Count - 1))                
                     menu.DropDownItems.Add(separadores[i]);               
                 
             }
@@ -419,27 +495,24 @@ namespace EGP_Tela_Inicial_04_02
 
             if (menu.Tag.ToString().StartsWith(nomes_menu[0]))                  // CADASTRO
             {
+                
                 // entidade
-                if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[0])) 
+                if (menu.Tag.ToString().ToUpper().Contains("ENTIDADE"))
                 {
                     form_cadastro_camara form_Cadastro_Camara = new form_cadastro_camara();
                     form_Cadastro_Camara.ShowDialog();
                 }
                 // legislatura
-                else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[1]))
+                else if (menu.Tag.ToString().ToUpper().Contains("LEGISLATURA"))
                 {
 
                 }
                 // pessoas
-                else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[2]))
+                else if (menu.Tag.ToString().ToUpper().Contains("PESSOAS"))
                 {
                     form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
                     form_Cadastro_Participante.Show();
-                }
-                else if (menu.Tag.ToString().Contains(itens_menu_opcoes_0_nomes[6]))
-                {
-                    this.Close();
-                }
+                }               
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[1]))             // REGISTRO
             {
@@ -463,9 +536,9 @@ namespace EGP_Tela_Inicial_04_02
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[6]))             // AJUDA
             {
-                if (menu.Tag.ToString().Contains(itens_menu_opcoes_6_nomes[0]))
+                if (menu.Tag.ToString().ToUpper().Contains("SAIR"))
                 {
-                    MessageBox.Show("Voce escolheu \"sobre\"");
+                    this.Close();
                 }
             }
         }

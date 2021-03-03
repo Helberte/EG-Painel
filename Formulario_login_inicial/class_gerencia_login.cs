@@ -12,8 +12,7 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 {
     public class Class_gerencia_login
     {
-        public int ID_Usuario { get; private set; } 
-
+        
         private int codigo_usuario;
         private string usuario_login;
         private string senha;
@@ -21,9 +20,10 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
         Conexao conexao;
         SqlDataReader reader;
 
-        string administrador = "Administrador";
 
         public static int Status = 0;
+        public static int ID_Usuario = 0;
+
 
         public Class_gerencia_login(int codigo_usuario, string usuario_login, string senha)
         {
@@ -32,6 +32,8 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
             this.senha = senha;
             this.conexao = new Conexao();
         }
+
+        public Class_gerencia_login() { }
 
         public bool ValidarUsuario()
         {
@@ -74,7 +76,7 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
                     else if (reader["result"].ToString() == "1")
                     {
                         Class_gerencia_login.Status = 1;
-                        this.ID_Usuario = Convert.ToInt32(reader["ID"].ToString());
+                        ID_Usuario = Convert.ToInt32(reader["ID"].ToString());
                         retorno = true;
                     }
                 }
@@ -84,6 +86,7 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
                 retorno = false;
                 MessageBox.Show("Problemas ao verificar usuário [Class_gerencia_login] " + ex.Message, "Atenção", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            conexao.Fecha();
             return retorno;
         }
     }

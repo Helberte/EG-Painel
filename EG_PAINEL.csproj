@@ -52,6 +52,7 @@
     <Compile Include="Classes\class_cadastro_camara.cs" />
     <Compile Include="Classes\class_cadastro_funcoes.cs" />
     <Compile Include="Classes\class_cadastro_participante.cs" />
+    <Compile Include="Classes\class_verifica_acessos.cs" />
     <Compile Include="Classes\Conexao.cs" />
     <Compile Include="Classes\Discusao_votacao.cs" />
     <Compile Include="Classes\Partido.cs" />
