@@ -63,8 +63,9 @@ namespace EGP_Tela_Inicial_04_02.Classes
         }
 
 
-        public SqlDataReader RetornaListaSuspensa()
-        {            
+        public string RetornaListaSuspensa()
+        {
+            string lista_suspensa = "";
             string comando = "exec usp_retorna_acessos_usuario " + id_usuario;
 
             using (command = new SqlCommand())
@@ -75,10 +76,14 @@ namespace EGP_Tela_Inicial_04_02.Classes
                     command.CommandTimeout = 300;
                     command.Connection = conexao.Abre();
 
-                    reader = command.ExecuteReader();
+                    reader = command.ExecuteReader();                   
 
-                    //conexao.Fecha();
-                    return reader;
+                    while (reader.Read())                    
+                        lista_suspensa += reader["FK_POSICAO_MENU"].ToString() + "_" + reader["NUMERO_ITEM"].ToString() + "_" + reader["NOME_ITEM"].ToString() + "\n";
+                    
+
+                    conexao.Fecha();
+                    return lista_suspensa;
                 }
                 catch (Exception ex)
                 {
@@ -91,8 +96,9 @@ namespace EGP_Tela_Inicial_04_02.Classes
             }
         }
          
-        public SqlDataReader RetornaMenusLaterais()
+        public List<string> RetornaMenusLaterais()
         {
+            List<string> menus_laterais = new List<string>();
             string comando = "exec usp_retorna_menus_lateral " + id_usuario;
 
             using (command = new SqlCommand())
@@ -105,8 +111,13 @@ namespace EGP_Tela_Inicial_04_02.Classes
 
                     reader = command.ExecuteReader();
 
-                    //conexao.Fecha();
-                    return reader;
+                    while (reader.Read())
+                    {
+                        menus_laterais.Add(reader["NUMERO_ITEM"].ToString() + "_" + reader["NOME_ITEM"].ToString());
+                    }
+
+                    conexao.Fecha();
+                    return menus_laterais;
                 }
                 catch (Exception ex)
                 {

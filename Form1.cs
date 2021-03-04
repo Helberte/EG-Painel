@@ -404,45 +404,32 @@ namespace EGP_Tela_Inicial_04_02
             //                                                    Image.FromFile(Directory.GetCurrentDirectory() + @"\Icones\mesa_diretora_sair.ico")};
 
             #endregion
+                             
+            string[] array_lista = acessos.RetornaListaSuspensa().Split('\n');
 
-            SqlDataReader reader_1;         
-            SortedList sortedList = new SortedList();
-            reader_1 = acessos.RetornaListaSuspensa();
-            
+            int contador = 0;
 
             try
             {
-                while (reader_1.Read())
+                while (contador < array_lista.Length)
                 {
-                    if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("0"))
-                    {
-                        itens_menu_opcoes_0_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
-                    }
-                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("1"))
-                    {
-                        itens_menu_opcoes_1_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
-                    }
-                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("2"))
-                    {
-                        itens_menu_opcoes_2_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
-                    }
-                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("3"))
-                    {
-                        itens_menu_opcoes_3_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
-                    }
-                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("4"))
-                    {
-                        itens_menu_opcoes_4_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
-                    }
-                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("5"))
-                    {
-                        itens_menu_opcoes_5_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
-                    }
-                    else if (reader_1["FK_POSICAO_MENU"].ToString().StartsWith("6"))
-                    {
-                        itens_menu_opcoes_6_nomes.Add(reader_1["NUMERO_ITEM"].ToString() + "_" + reader_1["NOME_ITEM"].ToString());
-                    }
-                }                
+                    if (array_lista[contador].StartsWith("0"))
+                        itens_menu_opcoes_0_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
+                    else if (array_lista[contador].StartsWith("1"))
+                        itens_menu_opcoes_1_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
+                    else if (array_lista[contador].StartsWith("2"))
+                        itens_menu_opcoes_2_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
+                    else if (array_lista[contador].StartsWith("3"))
+                        itens_menu_opcoes_3_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
+                    else if (array_lista[contador].StartsWith("4"))
+                        itens_menu_opcoes_4_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
+                    else if (array_lista[contador].StartsWith("5"))
+                        itens_menu_opcoes_5_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
+                    else if (array_lista[contador].StartsWith("6"))
+                        itens_menu_opcoes_6_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
+
+                    contador++;
+                }
             }
             catch (Exception erro)
             {
@@ -627,9 +614,7 @@ namespace EGP_Tela_Inicial_04_02
 
 
         void AdicionandoItensMenuLateral(Panel panel_lateral)
-        {
-            SqlDataReader reader = acessos.RetornaMenusLaterais();
-
+        {           
             List<Panel> panels = new List<Panel>();
             List<string> nomes_menus_lateral = new List<string>();
 
@@ -637,6 +622,7 @@ namespace EGP_Tela_Inicial_04_02
             //List<Label> lbl_tela_de = new List<Label>();
 
             List<Image> images = new List<Image>();
+            List<string> nomes_imagens = new List<string>();
 
             #region Alteração
             //List<string> nomes_botoes = new List<string>();
@@ -650,26 +636,21 @@ namespace EGP_Tela_Inicial_04_02
             //nomes_botoes.Add("MENSAGENS");              // 5
             #endregion 
 
-            while (reader.Read())            
-                nomes_menus_lateral.Add(reader["NUMERO_ITEM"].ToString() + "_" + reader["NOME_ITEM"].ToString());
-            
+            nomes_menus_lateral = acessos.RetornaMenusLaterais();
             nomes_menus_lateral.Sort();
 
             for (int i = 0; i < nomes_menus_lateral.Count ; i++)
             {
-                images.Add(Image.FromFile(@"imagens\" + nomes_menus_lateral[i].Substring(nomes_menus_lateral[i].IndexOf("_") + 1, nomes_menus_lateral[i].Length).ToString() + ".jpg"));
+                string nome = nomes_menus_lateral[i].ToString();
+                nomes_imagens.Add(nome.Substring(nome.IndexOf('_') + 1, nome.Length - 2));
+
+                images.Add(Image.FromFile(@"imagens\" + nomes_imagens[i] + ".jpg"));
             }
 
-            images.Add(Image.FromFile(@"imagens\pauta.jpg"));
-            images.Add(Image.FromFile(@"imagens\ata.jpg"));
-            images.Add(Image.FromFile(@"imagens\palavra livre.jpg"));
-            images.Add(Image.FromFile(@"imagens\discusao.jpg"));
-            images.Add(Image.FromFile(@"imagens\votacao.jpg"));
-            images.Add(Image.FromFile(@"imagens\mensagens.jpg"));
 
             int topo = panel_exibir_ao_publico.Top + panel_exibir_ao_publico.Height + 10;
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < nomes_menus_lateral.Count; i++)
             {
                 panels.Add(new Panel());                              
                
@@ -680,7 +661,7 @@ namespace EGP_Tela_Inicial_04_02
                 panels[i].BackgroundImage = images[i];
                 panels[i].BackgroundImageLayout = ImageLayout.Stretch;
                 panels[i].Click += Panels_menu_lateral_Click1;
-                panels[i].Tag = i;
+                panels[i].Tag = nomes_imagens[i];
 
                 #region ALTERAÇÃO
                 //botoes.Add(new Button());
@@ -743,7 +724,7 @@ namespace EGP_Tela_Inicial_04_02
         {
             Panel panel = sender as Panel;
 
-            if ((int)panel.Tag == 3)
+            if (panel.Tag.ToString().ToUpper() == "DISCUSSAO")
             {
                 Form_discusao form_ = new Form_discusao();
                 form_.ShowDialog();
