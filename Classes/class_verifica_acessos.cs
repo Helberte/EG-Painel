@@ -90,5 +90,34 @@ namespace EGP_Tela_Inicial_04_02.Classes
                 }
             }
         }
+         
+        public SqlDataReader RetornaMenusLaterais()
+        {
+            string comando = "exec usp_retorna_menus_lateral " + id_usuario;
+
+            using (command = new SqlCommand())
+            {
+                try
+                {
+                    command.CommandText = comando;
+                    command.CommandTimeout = 300;
+                    command.Connection = conexao.Abre();
+
+                    reader = command.ExecuteReader();
+
+                    //conexao.Fecha();
+                    return reader;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao analisar os menus existentes. " +
+                    "Metodo = Nomes_menu_principal" + ex.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    conexao.Fecha();
+                    return null;
+                }
+            }
+        }
+
     }
 }

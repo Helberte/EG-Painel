@@ -90,6 +90,7 @@ namespace EGP_Tela_Inicial_04_02
 
             panel_cab_1.Height = 58;
             panel_cab_1.BackColor = Color.FromArgb(253, 254, 255);
+            panel_cab_1.AutoScroll = true;
 
             pictureBox_logo.Width = 240;
             pictureBox_logo.Height = panel_cab_1.Height;
@@ -145,7 +146,30 @@ namespace EGP_Tela_Inicial_04_02
             lbl_usuario.ForeColor = Color.FromArgb(46, 84, 123);
 
             lbl_nome_usuario.AutoSize = true;
-            lbl_nome_usuario.Text = "Evando de Souza";
+
+            #region Adiciona abreviaturas no nome da pessoa
+            lbl_nome_usuario.Text = "";
+
+            string[] palavras_nome = Class_gerencia_login.Nome_Usuario.Split(' ');
+            string abreviaturas = "";
+
+            if (palavras_nome.Length >= 3)
+            {
+                for (int i = 0; i < palavras_nome.Length; i++)
+                {
+                    if (i + 1 == palavras_nome.Length - 1)
+                        lbl_nome_usuario.Text += palavras_nome[0] + " " + abreviaturas + palavras_nome[palavras_nome.Length - 1];
+                    else
+                    {
+                        if (string.IsNullOrWhiteSpace(lbl_nome_usuario.Text))
+                            abreviaturas += palavras_nome[i + 1][0].ToString() + ". ";
+                    }
+                }
+            }
+            else
+                lbl_nome_usuario.Text = Class_gerencia_login.Nome_Usuario;
+            #endregion
+
             lbl_nome_usuario.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
             lbl_nome_usuario.ForeColor = Color.FromArgb(46, 84, 123);
 
@@ -348,15 +372,7 @@ namespace EGP_Tela_Inicial_04_02
             {
                 nomes_menu[i] = nomes[i];
             }
-
-            //nomes_menu = new string[7] {    "CADASTRO",             //  0
-            //                                "REGISTRO",             //  1
-            //                                "ACESSOS",              //  2
-            //                                "EXIBIR AO PÚPLICO",    //  3
-            //                                "CONFIGURAÇÕES",        //  4
-            //                                "RELATÓRIO",            //  5
-            //                                "AJUDA" };              //  6
-
+         
             menu_opcoes_0.Tag = 0;
             menu_opcoes_1.Tag = 1;
             menu_opcoes_2.Tag = 2;
@@ -612,7 +628,10 @@ namespace EGP_Tela_Inicial_04_02
 
         void AdicionandoItensMenuLateral(Panel panel_lateral)
         {
+            SqlDataReader reader = acessos.RetornaMenusLaterais();
+
             List<Panel> panels = new List<Panel>();
+            List<string> nomes_menus_lateral = new List<string>();
 
             //List<Button> botoes = new List<Button>();
             //List<Label> lbl_tela_de = new List<Label>();
@@ -629,7 +648,17 @@ namespace EGP_Tela_Inicial_04_02
             //nomes_botoes.Add("DISCUSSÃO");              // 3
             //nomes_botoes.Add("VOTAÇÃO");                // 4
             //nomes_botoes.Add("MENSAGENS");              // 5
-            #endregion
+            #endregion 
+
+            while (reader.Read())            
+                nomes_menus_lateral.Add(reader["NUMERO_ITEM"].ToString() + "_" + reader["NOME_ITEM"].ToString());
+            
+            nomes_menus_lateral.Sort();
+
+            for (int i = 0; i < nomes_menus_lateral.Count ; i++)
+            {
+                images.Add(Image.FromFile(@"imagens\" + nomes_menus_lateral[i].Substring(nomes_menus_lateral[i].IndexOf("_") + 1, nomes_menus_lateral[i].Length).ToString() + ".jpg"));
+            }
 
             images.Add(Image.FromFile(@"imagens\pauta.jpg"));
             images.Add(Image.FromFile(@"imagens\ata.jpg"));

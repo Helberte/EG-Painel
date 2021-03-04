@@ -23,6 +23,7 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 
         public static int Status = 0;
         public static int ID_Usuario = 0;
+        public static string Nome_Usuario = "";
 
 
         public Class_gerencia_login(int codigo_usuario, string usuario_login, string senha)
@@ -76,7 +77,8 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
                     else if (reader["result"].ToString() == "1")
                     {
                         Class_gerencia_login.Status = 1;
-                        ID_Usuario = Convert.ToInt32(reader["ID"].ToString());
+                        ID_Usuario      = Convert.ToInt32(reader["ID"].ToString());
+                        Nome_Usuario    = reader["NOME"].ToString();
                         retorno = true;
                     }
                 }
