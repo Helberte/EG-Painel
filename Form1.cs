@@ -17,6 +17,7 @@ using EGP_PAINEL.Classes;
 using EGP_PAINEL.Formularios;
 using EGP_Tela_Inicial_04_02.Classes;
 using EGP_Tela_Inicial_04_02.Formulario_login_inicial;
+using EGP_Tela_Inicial_04_02.Formularios;
 
 namespace EGP_Tela_Inicial_04_02
 {
@@ -498,7 +499,7 @@ namespace EGP_Tela_Inicial_04_02
 
             if (menu.Tag.ToString().StartsWith(nomes_menu[0]))                  // CADASTRO
             {
-                
+
                 // entidade
                 if (menu.Tag.ToString().ToUpper().Contains("ENTIDADE"))
                 {
@@ -514,16 +515,20 @@ namespace EGP_Tela_Inicial_04_02
                 else if (menu.Tag.ToString().ToUpper().Contains("PESSOAS"))
                 {
                     form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
-                    form_Cadastro_Participante.Show();
-                }               
+                    form_Cadastro_Participante.ShowDialog();
+                }
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[1]))             // REGISTRO
             {
-
+                
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[2]))             // ACESSOS
             {
-
+                if (menu.Tag.ToString().ToUpper().Contains("ACESSOS"))
+                {
+                    form_acessos form_Acessos = new form_acessos();
+                    form_Acessos.ShowDialog();
+                }
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[3]))             // EXIBIR AO PUBLICO
             {
@@ -535,7 +540,7 @@ namespace EGP_Tela_Inicial_04_02
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[5]))             // RELATÓRIO
             {
-                
+
             }
             else if (menu.Tag.ToString().StartsWith(nomes_menu[6]))             // AJUDA
             {

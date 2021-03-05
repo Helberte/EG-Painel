@@ -52,6 +52,7 @@
     <Compile Include="Classes\class_cadastro_camara.cs" />
     <Compile Include="Classes\class_cadastro_funcoes.cs" />
     <Compile Include="Classes\class_cadastro_participante.cs" />
+    <Compile Include="Classes\class_form_acessos.cs" />
     <Compile Include="Classes\class_verifica_acessos.cs" />
     <Compile Include="Classes\Conexao.cs" />
     <Compile Include="Classes\Discusao_votacao.cs" />
@@ -61,6 +62,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\form_acessos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\form_acessos.Designer.cs">
+      <DependentUpon>form_acessos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\form_cadastro_camara.cs">
       <SubType>Form</SubType>
@@ -109,6 +116,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\form_acessos.resx">
+      <DependentUpon>form_acessos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\form_cadastro_camara.resx">
       <DependentUpon>form_cadastro_camara.cs</DependentUpon>
