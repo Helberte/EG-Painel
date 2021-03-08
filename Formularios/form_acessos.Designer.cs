@@ -30,19 +30,19 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage_usuarios = new System.Windows.Forms.TabPage();
-            this.tabPage_acessos = new System.Windows.Forms.TabPage();
-            this.dataGrid_usuarios = new System.Windows.Forms.DataGridView();
-            this.ed_consulta = new System.Windows.Forms.TextBox();
             this.bt_acessos = new System.Windows.Forms.Button();
-            this.dataGrid_acessos = new System.Windows.Forms.DataGridView();
-            this.lbl_usuario = new System.Windows.Forms.Label();
-            this.bt_cancelar = new System.Windows.Forms.Button();
-            this.bt_salvar = new System.Windows.Forms.Button();
+            this.ed_consulta = new System.Windows.Forms.TextBox();
+            this.dataGrid_usuarios = new System.Windows.Forms.DataGridView();
+            this.tabPage_acessos = new System.Windows.Forms.TabPage();
             this.lbl_nome_usuario = new System.Windows.Forms.Label();
+            this.bt_salvar = new System.Windows.Forms.Button();
+            this.bt_cancelar = new System.Windows.Forms.Button();
+            this.lbl_usuario = new System.Windows.Forms.Label();
+            this.dataGrid_acessos = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabPage_usuarios.SuspendLayout();
-            this.tabPage_acessos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_usuarios)).BeginInit();
+            this.tabPage_acessos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_acessos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,44 @@
             this.tabPage_usuarios.Text = "Usuários";
             this.tabPage_usuarios.UseVisualStyleBackColor = true;
             // 
+            // bt_acessos
+            // 
+            this.bt_acessos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_acessos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.bt_acessos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_acessos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_acessos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(245)))));
+            this.bt_acessos.Location = new System.Drawing.Point(669, 380);
+            this.bt_acessos.Name = "bt_acessos";
+            this.bt_acessos.Size = new System.Drawing.Size(120, 35);
+            this.bt_acessos.TabIndex = 2;
+            this.bt_acessos.Text = "Acessos";
+            this.bt_acessos.UseVisualStyleBackColor = false;
+            // 
+            // ed_consulta
+            // 
+            this.ed_consulta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ed_consulta.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ed_consulta.Location = new System.Drawing.Point(3, 382);
+            this.ed_consulta.Multiline = true;
+            this.ed_consulta.Name = "ed_consulta";
+            this.ed_consulta.Size = new System.Drawing.Size(436, 35);
+            this.ed_consulta.TabIndex = 1;
+            // 
+            // dataGrid_usuarios
+            // 
+            this.dataGrid_usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_usuarios.Location = new System.Drawing.Point(3, 6);
+            this.dataGrid_usuarios.Name = "dataGrid_usuarios";
+            this.dataGrid_usuarios.Size = new System.Drawing.Size(785, 368);
+            this.dataGrid_usuarios.TabIndex = 0;
+            this.dataGrid_usuarios.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGrid_usuarios_ColumnHeaderMouseClick);
+            this.dataGrid_usuarios.SelectionChanged += new System.EventHandler(this.dataGrid_usuarios_SelectionChanged);
+            // 
             // tabPage_acessos
             // 
             this.tabPage_acessos.Controls.Add(this.lbl_nome_usuario);
@@ -87,64 +125,31 @@
             this.tabPage_acessos.Text = "Acessos";
             this.tabPage_acessos.UseVisualStyleBackColor = true;
             // 
-            // dataGrid_usuarios
+            // lbl_nome_usuario
             // 
-            this.dataGrid_usuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGrid_usuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_usuarios.Location = new System.Drawing.Point(3, 6);
-            this.dataGrid_usuarios.Name = "dataGrid_usuarios";
-            this.dataGrid_usuarios.Size = new System.Drawing.Size(785, 368);
-            this.dataGrid_usuarios.TabIndex = 0;
-            this.dataGrid_usuarios.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGrid_usuarios_ColumnHeaderMouseClick);
+            this.lbl_nome_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_nome_usuario.AutoSize = true;
+            this.lbl_nome_usuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_nome_usuario.Location = new System.Drawing.Point(68, 397);
+            this.lbl_nome_usuario.Name = "lbl_nome_usuario";
+            this.lbl_nome_usuario.Size = new System.Drawing.Size(139, 19);
+            this.lbl_nome_usuario.TabIndex = 4;
+            this.lbl_nome_usuario.Text = "Eduardo da Fonseca";
             // 
-            // ed_consulta
+            // bt_salvar
             // 
-            this.ed_consulta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ed_consulta.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ed_consulta.Location = new System.Drawing.Point(3, 382);
-            this.ed_consulta.Multiline = true;
-            this.ed_consulta.Name = "ed_consulta";
-            this.ed_consulta.Size = new System.Drawing.Size(436, 35);
-            this.ed_consulta.TabIndex = 1;
-            // 
-            // bt_acessos
-            // 
-            this.bt_acessos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_acessos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.bt_acessos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_acessos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_acessos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(245)))));
-            this.bt_acessos.Location = new System.Drawing.Point(669, 380);
-            this.bt_acessos.Name = "bt_acessos";
-            this.bt_acessos.Size = new System.Drawing.Size(120, 35);
-            this.bt_acessos.TabIndex = 2;
-            this.bt_acessos.Text = "Acessos";
-            this.bt_acessos.UseVisualStyleBackColor = false;
-            // 
-            // dataGrid_acessos
-            // 
-            this.dataGrid_acessos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGrid_acessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGrid_acessos.Location = new System.Drawing.Point(3, 6);
-            this.dataGrid_acessos.Name = "dataGrid_acessos";
-            this.dataGrid_acessos.Size = new System.Drawing.Size(785, 365);
-            this.dataGrid_acessos.TabIndex = 0;
-            // 
-            // lbl_usuario
-            // 
-            this.lbl_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_usuario.Location = new System.Drawing.Point(-1, 397);
-            this.lbl_usuario.Name = "lbl_usuario";
-            this.lbl_usuario.Size = new System.Drawing.Size(63, 19);
-            this.lbl_usuario.TabIndex = 1;
-            this.lbl_usuario.Text = "Usuário:";
+            this.bt_salvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.bt_salvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
+            this.bt_salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_salvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_salvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(245)))));
+            this.bt_salvar.Location = new System.Drawing.Point(559, 383);
+            this.bt_salvar.Name = "bt_salvar";
+            this.bt_salvar.Size = new System.Drawing.Size(111, 33);
+            this.bt_salvar.TabIndex = 3;
+            this.bt_salvar.Text = "Salvar";
+            this.bt_salvar.UseVisualStyleBackColor = false;
+            this.bt_salvar.Click += new System.EventHandler(this.bt_salvar_Click);
             // 
             // bt_cancelar
             // 
@@ -160,30 +165,27 @@
             this.bt_cancelar.Text = "Cancelar";
             this.bt_cancelar.UseVisualStyleBackColor = false;
             // 
-            // bt_salvar
+            // lbl_usuario
             // 
-            this.bt_salvar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.bt_salvar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(167)))), ((int)(((byte)(69)))));
-            this.bt_salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_salvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_salvar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(251)))), ((int)(((byte)(245)))));
-            this.bt_salvar.Location = new System.Drawing.Point(559, 383);
-            this.bt_salvar.Name = "bt_salvar";
-            this.bt_salvar.Size = new System.Drawing.Size(111, 33);
-            this.bt_salvar.TabIndex = 3;
-            this.bt_salvar.Text = "Salvar";
-            this.bt_salvar.UseVisualStyleBackColor = false;
+            this.lbl_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.lbl_usuario.AutoSize = true;
+            this.lbl_usuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_usuario.Location = new System.Drawing.Point(-1, 397);
+            this.lbl_usuario.Name = "lbl_usuario";
+            this.lbl_usuario.Size = new System.Drawing.Size(63, 19);
+            this.lbl_usuario.TabIndex = 1;
+            this.lbl_usuario.Text = "Usuário:";
             // 
-            // lbl_nome_usuario
+            // dataGrid_acessos
             // 
-            this.lbl_nome_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_nome_usuario.AutoSize = true;
-            this.lbl_nome_usuario.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_nome_usuario.Location = new System.Drawing.Point(68, 397);
-            this.lbl_nome_usuario.Name = "lbl_nome_usuario";
-            this.lbl_nome_usuario.Size = new System.Drawing.Size(139, 19);
-            this.lbl_nome_usuario.TabIndex = 4;
-            this.lbl_nome_usuario.Text = "Eduardo da Fonseca";
+            this.dataGrid_acessos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGrid_acessos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid_acessos.Location = new System.Drawing.Point(3, 6);
+            this.dataGrid_acessos.Name = "dataGrid_acessos";
+            this.dataGrid_acessos.Size = new System.Drawing.Size(785, 365);
+            this.dataGrid_acessos.TabIndex = 0;
             // 
             // form_acessos
             // 
@@ -194,13 +196,15 @@
             this.Name = "form_acessos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Acessos";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.form_acessos_FormClosed);
             this.Load += new System.EventHandler(this.form_acessos_Load);
+            this.Shown += new System.EventHandler(this.form_acessos_Shown);
             this.tabControl.ResumeLayout(false);
             this.tabPage_usuarios.ResumeLayout(false);
             this.tabPage_usuarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_usuarios)).EndInit();
             this.tabPage_acessos.ResumeLayout(false);
             this.tabPage_acessos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid_usuarios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid_acessos)).EndInit();
             this.ResumeLayout(false);
 

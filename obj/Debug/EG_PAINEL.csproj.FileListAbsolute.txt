@@ -67,3 +67,4 @@ C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
 C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe
 C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.pdb
 C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formularios.form_acessos.resources
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formularios.form_acessos.resources

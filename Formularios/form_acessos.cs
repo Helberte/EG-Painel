@@ -14,7 +14,9 @@ namespace EGP_Tela_Inicial_04_02.Formularios
     public partial class form_acessos : Form
     {
         class_form_acessos class_acessos;
-        DataGridViewImageColumn coluna_imagem;
+        DataGridViewImageColumn coluna_imagem_usuarios;
+        DataGridViewImageColumn coluna_imagem_acessos;
+        bool mostrou_form_primeira_vez = false;
 
         public form_acessos()
         {
@@ -25,114 +27,127 @@ namespace EGP_Tela_Inicial_04_02.Formularios
         {
             AjustaFormulario();
             class_acessos = new class_form_acessos();
+
+            dataGrid_acessos.ColumnCount = 1;
+
+            dataGrid_acessos.Columns[0].Name = "ROTINA";
+            dataGrid_acessos.Columns.Add(new DataGridViewCheckBoxColumn() { Name = "ACESSO", Visible = true });
+            dataGrid_acessos.Columns.Add(new DataGridViewCheckBoxColumn() { Name = "ALTERAR", Visible = true });
+            dataGrid_acessos.Columns.Add(new DataGridViewCheckBoxColumn() { Name = "NOVO", Visible = true });
+                     
+            coluna_imagem_usuarios = new DataGridViewImageColumn();
+            coluna_imagem_usuarios.Image = Image.FromFile("seta_colunas_grid_3.jpg");
+            coluna_imagem_usuarios.Name = "coluna_seta_usuarios";
+            coluna_imagem_usuarios.HeaderText = "";
+            coluna_imagem_usuarios.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
+            coluna_imagem_acessos = new DataGridViewImageColumn();
+            coluna_imagem_acessos.Image = Image.FromFile("seta_colunas_grid_3.jpg");
+            coluna_imagem_acessos.Name = "coluna_seta_acessos";
+            coluna_imagem_acessos.HeaderText = "";
+            coluna_imagem_acessos.ImageLayout = DataGridViewImageCellLayout.Stretch;
+
             PreencheGrid();
+            PreencheGrid_acessos();
 
-            coluna_imagem = new DataGridViewImageColumn();
-            coluna_imagem.Image = Image.FromFile("seta_colunas_grid_3.jpg");
-            coluna_imagem.Name = "teste";
-            coluna_imagem.HeaderText = "";
-            coluna_imagem.ImageLayout = DataGridViewImageCellLayout.Stretch;
-
-            AjustaGrid();
+            AjustaGrid(dataGrid_usuarios, coluna_imagem_usuarios);
+            Ajusta_largura_colunas_usuarios();
+            AjustaGrid(dataGrid_acessos, coluna_imagem_acessos);
+            Ajusta_largura_colunas_acessos();
         }
 
-        void AjustaGrid()
+        void AjustaGrid(DataGridView dataGridView, DataGridViewImageColumn newColumn)
         {
             try
             {
                 // permite que altere a altura do cabeçalho
-                dataGrid_usuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+                dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 
                 // ESTA PROPRIEDADE PERMITE ALTERAR OS ESTILOS PARA O CABEÇALHO
-                dataGrid_usuarios.EnableHeadersVisualStyles = false;
+                dataGridView.EnableHeadersVisualStyles = false;
 
                 // pripriedades para o cabeçalho
-                dataGrid_usuarios.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-                dataGrid_usuarios.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(48, 75, 109);
-                dataGrid_usuarios.ColumnHeadersDefaultCellStyle.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
-                dataGrid_usuarios.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(251, 250, 246);
-                dataGrid_usuarios.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(169, 169, 169);
+                dataGridView.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(48, 75, 109);
+                dataGridView.ColumnHeadersDefaultCellStyle.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+                dataGridView.ColumnHeadersDefaultCellStyle.ForeColor = Color.FromArgb(251, 250, 246);
+                dataGridView.ColumnHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(169, 169, 169);
                 // ajusta altura da linha do cabeçalho
-                dataGrid_usuarios.ColumnHeadersHeight = 43;
+                dataGridView.ColumnHeadersHeight = 43;
 
-                dataGrid_usuarios.RowHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
-                dataGrid_usuarios.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(112, 140, 237);
+                dataGridView.RowHeadersDefaultCellStyle.SelectionForeColor = Color.Black;
+                dataGridView.RowHeadersDefaultCellStyle.SelectionBackColor = Color.FromArgb(112, 140, 237);
 
                 // mudar de cor quando seleciona a linha / texto
-                dataGrid_usuarios.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 150, 65);
-                dataGrid_usuarios.RowsDefaultCellStyle.SelectionForeColor = Color.FromArgb(255, 255, 254);
+                dataGridView.RowsDefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 150, 65);
+                dataGridView.RowsDefaultCellStyle.SelectionForeColor = Color.FromArgb(255, 255, 254);
 
                 FontFamily fontFamily = new FontFamily("calibri");
                 // Coloca a cor de fundo nas linhas
-                dataGrid_usuarios.RowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 254);
-                dataGrid_usuarios.RowsDefaultCellStyle.Font = new Font(fontFamily, 12, FontStyle.Regular);
-                dataGrid_usuarios.RowsDefaultCellStyle.ForeColor = Color.FromArgb(110, 102, 100);
+                dataGridView.RowsDefaultCellStyle.BackColor = Color.FromArgb(255, 255, 254);
+                dataGridView.RowsDefaultCellStyle.Font = new Font(fontFamily, 12, FontStyle.Regular);
+                dataGridView.RowsDefaultCellStyle.ForeColor = Color.FromArgb(110, 102, 100);
 
                 // configurações para todas as células
 
                 // alinha o conteudo dentro da célula
-                dataGrid_usuarios.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                dataGridView.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
                 // deixa que eu escolha a autura de cada linha, ao invés de ficar por padrão
-                dataGrid_usuarios.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
+                dataGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.None;
 
                 // indica que o usuário não vai poder editar linhas
-                dataGrid_usuarios.ReadOnly = false;
+                dataGridView.ReadOnly = false;
 
 
                 //controles do grid completo
-                dataGrid_usuarios.BorderStyle = BorderStyle.Fixed3D;
-                dataGrid_usuarios.BackgroundColor = Color.FromArgb(255, 255, 254);
-                dataGrid_usuarios.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+                dataGridView.BorderStyle = BorderStyle.Fixed3D;
+                dataGridView.BackgroundColor = Color.FromArgb(255, 255, 254);
+                dataGridView.CellBorderStyle = DataGridViewCellBorderStyle.Single;
 
                 // estilo da borda do cabeçalho
-                dataGrid_usuarios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single; 
-                dataGrid_usuarios.ColumnHeadersVisible = true;
+                dataGridView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+                dataGridView.ColumnHeadersVisible = true;
 
                 // quando clicar, seleciona a linha inteira
-                dataGrid_usuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
                 // o usuário não poderá selecionar muitas linhas
-                dataGrid_usuarios.MultiSelect = false;
+                dataGridView.MultiSelect = false;
 
                 // retira a primeira coluna 
-                dataGrid_usuarios.RowHeadersVisible = false;
-
-                // largura das colunas
-
-                dataGrid_usuarios.Columns["ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGrid_usuarios.Columns["NOME"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                dataGrid_usuarios.Columns["LOGIN"].Width = 250;
-                dataGrid_usuarios.Columns["CPF"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
+                dataGridView.RowHeadersVisible = false;
+                               
                 // retira a ultima linha adicionada automaticamente, é utilizada para adicionar novas linhas
-                dataGrid_usuarios.AllowUserToAddRows = false;
+                dataGridView.AllowUserToAddRows = false;
 
                 // não deixa o usuário deletar as linhas do grid
-                dataGrid_usuarios.AllowUserToDeleteRows = false;
+                dataGridView.AllowUserToDeleteRows = false;
 
+              
+                string coluna_nome = newColumn.Name;
                 // insere a primeira coluna com a imagem
-                if (!(dataGrid_usuarios.Columns[coluna_imagem.Name] is null))
+                if (!(dataGridView.Columns[newColumn.Name] is null))
                 {
                     // se a primeira coluna existir, então deleta e coloca outra
 
-                    dataGrid_usuarios.Columns.Remove(coluna_imagem.Name);
+                    dataGridView.Columns.Remove(newColumn.Name);
 
-                    coluna_imagem = new DataGridViewImageColumn();
-                    coluna_imagem.Image = Image.FromFile("seta_colunas_grid_3.jpg");
-                    coluna_imagem.Name = "teste";
-                    coluna_imagem.HeaderText = "";
-                    coluna_imagem.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                    newColumn = new DataGridViewImageColumn();
+                    newColumn.Image = Image.FromFile("seta_colunas_grid_3.jpg");
+                    newColumn.Name = coluna_nome;
+                    newColumn.HeaderText = "";
+                    newColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
-                    dataGrid_usuarios.Columns.Insert(0, coluna_imagem);
-                    dataGrid_usuarios.Columns[0].Width = 40;
-                    dataGrid_usuarios.Columns[0].Resizable = DataGridViewTriState.False;
+                    dataGridView.Columns.Insert(0, newColumn);
+                    dataGridView.Columns[0].Width = 40;
+                    dataGridView.Columns[0].Resizable = DataGridViewTriState.False;
                 }
                 else
                 {
-                    dataGrid_usuarios.Columns.Insert(0, coluna_imagem);
-                    dataGrid_usuarios.Columns[0].Width = 40;
-                    dataGrid_usuarios.Columns[0].Resizable = DataGridViewTriState.False;
+                    dataGridView.Columns.Insert(0, newColumn);
+                    dataGridView.Columns[0].Width = 40;
+                    dataGridView.Columns[0].Resizable = DataGridViewTriState.False;
                 }
             }
             catch (Exception ex)
@@ -140,17 +155,65 @@ namespace EGP_Tela_Inicial_04_02.Formularios
                 MessageBox.Show(ex.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            AjustaAlturaLinhasGrid(dataGrid_usuarios);
+            AjustaAlturaLinhasGrid(dataGridView);
+        }
+
+        void Ajusta_largura_colunas_usuarios()
+        {
+            // largura das colunas
+            dataGrid_usuarios.Columns ["ID"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGrid_usuarios.Columns ["NOME"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGrid_usuarios.Columns ["LOGIN"].Width = 250;
+            dataGrid_usuarios.Columns ["CPF"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        void Ajusta_largura_colunas_acessos()
+        {
+            int largura = (dataGrid_acessos.Width - dataGrid_acessos.Columns["coluna_seta_acessos"].Width) / 4;
+
+            dataGrid_acessos.Columns["ROTINA"].Width = largura;
+            dataGrid_acessos.Columns["ACESSO"].Width = largura;
+            dataGrid_acessos.Columns["ALTERAR"].Width = largura;
+            dataGrid_acessos.Columns["NOVO"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         void PreencheGrid_acessos()
         {
-            // https://docs.microsoft.com/pt-br/dotnet/api/system.windows.forms.datagridboolcolumn?view=netframework-4.8
+            //https://social.msdn.microsoft.com/Forums/pt-BR/ecfd6c9c-f4bb-458d-9a7c-0048809fe783/adicionar-registro-no-banco-pelo-datagridview-marcado-com-chekbox?forum=vscsharppt
 
-            DataGridBoolColumn data = new DataGridBoolColumn();
+            string[] acessos_usuario = class_acessos.RetornaPermissoesUsuario( Convert.ToInt32(dataGrid_usuarios.CurrentRow.Cells["ID"].Value.ToString())).Split('\n');
+                    
+            string[] itens;
 
+            //posicao_menu      0
+            //nome_item         1
+            //acesso            2
+            //alterar           3
+            //novo              4
+            //nome_menu         5
+            bool acesso, alterar, novo, existe_a_coluna;
+            existe_a_coluna = false;
 
-            //dataGrid_acessos.Columns.Add(data);
+            string nome_coluna_imagem = dataGrid_acessos.Columns[0].Name;
+
+            if (nome_coluna_imagem == coluna_imagem_acessos.Name)
+            {
+                existe_a_coluna = true;
+            }
+          
+            for (int i = 0; i < acessos_usuario.Length - 1; i++)
+            {
+                itens = acessos_usuario[i].Split('_');
+
+                acesso = Convert.ToInt32(itens[2]) == 1 ? true : false;
+                alterar = Convert.ToInt32(itens[3]) == 1 ? true : false;
+                novo = Convert.ToInt32(itens[4]) == 1 ? true : false;
+
+                if(existe_a_coluna)
+                    dataGrid_acessos.Rows.Add(Image.FromFile("seta_colunas_grid_3.jpg"), itens[1], acesso, alterar, novo);
+                else
+                    dataGrid_acessos.Rows.Add(itens[1], acesso, alterar, novo);
+            }        
         }
 
         private void AjustaAlturaLinhasGrid(DataGridView dataGrid)
@@ -187,6 +250,35 @@ namespace EGP_Tela_Inicial_04_02.Formularios
         private void dataGrid_usuarios_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             AjustaAlturaLinhasGrid(dataGrid_usuarios);
+        }
+
+        private void dataGrid_usuarios_SelectionChanged(object sender, EventArgs e)
+        {
+            // regula para que o grid seja carregado apenas quando o usuário mudar a seleção do usuário
+            if (mostrou_form_primeira_vez) 
+            {
+                if (dataGrid_usuarios.CurrentRow != null)
+                {
+                    dataGrid_acessos.Rows.Clear();
+                    PreencheGrid_acessos();
+                    AjustaAlturaLinhasGrid(dataGrid_acessos);
+                }
+            }            
+        }
+
+        private void form_acessos_Shown(object sender, EventArgs e)
+        {
+            mostrou_form_primeira_vez = true;
+        }
+
+        private void form_acessos_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mostrou_form_primeira_vez = false;
+        }
+
+        private void bt_salvar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
