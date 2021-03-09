@@ -82,19 +82,52 @@ namespace EGP_Tela_Inicial_04_02.Classes
                                            reader["NOVO"].ToString() + "_" +
                                            reader["NOME_MENU"].ToString() + "\n";
 
-
                     conexao.Fecha();
                     return acessos_usuario;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ocorreu um erro ao analisar os menus existentes. " +
-                    "Metodo = Nomes_menu_principal" + ex.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ocorreu um erro ao analisar as permissões do usuário. " +
+                    "Metodo = RetornaPermissoesUsuario" + ex.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                     conexao.Fecha();
                     return null;
                 }
             }
+        }
+
+        public bool AtualizaAcessosUsuario(string comando, int quantidade_linhas)
+        {
+            bool retorno = false;
+            
+            using (command = new SqlCommand())
+            {
+                try
+                {
+                    command.CommandText = "usp_atualiza_acessos_usuario";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.CommandTimeout = 300;
+                    command.Connection = conexao.Abre();
+
+                    command.Parameters.Add("@acessos", SqlDbType.VarChar).Value = "'" + comando + "'";
+                    command.Parameters.Add("@itens_alterados", SqlDbType.Int).Value = quantidade_linhas;
+
+                    reader = command.ExecuteReader();
+
+                   
+                    conexao.Fecha();
+                    retorno = true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao Atualizar as permissões do usuário. " +
+                    "Metodo = AtualizaAcessosUsuario " + ex.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    conexao.Fecha();
+                    retorno = false;
+                }
+            }
+            return retorno;
         }
     }
 }

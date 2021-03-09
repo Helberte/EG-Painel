@@ -319,15 +319,23 @@ namespace EGP_Tela_Inicial_04_02.Formularios
                 int alterar =                   Convert.ToBoolean(dataGrid_acessos["Alterar", i].Value) ? 1 : 0;
                 int novo =                      Convert.ToBoolean(dataGrid_acessos["Novo", i].Value) ? 1 : 0;
 
-                acessos += "id_acessos_"                + id_acessos + 
-                           "_fk_menu_itens_suspensos_"  + fk_menu_itens_suspensos + 
-                           "_id_usuario_"               + fk_id_pessoa + 
-                           "_acesso_"                   + acesso + 
-                           "_alterar_"                  + alterar + 
-                           "_novo_"                     + novo + "\n";
+                acessos += "id_acessos="                + id_acessos + 
+                           ";fk_menu_itens_suspensos="  + fk_menu_itens_suspensos + 
+                           ";id_usuario="               + fk_id_pessoa + 
+                           ";acesso="                   + acesso + 
+                           ";alterar="                  + alterar + 
+                           ";novo="                     + novo + ";|";
 
                 linhas_alteradas++;
+                // Modelo da string
+                // id_acessos=12;fk_menu_itens_suspensos=0;id_usuario=1;acesso=1;alterar=1;novo=1;\n
             }
+
+            if (class_acessos.AtualizaAcessosUsuario(acessos, linhas_alteradas))            
+                tabControl.SelectedTab = tabPage_usuarios;
+
+            linhas_alteradas = 0;
+            acessos = "";
         }
     }
 }
