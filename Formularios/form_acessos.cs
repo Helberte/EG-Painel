@@ -16,7 +16,10 @@ namespace EGP_Tela_Inicial_04_02.Formularios
         class_form_acessos class_acessos;
         DataGridViewImageColumn coluna_imagem_usuarios;
         DataGridViewImageColumn coluna_imagem_acessos;
+
         bool mostrou_form_primeira_vez = false;
+        string acessos = "";
+        int linhas_alteradas = 0;
 
         public form_acessos()
         {
@@ -28,9 +31,17 @@ namespace EGP_Tela_Inicial_04_02.Formularios
             AjustaFormulario();
             class_acessos = new class_form_acessos();
 
-            dataGrid_acessos.ColumnCount = 1;
+            dataGrid_acessos.ColumnCount = 4;
 
-            dataGrid_acessos.Columns[0].Name = "ROTINA";
+            dataGrid_acessos.Columns[0].Name = "id_acessos";
+            dataGrid_acessos.Columns[1].Name = "fk_menu_itens_suspensos";
+            dataGrid_acessos.Columns[2].Name = "fk_id_pessoa";
+
+            dataGrid_acessos.Columns[0].Visible = false;
+            dataGrid_acessos.Columns[1].Visible = false;
+            dataGrid_acessos.Columns[2].Visible = false;
+
+            dataGrid_acessos.Columns[3].Name = "ROTINA";
             dataGrid_acessos.Columns.Add(new DataGridViewCheckBoxColumn() { Name = "ACESSO", Visible = true });
             dataGrid_acessos.Columns.Add(new DataGridViewCheckBoxColumn() { Name = "ALTERAR", Visible = true });
             dataGrid_acessos.Columns.Add(new DataGridViewCheckBoxColumn() { Name = "NOVO", Visible = true });
@@ -185,17 +196,24 @@ namespace EGP_Tela_Inicial_04_02.Formularios
                     
             string[] itens;
 
-            //posicao_menu      0
-            //nome_item         1
-            //acesso            2
-            //alterar           3
-            //novo              4
-            //nome_menu         5
+            //id_usuario                0
+            //id_menu_itens_suspensos   1
+            //id_acessos                2
+            //posicao_menu              3
+            //nome_item                 4
+            //acesso                    5
+            //alterar                   6
+            //novo                      7
+            //nome_menu                 8
             bool acesso, alterar, novo, existe_a_coluna;
+
+            int id_usuario;
+            int id_menu_itens_suspensos;
+            int id_acessos;
+
+
             existe_a_coluna = false;
-
             string nome_coluna_imagem = dataGrid_acessos.Columns[0].Name;
-
             if (nome_coluna_imagem == coluna_imagem_acessos.Name)
             {
                 existe_a_coluna = true;
@@ -205,14 +223,28 @@ namespace EGP_Tela_Inicial_04_02.Formularios
             {
                 itens = acessos_usuario[i].Split('_');
 
-                acesso = Convert.ToInt32(itens[2]) == 1 ? true : false;
-                alterar = Convert.ToInt32(itens[3]) == 1 ? true : false;
-                novo = Convert.ToInt32(itens[4]) == 1 ? true : false;
+                id_usuario =                Convert.ToInt32(itens[0]);
+                id_menu_itens_suspensos =   Convert.ToInt32(itens[1]);
+                id_acessos =                Convert.ToInt32(itens[2]);
+                acesso =                    Convert.ToInt32(itens[5]) == 1 ? true : false;
+                alterar =                   Convert.ToInt32(itens[6]) == 1 ? true : false;
+                novo =                      Convert.ToInt32(itens[7]) == 1 ? true : false;
 
-                if(existe_a_coluna)
-                    dataGrid_acessos.Rows.Add(Image.FromFile("seta_colunas_grid_3.jpg"), itens[1], acesso, alterar, novo);
+                // coluna 0 = "id_acessos";
+                // coluna 1 = "fk_menu_itens_suspensos";
+                // coluna 2 = "fk_id_pessoa";
+
+                if (existe_a_coluna)
+                    dataGrid_acessos.Rows.Add(Image.FromFile("seta_colunas_grid_3.jpg"), 
+                                                                id_acessos, 
+                                                                id_menu_itens_suspensos, 
+                                                                id_usuario, 
+                                                                itens[4], 
+                                                                acesso, 
+                                                                alterar, 
+                                                                novo);
                 else
-                    dataGrid_acessos.Rows.Add(itens[1], acesso, alterar, novo);
+                    dataGrid_acessos.Rows.Add(id_acessos, id_menu_itens_suspensos, id_usuario, itens[4], acesso, alterar, novo);
             }        
         }
 
@@ -278,7 +310,24 @@ namespace EGP_Tela_Inicial_04_02.Formularios
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < dataGrid_acessos.Rows.Count; i++)
+            {
+                int id_acessos =                Convert.ToInt32(dataGrid_acessos["id_acessos", i].Value);
+                int fk_menu_itens_suspensos =   Convert.ToInt32(dataGrid_acessos["fk_menu_itens_suspensos", i].Value);
+                int fk_id_pessoa =              Convert.ToInt32(dataGrid_acessos["fk_id_pessoa", i].Value);
+                int acesso =                    Convert.ToBoolean(dataGrid_acessos["Acesso", i].Value) ? 1 : 0;
+                int alterar =                   Convert.ToBoolean(dataGrid_acessos["Alterar", i].Value) ? 1 : 0;
+                int novo =                      Convert.ToBoolean(dataGrid_acessos["Novo", i].Value) ? 1 : 0;
 
+                acessos += "id_acessos_"                + id_acessos + 
+                           "_fk_menu_itens_suspensos_"  + fk_menu_itens_suspensos + 
+                           "_id_usuario_"               + fk_id_pessoa + 
+                           "_acesso_"                   + acesso + 
+                           "_alterar_"                  + alterar + 
+                           "_novo_"                     + novo + "\n";
+
+                linhas_alteradas++;
+            }
         }
     }
 }

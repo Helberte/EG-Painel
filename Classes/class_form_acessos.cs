@@ -72,7 +72,10 @@ namespace EGP_Tela_Inicial_04_02.Classes
                     reader = command.ExecuteReader();
 
                     while (reader.Read())
-                        acessos_usuario += reader["POSICAO_MENU"].ToString() + "_" + 
+                        acessos_usuario += reader["ID_USUARIO"].ToString() + "_" +
+                                           reader["ID_MENU_ITENS_SUSPENSOS"].ToString() + "_" +
+                                           reader["ID_ACESSOS"].ToString() + "_" +
+                                           reader["POSICAO_MENU"].ToString() + "_" + 
                                            reader["NOME_ITEM"].ToString() + "_" + 
                                            reader["ACESSO"].ToString() + "_" + 
                                            reader["ALTERAR"].ToString() + "_" +
