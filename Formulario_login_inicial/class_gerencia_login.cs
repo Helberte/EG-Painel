@@ -45,6 +45,8 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
                 if (this.senha == "12345678")
                 {                   
                     Class_gerencia_login.Status = 1;
+                    Class_gerencia_login.ID_Usuario = -1;
+                    Nome_Usuario = "Administrador";
                     return true;
                 }
                 else
