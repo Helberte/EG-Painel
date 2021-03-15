@@ -109,12 +109,11 @@ namespace EGP_Tela_Inicial_04_02.Classes
                     command.CommandTimeout = 300;
                     command.Connection = conexao.Abre();
 
-                    command.Parameters.Add("@acessos", SqlDbType.VarChar).Value = "'" + comando + "'";
+                    command.Parameters.Add("@acessos", SqlDbType.VarChar).Value = comando;
                     command.Parameters.Add("@itens_alterados", SqlDbType.Int).Value = quantidade_linhas;
 
-                    reader = command.ExecuteReader();
-
-                   
+                    command.ExecuteReader();
+                                       
                     conexao.Fecha();
                     retorno = true;
                 }
