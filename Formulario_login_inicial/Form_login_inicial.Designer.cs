@@ -28,37 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_login_inicial));
-            this.pictureBox_bt_acessar = new System.Windows.Forms.PictureBox();
-            this.pictureBox_bt_sair = new System.Windows.Forms.PictureBox();
             this.ed_senha = new System.Windows.Forms.TextBox();
             this.ed_usuario = new System.Windows.Forms.TextBox();
             this.ed_codigo = new System.Windows.Forms.TextBox();
+            this.pictureBox_bt_acessar = new System.Windows.Forms.PictureBox();
+            this.pictureBox_bt_sair = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_acessar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_sair)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox_bt_acessar
-            // 
-            this.pictureBox_bt_acessar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox_bt_acessar.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(355, 367);
-            this.pictureBox_bt_acessar.Name = "pictureBox_bt_acessar";
-            this.pictureBox_bt_acessar.Size = new System.Drawing.Size(70, 30);
-            this.pictureBox_bt_acessar.TabIndex = 12;
-            this.pictureBox_bt_acessar.TabStop = false;
-            this.pictureBox_bt_acessar.Click += new System.EventHandler(this.pictureBox_bt_acessar_Click);
-            // 
-            // pictureBox_bt_sair
-            // 
-            this.pictureBox_bt_sair.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox_bt_sair.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_bt_sair.Location = new System.Drawing.Point(431, 367);
-            this.pictureBox_bt_sair.Name = "pictureBox_bt_sair";
-            this.pictureBox_bt_sair.Size = new System.Drawing.Size(72, 30);
-            this.pictureBox_bt_sair.TabIndex = 11;
-            this.pictureBox_bt_sair.TabStop = false;
-            this.pictureBox_bt_sair.Click += new System.EventHandler(this.pictureBox_bt_sair_Click);
             // 
             // ed_senha
             // 
@@ -105,11 +84,43 @@
             this.ed_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_codigo_KeyPress);
             this.ed_codigo.Leave += new System.EventHandler(this.ed_codigo_Leave);
             // 
+            // pictureBox_bt_acessar
+            // 
+            this.pictureBox_bt_acessar.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox_bt_acessar.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(355, 367);
+            this.pictureBox_bt_acessar.Name = "pictureBox_bt_acessar";
+            this.pictureBox_bt_acessar.Size = new System.Drawing.Size(70, 30);
+            this.pictureBox_bt_acessar.TabIndex = 12;
+            this.pictureBox_bt_acessar.TabStop = false;
+            this.pictureBox_bt_acessar.Click += new System.EventHandler(this.pictureBox_bt_acessar_Click);
+            // 
+            // pictureBox_bt_sair
+            // 
+            this.pictureBox_bt_sair.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox_bt_sair.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox_bt_sair.Location = new System.Drawing.Point(431, 367);
+            this.pictureBox_bt_sair.Name = "pictureBox_bt_sair";
+            this.pictureBox_bt_sair.Size = new System.Drawing.Size(72, 30);
+            this.pictureBox_bt_sair.TabIndex = 11;
+            this.pictureBox_bt_sair.TabStop = false;
+            this.pictureBox_bt_sair.Click += new System.EventHandler(this.pictureBox_bt_sair_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources._500;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(856, 501);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form_login_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(856, 501);
             this.Controls.Add(this.pictureBox_bt_acessar);
@@ -117,6 +128,7 @@
             this.Controls.Add(this.ed_senha);
             this.Controls.Add(this.ed_usuario);
             this.Controls.Add(this.ed_codigo);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_login_inicial";
             this.Text = "Form_login_inicial";
@@ -124,6 +136,7 @@
             this.Load += new System.EventHandler(this.Form_login_inicial_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_acessar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_sair)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,5 +149,6 @@
         private System.Windows.Forms.TextBox ed_senha;
         private System.Windows.Forms.TextBox ed_usuario;
         private System.Windows.Forms.TextBox ed_codigo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

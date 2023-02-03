@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Ip" xml:space="preserve">
+    <value>192.168.1.6</value>
+  </data>
+  <data name="Usuario" xml:space="preserve">
+    <value>sa</value>
+  </data>
+  <data name="Senha" xml:space="preserve">
+    <value>254685ro</value>
+  </data>
 </root>

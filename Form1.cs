@@ -5,10 +5,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,6 +20,7 @@ using EGP_PAINEL.Formularios;
 using EGP_Tela_Inicial_04_02.Classes;
 using EGP_Tela_Inicial_04_02.Formulario_login_inicial;
 using EGP_Tela_Inicial_04_02.Formularios;
+using MZControls;
 
 namespace EGP_Tela_Inicial_04_02
 {
@@ -27,6 +30,11 @@ namespace EGP_Tela_Inicial_04_02
         PictureBox mostra_menu_lateral;
         class_verifica_acessos acessos;
         List<string> nomes = new List<string>();
+        DateTime data;
+
+        Label lbl_painel_operador;
+        Label lbl_cab_hora;
+
 
 
         string[] nomes_menu;
@@ -43,8 +51,12 @@ namespace EGP_Tela_Inicial_04_02
 
         public Form_principal()
         {         
-            InitializeComponent();            
+            InitializeComponent();
+
+            panel_cab_1.MouseDown += Panel_cab_1_MouseDown;
+           
         }
+
         // ESTUDAR A QUESTÃO DOS MDI INTERFACE DE MULTIPLAS TELAS
 
 
@@ -61,7 +73,7 @@ namespace EGP_Tela_Inicial_04_02
 
             this.Controls.Add(mostra_menu_lateral);
 
-            mostra_menu_lateral.Location = new Point(panel_cab_3.Width - mostra_menu_lateral.Width, (panel_cab_3.Height + panel_cab_3.Top) + ((menuStrip_principal.Height / 2) - (mostra_menu_lateral.Height / 2)));
+            mostra_menu_lateral.Location = new Point(this.Width - mostra_menu_lateral.Width - 15, this.Height - panel_menu_lateral.Height);
             mostra_menu_lateral.Visible = false;
 
             mostra_menu_lateral.Click += Mostra_menu_lateral_Click;
@@ -71,6 +83,8 @@ namespace EGP_Tela_Inicial_04_02
 
             mostra_menu_lateral.Image = Image.FromFile("exibir_ao_publico_esquerda.png");
             mostra_menu_lateral.SizeMode = PictureBoxSizeMode.StretchImage;
+            timer_hora.Start();
+            
         }
 
         private void Mostra_menu_lateral_MouseLeave(object sender, EventArgs e)
@@ -83,68 +97,79 @@ namespace EGP_Tela_Inicial_04_02
             mostra_menu_lateral.BorderStyle = BorderStyle.FixedSingle;
         }
 
+        // permite mudar a posição do form através do panel bar e sem a barra nativa do form
+
+        [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
+        private extern static void ReleaseCapture();
+        [DllImport("user32.dll", EntryPoint = "SendMessage")]
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void Panel_cab_1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        // torna a imagem de fundo opaca
+        public Image SetImageOpacity(Image image, float opacity)
+        {
+            Bitmap bmp = new Bitmap(image.Width, image.Height);
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                ColorMatrix matrix = new ColorMatrix();
+                matrix.Matrix33 = opacity;
+                ImageAttributes attributes = new ImageAttributes();
+                attributes.SetColorMatrix(matrix, ColorMatrixFlag.Default,
+                                                  ColorAdjustType.Bitmap);
+                g.DrawImage(image, new Rectangle(0, 0, bmp.Width, bmp.Height),
+                                   0, 0, image.Width, image.Height,
+                                   GraphicsUnit.Pixel, attributes);
+            }
+            return bmp;
+
+            // fonte
+            //https://stackoverflow.com/questions/23114282/are-we-able-to-set-opacity-of-the-background-image-of-a-panel
+            //https://www.codeproject.com/Tips/201129/Change-Opacity-of-Image-in-C
+        }
         void DesenhaTelaInicial()
         {
-            this.BackColor = Color.FromArgb(250, 254, 255);
+            // configurações da janela principal
+
+            this.BackColor = Color.FromArgb(255, 255, 255);
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.WindowState = FormWindowState.Maximized;
+            this.MinimumSize = new Size(1000, 500);
+            this.BackgroundImage = SetImageOpacity(Image.FromFile(@"imagens\fundo_camara.png"), 0.25F);
+            this.BackgroundImageLayout = ImageLayout.Center;
+       
+            lbl_painel_operador = new Label();
+            lbl_cab_hora = new Label();
 
             // cabeçalho, logos etc
 
-            panel_cab_1.Height = 58;
-            panel_cab_1.BackColor = Color.FromArgb(253, 254, 255);
-            panel_cab_1.AutoScroll = true;
+            panel_cab_1.Height = 50;
+            panel_cab_1.BackColor = Color.FromArgb(255, 255, 255);
+            panel_cab_1.AutoScroll = false;
 
-            pictureBox_logo.Width = 240;
-            pictureBox_logo.Height = panel_cab_1.Height;
-            pictureBox_logo.Left = 0;
-            pictureBox_logo.Location = new Point(0, 0);
 
-            int largura_divisorias = 10;
+            // painel do operador
+            lbl_painel_operador.Text = "Painel do Operador";
+            lbl_painel_operador.AutoSize = true;
 
-            pictureBox_div_1.Height = panel_cab_1.Height;
-            pictureBox_div_1.Left = pictureBox_logo.Left + pictureBox_logo.Width;
-            pictureBox_div_1.Width = largura_divisorias;
-            pictureBox_div_1.Location = new Point(pictureBox_div_1.Left, 0);
+            panel_cab_1.Controls.Add(lbl_painel_operador);
 
-            panel_cab_versao.Height = panel_cab_1.Height;
-            panel_cab_versao.Width = 90;
-            panel_cab_versao.Left = pictureBox_div_1.Left + pictureBox_div_1.Width;
-            panel_cab_versao.Location = new Point(panel_cab_versao.Left, 0);
+            lbl_painel_operador.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            lbl_painel_operador.ForeColor = Color.FromArgb(0, 120, 111);
+            lbl_painel_operador.Location = new Point(15, (panel_cab_1.Height / 2) - (lbl_painel_operador.Height / 2));
 
-            //FontFamily fontFamily = new FontFamily("Gotham");
-            lbl_versao.Text = "V 1.00";
-            lbl_versao.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
-            lbl_versao.ForeColor = Color.FromArgb(46, 84, 123);
-            lbl_versao.AutoSize = true;
-            lbl_versao.Left = (panel_cab_versao.Width / 2) - (lbl_versao.Width / 2);
-            lbl_versao.Top = (panel_cab_versao.Height / 2) - (lbl_versao.Height / 2);
-
-            pictureBox_div_2.Height = panel_cab_1.Height;
-            pictureBox_div_2.Left = panel_cab_versao.Left + panel_cab_versao.Width + 6;
-            pictureBox_div_2.Width = largura_divisorias;
-            pictureBox_div_2.Location = new Point(pictureBox_div_2.Left, 0);
-
-            lbl_nome_camara.AutoSize = true;
-            lbl_nome_camara.Text = "CÂMARA MUNICIPAL DE JI-PARANÁ";
-            lbl_nome_camara.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
-            lbl_nome_camara.ForeColor = Color.FromArgb(46, 84, 123);
-
-            panel_cab_camara.Width = lbl_nome_camara.Width + 25;
-            panel_cab_camara.Height = panel_cab_1.Height;
-            panel_cab_camara.Left = pictureBox_div_2.Left + pictureBox_div_2.Width;
-            panel_cab_camara.Location = new Point(panel_cab_camara.Left, 0);
-
-            lbl_nome_camara.Left = (panel_cab_camara.Width / 2) - (lbl_nome_camara.Width / 2);
-            lbl_nome_camara.Location = new Point(lbl_nome_camara.Left, (panel_cab_camara.Height / 2) - (lbl_nome_camara.Height / 2));
-
-            pictureBox_div_3.Left = panel_cab_camara.Left + panel_cab_camara.Width;
-            pictureBox_div_3.Height = panel_cab_1.Height;
-            pictureBox_div_3.Width = largura_divisorias;
-            pictureBox_div_3.Location = new Point(pictureBox_div_3.Left + 6, 0);
-
+            // usuario
             lbl_usuario.AutoSize = true;
             lbl_usuario.Text = "Usuário:";
             lbl_usuario.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
-            lbl_usuario.ForeColor = Color.FromArgb(46, 84, 123);
+            lbl_usuario.ForeColor = Color.FromArgb(0, 120, 111);
+           
 
             lbl_nome_usuario.AutoSize = true;
 
@@ -174,7 +199,7 @@ namespace EGP_Tela_Inicial_04_02
             lbl_nome_usuario.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
             lbl_nome_usuario.ForeColor = Color.FromArgb(46, 84, 123);
 
-            panel_cab_usuario.Left = pictureBox_div_3.Left + pictureBox_div_3.Width;
+            panel_cab_usuario.Left = lbl_painel_operador.Width + lbl_painel_operador.Left + 30;
             panel_cab_usuario.Width = lbl_usuario.Width + lbl_nome_usuario.Width + 20;
             panel_cab_usuario.Height = panel_cab_1.Height;
             panel_cab_usuario.Location = new Point(panel_cab_usuario.Left, 0);
@@ -185,93 +210,186 @@ namespace EGP_Tela_Inicial_04_02
             lbl_nome_usuario.Left = lbl_usuario.Left + lbl_usuario.Width;
             lbl_nome_usuario.Top = lbl_usuario.Top;
 
-            pictureBox_div_4.Left = panel_cab_usuario.Left + panel_cab_usuario.Width + 6;
-            pictureBox_div_4.Width = largura_divisorias;
-            pictureBox_div_4.Height = panel_cab_1.Height;
-            pictureBox_div_4.Location = new Point(pictureBox_div_4.Left, 0);
+            // logo
+            pictureBox_logo.Width = 240;
+            pictureBox_logo.Height = panel_cab_1.Height;
+            pictureBox_logo.Left = (panel_cab_1.Width / 2) - (pictureBox_logo.Width / 2);
+            pictureBox_logo.Location = new Point(pictureBox_logo.Left, 0);
+            pictureBox_logo.Anchor = AnchorStyles.None;
 
-            panel_cab_notificacoes.Left = pictureBox_div_4.Left + pictureBox_div_4.Width;
-            panel_cab_notificacoes.Height = panel_cab_1.Height;
-            panel_cab_notificacoes.Width = 180;
-            panel_cab_notificacoes.Location = new Point(panel_cab_notificacoes.Left, 0);
 
-            int espaco = 20;
-            pictureBox_cab_notificacao_1.Width = 25;
-            pictureBox_cab_notificacao_1.Left = ((panel_cab_notificacoes.Width / 2) - ((pictureBox_cab_notificacao_1.Width + espaco) * 3) / 2) + 3;
-            pictureBox_cab_notificacao_1.Height = 35;
-            pictureBox_cab_notificacao_1.Top = (panel_cab_notificacoes.Height / 2) - (pictureBox_cab_notificacao_1.Height / 2);
+            // nome da cidade da camara
+            lbl_nome_cidade.AutoSize = true;
+            
+            data = DateTime.Now;
+            
+            lbl_nome_cidade.Text = "Ji-Paraná - RO " + String.Format("{0: dd}", data).Trim() + "/" + String.Format("{0: MM}", data).Trim() + "/" + String.Format("{0: yyyy}", data).Trim();
+            lbl_nome_cidade.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            lbl_nome_cidade.ForeColor = Color.FromArgb(0, 120, 111);
 
-            pictureBox_cab_notificacao_2.Width = pictureBox_cab_notificacao_1.Width;
-            pictureBox_cab_notificacao_2.Left = pictureBox_cab_notificacao_1.Left + pictureBox_cab_notificacao_1.Width + espaco;
-            pictureBox_cab_notificacao_2.Height = pictureBox_cab_notificacao_1.Height;
-            pictureBox_cab_notificacao_2.Top = pictureBox_cab_notificacao_1.Top;
+            panel_cab_camara.Width = lbl_nome_cidade.Width + 25;
+            panel_cab_camara.Height = panel_cab_1.Height;
+           
+            lbl_nome_cidade.Left = (panel_cab_camara.Width / 2) - (lbl_nome_cidade.Width / 2);
+            lbl_nome_cidade.Location = new Point(lbl_nome_cidade.Left, (panel_cab_camara.Height / 2) - (lbl_nome_cidade.Height / 2));
 
-            pictureBox_cab_notificacao_3.Width = pictureBox_cab_notificacao_2.Width;
-            pictureBox_cab_notificacao_3.Left = pictureBox_cab_notificacao_2.Left + pictureBox_cab_notificacao_2.Width + espaco;
-            pictureBox_cab_notificacao_3.Height = pictureBox_cab_notificacao_2.Height;
-            pictureBox_cab_notificacao_3.Top = pictureBox_cab_notificacao_2.Top;
 
-            pictureBox_div_5.Left = panel_cab_notificacoes.Left + panel_cab_notificacoes.Width;
-            pictureBox_div_5.Width = largura_divisorias;
-            pictureBox_div_5.Height = panel_cab_1.Height;
-            pictureBox_div_5.Location = new Point(pictureBox_div_5.Left, 0);
+            // hora
+            lbl_cab_hora.Text = String.Format("{0: HH}",data).Trim() + ":" + String.Format("{0: mm}",data).Trim();
+            lbl_cab_hora.AutoSize = true;
 
-            lbl_suporte.Text = "Suporte:";
-            lbl_suporte.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
-            lbl_suporte.ForeColor = Color.FromArgb(46, 84, 123);
+            panel_cab_1.Controls.Add(lbl_cab_hora);
 
-            lbl_telefone_suporte.Text = "(69) 3536.9000";
-            lbl_telefone_suporte.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
-            lbl_telefone_suporte.ForeColor = Color.FromArgb(46, 84, 123);
+            lbl_cab_hora.Font = new Font(FontFamily.GenericSansSerif, 15, FontStyle.Regular);
+            lbl_cab_hora.ForeColor = Color.FromArgb(0, 120, 111);
+            lbl_cab_hora.Location = new Point((panel_cab_1.Width - lbl_cab_hora.Width) - 15, (panel_cab_1.Height / 2) - (lbl_cab_hora.Height / 2));
+            lbl_cab_hora.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 
-            panel_cab_suporte.Left = pictureBox_div_5.Left + pictureBox_div_5.Width + 13;
-            panel_cab_suporte.Height = panel_cab_1.Height;
-            panel_cab_suporte.Location = new Point(panel_cab_suporte.Left, 0);
+            // posição nome da cidade da camara
+            panel_cab_camara.Left = panel_cab_1.Width - lbl_cab_hora.Width - panel_cab_camara.Width - 35;
+            panel_cab_camara.Location = new Point(panel_cab_camara.Left, 0);
 
-            pictureBox_icone_suporte.Width = 20;
+            
+            // desativa os componentes da versão anterior
 
-            panel_cab_suporte.Width = lbl_suporte.Width + lbl_telefone_suporte.Width + pictureBox_icone_suporte.Width + 10;
+            pictureBox_div_1.Visible = false;
+            pictureBox_div_2.Visible = false;
+            pictureBox_div_3.Visible = false;
+            pictureBox_div_4.Visible = false;
+            pictureBox_div_5.Visible = false;
+            pictureBox_div_6.Visible = false;
+            pictureBox_icone_suporte.Visible = false;
+            panel_cab_suporte.Visible = false;
+            panel_cab_notificacoes.Visible = false;
+            panel_cab_versao.Visible = false;
 
-            pictureBox_icone_suporte.Left = (panel_cab_suporte.Width / 2) - ((lbl_suporte.Width + lbl_telefone_suporte.Width + pictureBox_icone_suporte.Width) / 2);
-            pictureBox_icone_suporte.Height = pictureBox_icone_suporte.Width;
-            pictureBox_icone_suporte.Location = new Point(pictureBox_icone_suporte.Left, (panel_cab_suporte.Height / 2) - (pictureBox_icone_suporte.Height / 2));
-            pictureBox_icone_suporte.BorderStyle = BorderStyle.None;
+            #region CONFIGURAÇÕES DA VERSÃO ANTERIOR
+            //int largura_divisorias = 10;
 
-            lbl_suporte.Left = pictureBox_icone_suporte.Left + pictureBox_icone_suporte.Width;
-            lbl_suporte.Location = new Point(lbl_suporte.Left, (panel_cab_suporte.Height / 2) - (lbl_suporte.Height / 2));
+            //pictureBox_div_1.Height = panel_cab_1.Height;
+            //pictureBox_div_1.Left = pictureBox_logo.Left + pictureBox_logo.Width;
+            //pictureBox_div_1.Width = largura_divisorias;
+            //pictureBox_div_1.Location = new Point(pictureBox_div_1.Left, 0);
 
-            lbl_telefone_suporte.Left = lbl_suporte.Left + lbl_suporte.Width;
-            lbl_telefone_suporte.Location = new Point(lbl_telefone_suporte.Left, lbl_suporte.Top);
+            //panel_cab_versao.Height = panel_cab_1.Height;
+            //panel_cab_versao.Width = 90;
+            //panel_cab_versao.Left = pictureBox_div_1.Left + pictureBox_div_1.Width;
+            //panel_cab_versao.Location = new Point(panel_cab_versao.Left, 0);
 
-            pictureBox_div_6.Left = panel_cab_suporte.Left + panel_cab_suporte.Width + 15;
-            pictureBox_div_6.Height = panel_cab_1.Height;
-            pictureBox_div_6.Width = largura_divisorias;
-            pictureBox_div_6.Location = new Point(pictureBox_div_6.Left, 0);
+            //FontFamily fontFamily = new FontFamily("Gotham");
+            //lbl_versao.Text = "V 1.00";
+            //lbl_versao.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            //lbl_versao.ForeColor = Color.FromArgb(46, 84, 123);
+            //lbl_versao.AutoSize = true;
+            //lbl_versao.Left = (panel_cab_versao.Width / 2) - (lbl_versao.Width / 2);
+            //lbl_versao.Top = (panel_cab_versao.Height / 2) - (lbl_versao.Height / 2);
+
+            //pictureBox_div_2.Height = panel_cab_1.Height;
+            //pictureBox_div_2.Left = panel_cab_versao.Left + panel_cab_versao.Width + 6;
+            //pictureBox_div_2.Width = largura_divisorias;
+            //pictureBox_div_2.Location = new Point(pictureBox_div_2.Left, 0);
+
+
+            //pictureBox_div_3.Left = panel_cab_camara.Left + panel_cab_camara.Width;
+            //pictureBox_div_3.Height = panel_cab_1.Height;
+            //pictureBox_div_3.Width = largura_divisorias;
+            //pictureBox_div_3.Location = new Point(pictureBox_div_3.Left + 6, 0);
+
+
+            //pictureBox_div_4.Left = panel_cab_usuario.Left + panel_cab_usuario.Width + 6;
+            //pictureBox_div_4.Width = largura_divisorias;
+            //pictureBox_div_4.Height = panel_cab_1.Height;
+            //pictureBox_div_4.Location = new Point(pictureBox_div_4.Left, 0);
+
+            //panel_cab_notificacoes.Left = pictureBox_div_4.Left + pictureBox_div_4.Width;
+            //panel_cab_notificacoes.Height = panel_cab_1.Height;
+            //panel_cab_notificacoes.Width = 180;
+            //panel_cab_notificacoes.Location = new Point(panel_cab_notificacoes.Left, 0);
+
+            //int espaco = 20;
+            //pictureBox_cab_notificacao_1.Width = 25;
+            //pictureBox_cab_notificacao_1.Left = ((panel_cab_notificacoes.Width / 2) - ((pictureBox_cab_notificacao_1.Width + espaco) * 3) / 2) + 3;
+            //pictureBox_cab_notificacao_1.Height = 35;
+            //pictureBox_cab_notificacao_1.Top = (panel_cab_notificacoes.Height / 2) - (pictureBox_cab_notificacao_1.Height / 2);
+
+            //pictureBox_cab_notificacao_2.Width = pictureBox_cab_notificacao_1.Width;
+            //pictureBox_cab_notificacao_2.Left = pictureBox_cab_notificacao_1.Left + pictureBox_cab_notificacao_1.Width + espaco;
+            //pictureBox_cab_notificacao_2.Height = pictureBox_cab_notificacao_1.Height;
+            //pictureBox_cab_notificacao_2.Top = pictureBox_cab_notificacao_1.Top;
+
+            //pictureBox_cab_notificacao_3.Width = pictureBox_cab_notificacao_2.Width;
+            //pictureBox_cab_notificacao_3.Left = pictureBox_cab_notificacao_2.Left + pictureBox_cab_notificacao_2.Width + espaco;
+            //pictureBox_cab_notificacao_3.Height = pictureBox_cab_notificacao_2.Height;
+            //pictureBox_cab_notificacao_3.Top = pictureBox_cab_notificacao_2.Top;
+
+            //pictureBox_div_5.Left = panel_cab_notificacoes.Left + panel_cab_notificacoes.Width;
+            //pictureBox_div_5.Width = largura_divisorias;
+            //pictureBox_div_5.Height = panel_cab_1.Height;
+            //pictureBox_div_5.Location = new Point(pictureBox_div_5.Left, 0);
+
+            //lbl_suporte.Text = "Suporte:";
+            //lbl_suporte.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            //lbl_suporte.ForeColor = Color.FromArgb(46, 84, 123);
+
+            //lbl_telefone_suporte.Text = "(69) 3536.9000";
+            //lbl_telefone_suporte.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            //lbl_telefone_suporte.ForeColor = Color.FromArgb(46, 84, 123);
+
+            //panel_cab_suporte.Left = pictureBox_div_5.Left + pictureBox_div_5.Width + 13;
+            //panel_cab_suporte.Height = panel_cab_1.Height;
+            //panel_cab_suporte.Location = new Point(panel_cab_suporte.Left, 0);
+
+            //pictureBox_icone_suporte.Width = 20;
+
+            //panel_cab_suporte.Width = lbl_suporte.Width + lbl_telefone_suporte.Width + pictureBox_icone_suporte.Width + 10;
+
+            //pictureBox_icone_suporte.Left = (panel_cab_suporte.Width / 2) - ((lbl_suporte.Width + lbl_telefone_suporte.Width + pictureBox_icone_suporte.Width) / 2);
+            //pictureBox_icone_suporte.Height = pictureBox_icone_suporte.Width;
+            //pictureBox_icone_suporte.Location = new Point(pictureBox_icone_suporte.Left, (panel_cab_suporte.Height / 2) - (pictureBox_icone_suporte.Height / 2));
+            //pictureBox_icone_suporte.BorderStyle = BorderStyle.None;
+
+            //lbl_suporte.Left = pictureBox_icone_suporte.Left + pictureBox_icone_suporte.Width;
+            //lbl_suporte.Location = new Point(lbl_suporte.Left, (panel_cab_suporte.Height / 2) - (lbl_suporte.Height / 2));
+
+            //lbl_telefone_suporte.Left = lbl_suporte.Left + lbl_suporte.Width;
+            //lbl_telefone_suporte.Location = new Point(lbl_telefone_suporte.Left, lbl_suporte.Top);
+
+            //pictureBox_div_6.Left = panel_cab_suporte.Left + panel_cab_suporte.Width + 15;
+            //pictureBox_div_6.Height = panel_cab_1.Height;
+            //pictureBox_div_6.Width = largura_divisorias;
+            //pictureBox_div_6.Location = new Point(pictureBox_div_6.Left, 0);
 
             // barras coloridas
 
-            int barras_altura = 7;
+            //int barras_altura = 7;
 
-            panel_cab_2.BackColor = Color.FromArgb(243, 130, 34);
-            panel_cab_2.Height = barras_altura;
+            //panel_cab_2.BackColor = Color.FromArgb(243, 130, 34);
+            //panel_cab_2.Height = barras_altura;
 
-            panel_cab_3.BackColor = Color.FromArgb(28, 82, 116);
-            panel_cab_3.Height = barras_altura;
+            //panel_cab_3.BackColor = Color.FromArgb(28, 82, 116);
+            //panel_cab_3.Height = barras_altura;
 
 
-            panel_roda_1.Height = barras_altura;
-            panel_roda_1.BackColor = Color.FromArgb(250, 254, 253);
+            //panel_roda_1.Height = barras_altura;
+            //panel_roda_1.BackColor = Color.FromArgb(250, 254, 253);
 
-            panel_roda_2.Height = barras_altura;
-            panel_roda_2.BackColor = Color.FromArgb(0, 87, 133);
+            //panel_roda_2.Height = barras_altura;
+            //panel_roda_2.BackColor = Color.FromArgb(0, 87, 133);
 
-            panel_roda_3.Height = barras_altura;
-            panel_roda_3.BackColor = Color.FromArgb(243, 129, 33);
+            //panel_roda_3.Height = barras_altura;
+            //panel_roda_3.BackColor = Color.FromArgb(243, 129, 33);
 
             //panel_menu_inferior.Height = 53;
             //panel_menu_inferior.AutoScroll = true;
             //panel_menu_inferior.BackColor = Color.FromArgb(234, 244, 253);
+            #endregion
 
+            panel_roda_1.Visible = false;
+            panel_roda_2.Visible = false;
+            panel_roda_3.Visible = false;
+
+            panel_cab_2.Visible = false;
+            panel_cab_3.Visible = false;
 
             #region CONFIGURAÇÃO DA INFORMAÇÃO DO ULTIMO BACKUP
 
@@ -333,10 +451,10 @@ namespace EGP_Tela_Inicial_04_02
 
             //panel_menu_lateral.Height = panel_menu_inferior.Top - (panel_cab_3.Top + panel_cab_3.Height);
 
-            panel_menu_lateral.Height = panel_roda_3.Top - (panel_cab_3.Top + panel_cab_3.Height);
+            panel_menu_lateral.Height = this.Height - panel_cab_1.Height - 120;
             panel_menu_lateral.Width = lbl_exibir_ao_publico.Width + pictureBox_exibir_ao_publico.Width + 55;
-            panel_menu_lateral.Left = panel_cab_3.Width - panel_menu_lateral.Width;
-            panel_menu_lateral.Location = new Point(panel_menu_lateral.Left, panel_cab_3.Top + panel_cab_3.Height);
+            panel_menu_lateral.Left = this.Width - panel_menu_lateral.Width;
+            panel_menu_lateral.Location = new Point(panel_menu_lateral.Left, this.Height - panel_menu_lateral.Height);
             panel_menu_lateral.BackColor = Color.FromArgb(234, 244, 253);
             panel_menu_lateral.BorderStyle = BorderStyle.FixedSingle;
 
@@ -350,10 +468,17 @@ namespace EGP_Tela_Inicial_04_02
 
             // menu
 
+            mzSombraPanel1.TipoDeSombra = MZSombraPanel.ShadowsPanel.Desplasada;
+            mzSombraPanel1.Dock = DockStyle.None;
+            mzSombraPanel1.Width = this.Width - 18;
+            mzSombraPanel1.Location = new Point(0, panel_cab_1.Height);
+            mzSombraPanel1.BackColor = Color.FromArgb(247, 247, 247);
+
+
             menuStrip_principal.Left = 0;
             menuStrip_principal.Height = 50;
-            menuStrip_principal.Width = panel_cab_3.Width;
-            menuStrip_principal.Location = new Point(menuStrip_principal.Left, panel_cab_3.Top + panel_cab_3.Height);
+            menuStrip_principal.Width = this.Width;
+            menuStrip_principal.Location = new Point(menuStrip_principal.Left, 180);
             menuStrip_principal.BackColor = Color.FromArgb(234, 244, 253);
             menuStrip_principal.Renderer = new MyRenderer();
 
@@ -454,7 +579,7 @@ namespace EGP_Tela_Inicial_04_02
             AddItensSuspensosMenu(menu_opcoes_6, itens_menu_opcoes_6_nomes, null);
 
 
-            left_panel = panel_cab_3.Width - panel_menu_lateral.Width;
+            left_panel = this.Width - panel_menu_lateral.Width;
 
             // foi retirado devido à alteração
             //AdicionaBotoesRodape(panel_menu_inferior);     
@@ -734,33 +859,33 @@ namespace EGP_Tela_Inicial_04_02
                 Form_discusao form_ = new Form_discusao();
                 form_.ShowDialog();
             }
-        }                
-       
-        // este código impede o usuário de redimensionar o formulário
-        protected override void WndProc(ref Message m) 
-        {
-            try
-            {
-                switch (m.Msg)
-                {
-                    case 0x0112: // Esse é o codigo de uma mensagem referente a barra de titulo do formulario
-                        int command = m.WParam.ToInt32() & 0xfff0;
-                        // 0xF010 eh o codigo do comando "Restore"
-                        // 0xF120 eh o Duplo Clique da Barra
-                        if ((new int[] { 0xF010, 0xF120 }).Contains(command))
-                        {
-                            // Se for executado qq um desses casos ignorar o comando (nao passar para o windows) ao menos q o form esteje minimizado.. ai continua...
-                            if (this.WindowState != FormWindowState.Minimized) return;
-                        }
-                        break;
-                }
-                base.WndProc(ref m);
-            }
-            catch (Exception exe)
-            {
-                MessageBox.Show("[Metodo WndProc(ref Message m)] " + exe.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }            
         }
+
+        //este código impede o usuário de redimensionar o formulário
+        //protected override void WndProc(ref Message m)
+        //{
+        //    try
+        //    {
+        //        switch (m.Msg)
+        //        {
+        //            case 0x0112: // Esse é o codigo de uma mensagem referente a barra de titulo do formulario
+        //                int command = m.WParam.ToInt32() & 0xfff0;
+        //                // 0xF010 eh o codigo do comando "Restore"
+        //                // 0xF120 eh o Duplo Clique da Barra
+        //                if ((new int[] { 0xF010, 0xF120 }).Contains(command))
+        //                {
+        //                    // Se for executado qq um desses casos ignorar o comando (nao passar para o windows) ao menos q o form esteje minimizado.. ai continua...
+        //                    if (this.WindowState != FormWindowState.Minimized) return;
+        //                }
+        //                break;
+        //        }
+        //        base.WndProc(ref m);
+        //    }
+        //    catch (Exception exe)
+        //    {
+        //        MessageBox.Show("[Metodo WndProc(ref Message m)] " + exe.Message, "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void Form_principal_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -769,7 +894,7 @@ namespace EGP_Tela_Inicial_04_02
 
         private void pictureBox_exibir_ao_publico_Click(object sender, EventArgs e)
         {
-            for (int i = left_panel; i <= panel_cab_3.Width; i++)
+            for (int i = left_panel; i <= this.Width; i++)
             {
                 panel_menu_lateral.Left = i;
             }
@@ -781,7 +906,7 @@ namespace EGP_Tela_Inicial_04_02
         {
             mostra_menu_lateral.Visible = false;
 
-            for (int i = panel_cab_3.Width; i >= left_panel; i--)
+            for (int i = this.Width; i >= left_panel; i--)
             {
                 panel_menu_lateral.Left = i;
             }                       
@@ -808,5 +933,13 @@ namespace EGP_Tela_Inicial_04_02
             }
         }
 
+        private void timer_hora_Tick(object sender, EventArgs e)
+        {
+            data = DateTime.Now;
+            lbl_cab_hora.Text = String.Format("{0: HH}", data).Trim() + ":" + String.Format("{0: mm}", data).Trim();
+            lbl_nome_cidade.Text = "JI-PARANÁ - RO " + String.Format("{0: dd}", data).Trim() + "/" + String.Format("{0: MM}", data).Trim() + "/" + String.Format("{0: yyyy}", data).Trim();
+        }
+
+       
     }
 }

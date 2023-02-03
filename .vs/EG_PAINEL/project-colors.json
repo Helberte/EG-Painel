@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6baa4a10-ebb5-4c31-93da-c6d4a79754d1": {
+      "ProjectGuid": "6baa4a10-ebb5-4c31-93da-c6d4a79754d1",
+      "DisplayName": "EG_PAINEL",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

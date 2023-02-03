@@ -49,7 +49,7 @@
             this.lbl_usuario = new System.Windows.Forms.Label();
             this.pictureBox_div_3 = new System.Windows.Forms.PictureBox();
             this.panel_cab_camara = new System.Windows.Forms.Panel();
-            this.lbl_nome_camara = new System.Windows.Forms.Label();
+            this.lbl_nome_cidade = new System.Windows.Forms.Label();
             this.pictureBox_div_1 = new System.Windows.Forms.PictureBox();
             this.pictureBox_div_2 = new System.Windows.Forms.PictureBox();
             this.pictureBox_logo = new System.Windows.Forms.PictureBox();
@@ -77,6 +77,8 @@
             this.lbl_exibir_ao_publico = new System.Windows.Forms.Label();
             this.pictureBox_exibir_ao_publico = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.timer_hora = new System.Windows.Forms.Timer(this.components);
+            this.mzSombraPanel1 = new MZControls.MZSombraPanel();
             this.panel_cab_1.SuspendLayout();
             this.panel_cab_versao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_6)).BeginInit();
@@ -121,23 +123,22 @@
             this.panel_cab_1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_cab_1.Location = new System.Drawing.Point(0, 0);
             this.panel_cab_1.Name = "panel_cab_1";
-            this.panel_cab_1.Size = new System.Drawing.Size(866, 64);
+            this.panel_cab_1.Size = new System.Drawing.Size(881, 64);
             this.panel_cab_1.TabIndex = 0;
             // 
             // panel_cab_versao
             // 
-            this.panel_cab_versao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_cab_versao.Controls.Add(this.lbl_versao);
             this.panel_cab_versao.Location = new System.Drawing.Point(185, 3);
             this.panel_cab_versao.Name = "panel_cab_versao";
-            this.panel_cab_versao.Size = new System.Drawing.Size(79, 58);
+            this.panel_cab_versao.Size = new System.Drawing.Size(81, 58);
             this.panel_cab_versao.TabIndex = 12;
             // 
             // lbl_versao
             // 
             this.lbl_versao.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_versao.AutoSize = true;
-            this.lbl_versao.Location = new System.Drawing.Point(21, 23);
+            this.lbl_versao.Location = new System.Drawing.Point(22, 23);
             this.lbl_versao.Name = "lbl_versao";
             this.lbl_versao.Size = new System.Drawing.Size(38, 13);
             this.lbl_versao.TabIndex = 0;
@@ -147,7 +148,7 @@
             // 
             this.pictureBox_div_6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox_div_6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_div_6.Image")));
-            this.pictureBox_div_6.Location = new System.Drawing.Point(846, 3);
+            this.pictureBox_div_6.Location = new System.Drawing.Point(853, 3);
             this.pictureBox_div_6.Name = "pictureBox_div_6";
             this.pictureBox_div_6.Size = new System.Drawing.Size(10, 58);
             this.pictureBox_div_6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -162,14 +163,14 @@
             this.panel_cab_suporte.Controls.Add(this.lbl_suporte);
             this.panel_cab_suporte.Location = new System.Drawing.Point(653, 3);
             this.panel_cab_suporte.Name = "panel_cab_suporte";
-            this.panel_cab_suporte.Size = new System.Drawing.Size(187, 58);
+            this.panel_cab_suporte.Size = new System.Drawing.Size(202, 58);
             this.panel_cab_suporte.TabIndex = 10;
             // 
             // lbl_telefone_suporte
             // 
             this.lbl_telefone_suporte.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_telefone_suporte.AutoSize = true;
-            this.lbl_telefone_suporte.Location = new System.Drawing.Point(105, 23);
+            this.lbl_telefone_suporte.Location = new System.Drawing.Point(113, 23);
             this.lbl_telefone_suporte.Name = "lbl_telefone_suporte";
             this.lbl_telefone_suporte.Size = new System.Drawing.Size(79, 13);
             this.lbl_telefone_suporte.TabIndex = 3;
@@ -181,7 +182,7 @@
             this.pictureBox_icone_suporte.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox_icone_suporte.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox_icone_suporte.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_icone_suporte.Image")));
-            this.pictureBox_icone_suporte.Location = new System.Drawing.Point(6, 9);
+            this.pictureBox_icone_suporte.Location = new System.Drawing.Point(14, 9);
             this.pictureBox_icone_suporte.Name = "pictureBox_icone_suporte";
             this.pictureBox_icone_suporte.Size = new System.Drawing.Size(40, 35);
             this.pictureBox_icone_suporte.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -192,7 +193,7 @@
             // 
             this.lbl_suporte.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_suporte.AutoSize = true;
-            this.lbl_suporte.Location = new System.Drawing.Point(52, 23);
+            this.lbl_suporte.Location = new System.Drawing.Point(60, 23);
             this.lbl_suporte.Name = "lbl_suporte";
             this.lbl_suporte.Size = new System.Drawing.Size(47, 13);
             this.lbl_suporte.TabIndex = 1;
@@ -202,7 +203,7 @@
             // 
             this.pictureBox_div_5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox_div_5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_div_5.Image")));
-            this.pictureBox_div_5.Location = new System.Drawing.Point(637, 3);
+            this.pictureBox_div_5.Location = new System.Drawing.Point(644, 3);
             this.pictureBox_div_5.Name = "pictureBox_div_5";
             this.pictureBox_div_5.Size = new System.Drawing.Size(10, 58);
             this.pictureBox_div_5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -213,7 +214,7 @@
             // 
             this.pictureBox_div_4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox_div_4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_div_4.Image")));
-            this.pictureBox_div_4.Location = new System.Drawing.Point(483, 3);
+            this.pictureBox_div_4.Location = new System.Drawing.Point(490, 3);
             this.pictureBox_div_4.Name = "pictureBox_div_4";
             this.pictureBox_div_4.Size = new System.Drawing.Size(10, 58);
             this.pictureBox_div_4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -228,7 +229,7 @@
             this.panel_cab_notificacoes.Controls.Add(this.pictureBox_cab_notificacao_1);
             this.panel_cab_notificacoes.Location = new System.Drawing.Point(499, 3);
             this.panel_cab_notificacoes.Name = "panel_cab_notificacoes";
-            this.panel_cab_notificacoes.Size = new System.Drawing.Size(132, 58);
+            this.panel_cab_notificacoes.Size = new System.Drawing.Size(147, 58);
             this.panel_cab_notificacoes.TabIndex = 7;
             // 
             // pictureBox_cab_notificacao_3
@@ -263,19 +264,18 @@
             // 
             // panel_cab_usuario
             // 
-            this.panel_cab_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_cab_usuario.Controls.Add(this.lbl_nome_usuario);
             this.panel_cab_usuario.Controls.Add(this.lbl_usuario);
             this.panel_cab_usuario.Location = new System.Drawing.Point(374, 3);
             this.panel_cab_usuario.Name = "panel_cab_usuario";
-            this.panel_cab_usuario.Size = new System.Drawing.Size(103, 58);
+            this.panel_cab_usuario.Size = new System.Drawing.Size(119, 58);
             this.panel_cab_usuario.TabIndex = 6;
             // 
             // lbl_nome_usuario
             // 
             this.lbl_nome_usuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_nome_usuario.AutoSize = true;
-            this.lbl_nome_usuario.Location = new System.Drawing.Point(45, 23);
+            this.lbl_nome_usuario.Location = new System.Drawing.Point(53, 23);
             this.lbl_nome_usuario.Name = "lbl_nome_usuario";
             this.lbl_nome_usuario.Size = new System.Drawing.Size(95, 13);
             this.lbl_nome_usuario.TabIndex = 2;
@@ -285,7 +285,7 @@
             // 
             this.lbl_usuario.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Location = new System.Drawing.Point(3, 23);
+            this.lbl_usuario.Location = new System.Drawing.Point(11, 23);
             this.lbl_usuario.Name = "lbl_usuario";
             this.lbl_usuario.Size = new System.Drawing.Size(46, 13);
             this.lbl_usuario.TabIndex = 1;
@@ -295,7 +295,7 @@
             // 
             this.pictureBox_div_3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox_div_3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_div_3.Image")));
-            this.pictureBox_div_3.Location = new System.Drawing.Point(358, 3);
+            this.pictureBox_div_3.Location = new System.Drawing.Point(365, 3);
             this.pictureBox_div_3.Name = "pictureBox_div_3";
             this.pictureBox_div_3.Size = new System.Drawing.Size(10, 58);
             this.pictureBox_div_3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -304,27 +304,26 @@
             // 
             // panel_cab_camara
             // 
-            this.panel_cab_camara.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel_cab_camara.Controls.Add(this.lbl_nome_camara);
-            this.panel_cab_camara.Location = new System.Drawing.Point(280, 3);
+            this.panel_cab_camara.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel_cab_camara.Controls.Add(this.lbl_nome_cidade);
+            this.panel_cab_camara.Location = new System.Drawing.Point(279, 3);
             this.panel_cab_camara.Name = "panel_cab_camara";
-            this.panel_cab_camara.Size = new System.Drawing.Size(72, 58);
+            this.panel_cab_camara.Size = new System.Drawing.Size(88, 58);
             this.panel_cab_camara.TabIndex = 4;
             // 
-            // lbl_nome_camara
+            // lbl_nome_cidade
             // 
-            this.lbl_nome_camara.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_nome_camara.Location = new System.Drawing.Point(3, 23);
-            this.lbl_nome_camara.Name = "lbl_nome_camara";
-            this.lbl_nome_camara.Size = new System.Drawing.Size(189, 13);
-            this.lbl_nome_camara.TabIndex = 1;
-            this.lbl_nome_camara.Text = "CÂMARA MUNICIPAL DE JI-PARANÁ";
+            this.lbl_nome_cidade.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbl_nome_cidade.Location = new System.Drawing.Point(11, 23);
+            this.lbl_nome_cidade.Name = "lbl_nome_cidade";
+            this.lbl_nome_cidade.Size = new System.Drawing.Size(189, 13);
+            this.lbl_nome_cidade.TabIndex = 1;
+            this.lbl_nome_cidade.Text = "CÂMARA MUNICIPAL DE JI-PARANÁ";
             // 
             // pictureBox_div_1
             // 
-            this.pictureBox_div_1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox_div_1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_div_1.Image")));
-            this.pictureBox_div_1.Location = new System.Drawing.Point(172, 3);
+            this.pictureBox_div_1.Location = new System.Drawing.Point(173, 3);
             this.pictureBox_div_1.Name = "pictureBox_div_1";
             this.pictureBox_div_1.Size = new System.Drawing.Size(7, 58);
             this.pictureBox_div_1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -333,9 +332,8 @@
             // 
             // pictureBox_div_2
             // 
-            this.pictureBox_div_2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox_div_2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox_div_2.Image")));
-            this.pictureBox_div_2.Location = new System.Drawing.Point(270, 3);
+            this.pictureBox_div_2.Location = new System.Drawing.Point(271, 3);
             this.pictureBox_div_2.Name = "pictureBox_div_2";
             this.pictureBox_div_2.Size = new System.Drawing.Size(7, 58);
             this.pictureBox_div_2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -355,31 +353,31 @@
             // panel_roda_1
             // 
             this.panel_roda_1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_1.Location = new System.Drawing.Point(0, 440);
+            this.panel_roda_1.Location = new System.Drawing.Point(0, 504);
             this.panel_roda_1.Name = "panel_roda_1";
-            this.panel_roda_1.Size = new System.Drawing.Size(866, 10);
+            this.panel_roda_1.Size = new System.Drawing.Size(881, 10);
             this.panel_roda_1.TabIndex = 1;
             // 
             // panel_roda_2
             // 
             this.panel_roda_2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_2.Location = new System.Drawing.Point(0, 430);
+            this.panel_roda_2.Location = new System.Drawing.Point(0, 494);
             this.panel_roda_2.Name = "panel_roda_2";
-            this.panel_roda_2.Size = new System.Drawing.Size(866, 10);
+            this.panel_roda_2.Size = new System.Drawing.Size(881, 10);
             this.panel_roda_2.TabIndex = 2;
             // 
             // panel_roda_3
             // 
-            this.panel_roda_3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel_roda_3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel_roda_3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_3.Location = new System.Drawing.Point(0, 420);
+            this.panel_roda_3.Location = new System.Drawing.Point(0, 484);
             this.panel_roda_3.Name = "panel_roda_3";
-            this.panel_roda_3.Size = new System.Drawing.Size(866, 10);
+            this.panel_roda_3.Size = new System.Drawing.Size(881, 10);
             this.panel_roda_3.TabIndex = 3;
+            this.panel_roda_3.Visible = false;
             // 
             // menuStrip_principal
             // 
-            this.menuStrip_principal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.menuStrip_principal.AutoSize = false;
             this.menuStrip_principal.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip_principal.Dock = System.Windows.Forms.DockStyle.None;
@@ -391,11 +389,12 @@
             this.menu_opcoes_4,
             this.menu_opcoes_5,
             this.menu_opcoes_6});
-            this.menuStrip_principal.Location = new System.Drawing.Point(2, 87);
+            this.menuStrip_principal.Location = new System.Drawing.Point(9, 231);
             this.menuStrip_principal.Name = "menuStrip_principal";
-            this.menuStrip_principal.Size = new System.Drawing.Size(862, 60);
+            this.menuStrip_principal.Size = new System.Drawing.Size(906, 60);
             this.menuStrip_principal.TabIndex = 4;
             this.menuStrip_principal.Text = "menuStrip1";
+            this.menuStrip_principal.Visible = false;
             // 
             // menu_opcoes_0
             // 
@@ -488,39 +487,38 @@
             // 
             // panel_cab_2
             // 
-            this.panel_cab_2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_cab_2.Location = new System.Drawing.Point(0, 64);
+            this.panel_cab_2.Location = new System.Drawing.Point(9, 189);
             this.panel_cab_2.Name = "panel_cab_2";
-            this.panel_cab_2.Size = new System.Drawing.Size(866, 10);
+            this.panel_cab_2.Size = new System.Drawing.Size(901, 10);
             this.panel_cab_2.TabIndex = 5;
             // 
             // panel_cab_3
             // 
-            this.panel_cab_3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_cab_3.Location = new System.Drawing.Point(0, 74);
+            this.panel_cab_3.Location = new System.Drawing.Point(9, 205);
             this.panel_cab_3.Name = "panel_cab_3";
-            this.panel_cab_3.Size = new System.Drawing.Size(866, 10);
+            this.panel_cab_3.Size = new System.Drawing.Size(901, 10);
             this.panel_cab_3.TabIndex = 6;
             // 
             // panel_menu_inferior
             // 
-            this.panel_menu_inferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(244)))), ((int)(((byte)(253)))));
+            this.panel_menu_inferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel_menu_inferior.Controls.Add(this.panel_ultimo_backup);
             this.panel_menu_inferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_menu_inferior.Location = new System.Drawing.Point(0, 349);
+            this.panel_menu_inferior.Location = new System.Drawing.Point(0, 413);
             this.panel_menu_inferior.Name = "panel_menu_inferior";
-            this.panel_menu_inferior.Size = new System.Drawing.Size(866, 71);
+            this.panel_menu_inferior.Size = new System.Drawing.Size(881, 71);
             this.panel_menu_inferior.TabIndex = 7;
             this.panel_menu_inferior.Visible = false;
             // 
             // panel_ultimo_backup
             // 
             this.panel_ultimo_backup.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel_ultimo_backup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel_ultimo_backup.Controls.Add(this.pictureBox_backup);
             this.panel_ultimo_backup.Controls.Add(this.lbl_data_backup);
             this.panel_ultimo_backup.Controls.Add(this.lbl_dia);
             this.panel_ultimo_backup.Controls.Add(this.lbl_ultimo_backup);
-            this.panel_ultimo_backup.Location = new System.Drawing.Point(637, 3);
+            this.panel_ultimo_backup.Location = new System.Drawing.Point(644, 3);
             this.panel_ultimo_backup.Name = "panel_ultimo_backup";
             this.panel_ultimo_backup.Size = new System.Drawing.Size(219, 62);
             this.panel_ultimo_backup.TabIndex = 0;
@@ -571,9 +569,9 @@
             // 
             this.panel_menu_lateral.AutoScroll = true;
             this.panel_menu_lateral.Controls.Add(this.panel_exibir_ao_publico);
-            this.panel_menu_lateral.Location = new System.Drawing.Point(694, 101);
+            this.panel_menu_lateral.Location = new System.Drawing.Point(693, 221);
             this.panel_menu_lateral.Name = "panel_menu_lateral";
-            this.panel_menu_lateral.Size = new System.Drawing.Size(162, 242);
+            this.panel_menu_lateral.Size = new System.Drawing.Size(162, 172);
             this.panel_menu_lateral.TabIndex = 8;
             // 
             // panel_exibir_ao_publico
@@ -614,11 +612,28 @@
             this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip1.ToolTipTitle = "Menu";
             // 
+            // timer_hora
+            // 
+            this.timer_hora.Interval = 1000;
+            this.timer_hora.Tick += new System.EventHandler(this.timer_hora_Tick);
+            // 
+            // mzSombraPanel1
+            // 
+            this.mzSombraPanel1.AddControl = null;
+            this.mzSombraPanel1.Location = new System.Drawing.Point(12, 84);
+            this.mzSombraPanel1.Name = "mzSombraPanel1";
+            this.mzSombraPanel1.Padding = new System.Windows.Forms.Padding(10);
+            this.mzSombraPanel1.Size = new System.Drawing.Size(847, 100);
+            this.mzSombraPanel1.TabIndex = 9;
+            this.mzSombraPanel1.TipoDeSombra = MZControls.MZSombraPanel.ShadowsPanel.Central;
+            // 
             // Form_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 450);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(881, 514);
+            this.Controls.Add(this.mzSombraPanel1);
             this.Controls.Add(this.panel_menu_lateral);
             this.Controls.Add(this.panel_menu_inferior);
             this.Controls.Add(this.panel_cab_3);
@@ -629,10 +644,10 @@
             this.Controls.Add(this.panel_cab_1);
             this.Controls.Add(this.menuStrip_principal);
             this.MainMenuStrip = this.menuStrip_principal;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form_principal";
             this.ShowIcon = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_principal_FormClosing);
             this.Load += new System.EventHandler(this.Form_principal_Load);
             this.panel_cab_1.ResumeLayout(false);
@@ -690,7 +705,7 @@
         private System.Windows.Forms.Panel panel_cab_camara;
         private System.Windows.Forms.Label lbl_suporte;
         private System.Windows.Forms.Label lbl_usuario;
-        private System.Windows.Forms.Label lbl_nome_camara;
+        private System.Windows.Forms.Label lbl_nome_cidade;
         private System.Windows.Forms.Panel panel_cab_2;
         private System.Windows.Forms.Panel panel_cab_3;
         private System.Windows.Forms.Label lbl_nome_usuario;
@@ -718,6 +733,8 @@
         private System.Windows.Forms.PictureBox pictureBox_cab_notificacao_1;
         private System.Windows.Forms.Panel panel_cab_versao;
         private System.Windows.Forms.Label lbl_versao;
+        private System.Windows.Forms.Timer timer_hora;
+        private MZControls.MZSombraPanel mzSombraPanel1;
     }
 }
 

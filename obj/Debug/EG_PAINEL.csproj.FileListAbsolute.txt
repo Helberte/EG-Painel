@@ -35,7 +35,6 @@ C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.pdb
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.pdb
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csprojAssemblyReference.cache
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_camara.resources
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_de_partido.resources
@@ -68,3 +67,27 @@ C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe
 C:\Helberte\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.pdb
 C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formularios.form_acessos.resources
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formularios.form_acessos.resources
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.AssemblyReference.cache
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.SuggestedBindingRedirects.cache
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.pdb
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.AssemblyReference.cache
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.SuggestedBindingRedirects.cache
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formularios.form_acessos.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_camara.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_de_partido.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_funcoes.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_participante.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_projeto.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.Form_discusao.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formulario_login_inicial.Form_login_inicial.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Properties.Resources.resources
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.GenerateResource.cache
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.CoreCompileInputs.cache
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.exe
+D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.pdb
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\MZControls.dll
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.CopyComplete
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\FontAwesome.Sharp.dll
