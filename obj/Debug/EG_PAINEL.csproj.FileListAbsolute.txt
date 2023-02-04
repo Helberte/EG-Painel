@@ -91,3 +91,7 @@ D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.pdb
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\MZControls.dll
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.CopyComplete
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\FontAwesome.Sharp.dll
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe.manifest
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.application
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.exe.manifest
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.application

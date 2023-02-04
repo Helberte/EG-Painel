@@ -21,6 +21,9 @@ using EGP_Tela_Inicial_04_02.Classes;
 using EGP_Tela_Inicial_04_02.Formulario_login_inicial;
 using EGP_Tela_Inicial_04_02.Formularios;
 using MZControls;
+using FontAwesome.Sharp;
+using System.Drawing.Drawing2D;
+using System.Windows.Media;
 
 namespace EGP_Tela_Inicial_04_02
 {
@@ -35,6 +38,9 @@ namespace EGP_Tela_Inicial_04_02
         Label lbl_painel_operador;
         Label lbl_cab_hora;
 
+        IconPictureBox btn_close_form;
+        IconPictureBox btn_minimize_form;
+        IconPictureBox btn_maximize_form;
 
 
         string[] nomes_menu;
@@ -52,9 +58,8 @@ namespace EGP_Tela_Inicial_04_02
         public Form_principal()
         {         
             InitializeComponent();
-
-            panel_cab_1.MouseDown += Panel_cab_1_MouseDown;
-           
+            this.Opacity = 0;
+            panel_cab_1.MouseDown += Panel_cab_1_MouseDown;           
         }
 
         // ESTUDAR A QUESTÃO DOS MDI INTERFACE DE MULTIPLAS TELAS
@@ -84,7 +89,8 @@ namespace EGP_Tela_Inicial_04_02
             mostra_menu_lateral.Image = Image.FromFile("exibir_ao_publico_esquerda.png");
             mostra_menu_lateral.SizeMode = PictureBoxSizeMode.StretchImage;
             timer_hora.Start();
-            
+
+            this.Opacity = 1;
         }
 
         private void Mostra_menu_lateral_MouseLeave(object sender, EventArgs e)
@@ -131,11 +137,12 @@ namespace EGP_Tela_Inicial_04_02
             //https://stackoverflow.com/questions/23114282/are-we-able-to-set-opacity-of-the-background-image-of-a-panel
             //https://www.codeproject.com/Tips/201129/Change-Opacity-of-Image-in-C
         }
+               
         void DesenhaTelaInicial()
         {
             // configurações da janela principal
 
-            this.BackColor = Color.FromArgb(255, 255, 255);
+            this.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
@@ -143,14 +150,17 @@ namespace EGP_Tela_Inicial_04_02
             this.MinimumSize = new Size(1000, 500);
             this.BackgroundImage = SetImageOpacity(Image.FromFile(@"imagens\fundo_camara.png"), 0.25F);
             this.BackgroundImageLayout = ImageLayout.Center;
-       
+           
             lbl_painel_operador = new Label();
             lbl_cab_hora = new Label();
+            btn_minimize_form = new IconPictureBox();
+            btn_maximize_form = new IconPictureBox();
+            btn_close_form= new IconPictureBox();
 
             // cabeçalho, logos etc
 
             panel_cab_1.Height = 50;
-            panel_cab_1.BackColor = Color.FromArgb(255, 255, 255);
+            panel_cab_1.BackColor = System.Drawing.Color.FromArgb(255, 255, 255);
             panel_cab_1.AutoScroll = false;
 
 
@@ -160,15 +170,15 @@ namespace EGP_Tela_Inicial_04_02
 
             panel_cab_1.Controls.Add(lbl_painel_operador);
 
-            lbl_painel_operador.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
-            lbl_painel_operador.ForeColor = Color.FromArgb(0, 120, 111);
+            lbl_painel_operador.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            lbl_painel_operador.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
             lbl_painel_operador.Location = new Point(15, (panel_cab_1.Height / 2) - (lbl_painel_operador.Height / 2));
 
             // usuario
             lbl_usuario.AutoSize = true;
             lbl_usuario.Text = "Usuário:";
-            lbl_usuario.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Bold);
-            lbl_usuario.ForeColor = Color.FromArgb(0, 120, 111);
+            lbl_usuario.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            lbl_usuario.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
            
 
             lbl_nome_usuario.AutoSize = true;
@@ -196,8 +206,8 @@ namespace EGP_Tela_Inicial_04_02
                 lbl_nome_usuario.Text = Class_gerencia_login.Nome_Usuario;
             #endregion
 
-            lbl_nome_usuario.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
-            lbl_nome_usuario.ForeColor = Color.FromArgb(46, 84, 123);
+            lbl_nome_usuario.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            lbl_nome_usuario.ForeColor = System.Drawing.Color.FromArgb(46, 84, 123);
 
             panel_cab_usuario.Left = lbl_painel_operador.Width + lbl_painel_operador.Left + 30;
             panel_cab_usuario.Width = lbl_usuario.Width + lbl_nome_usuario.Width + 20;
@@ -224,8 +234,8 @@ namespace EGP_Tela_Inicial_04_02
             data = DateTime.Now;
             
             lbl_nome_cidade.Text = "Ji-Paraná - RO " + String.Format("{0: dd}", data).Trim() + "/" + String.Format("{0: MM}", data).Trim() + "/" + String.Format("{0: yyyy}", data).Trim();
-            lbl_nome_cidade.Font = new Font(FontFamily.GenericSansSerif, 10, FontStyle.Regular);
-            lbl_nome_cidade.ForeColor = Color.FromArgb(0, 120, 111);
+            lbl_nome_cidade.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            lbl_nome_cidade.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
 
             panel_cab_camara.Width = lbl_nome_cidade.Width + 25;
             panel_cab_camara.Height = panel_cab_1.Height;
@@ -240,8 +250,8 @@ namespace EGP_Tela_Inicial_04_02
 
             panel_cab_1.Controls.Add(lbl_cab_hora);
 
-            lbl_cab_hora.Font = new Font(FontFamily.GenericSansSerif, 15, FontStyle.Regular);
-            lbl_cab_hora.ForeColor = Color.FromArgb(0, 120, 111);
+            lbl_cab_hora.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 15, FontStyle.Regular);
+            lbl_cab_hora.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
             lbl_cab_hora.Location = new Point((panel_cab_1.Width - lbl_cab_hora.Width) - 15, (panel_cab_1.Height / 2) - (lbl_cab_hora.Height / 2));
             lbl_cab_hora.Anchor = AnchorStyles.Top | AnchorStyles.Right;
 
@@ -249,7 +259,12 @@ namespace EGP_Tela_Inicial_04_02
             panel_cab_camara.Left = panel_cab_1.Width - lbl_cab_hora.Width - panel_cab_camara.Width - 35;
             panel_cab_camara.Location = new Point(panel_cab_camara.Left, 0);
 
-            
+
+            // logo da camara no panel menu
+            pictureBox_logo_camara.BackgroundImage = Image.FromFile(@"imagens\logo_camara.png");
+            pictureBox_logo_camara.BackgroundImageLayout = ImageLayout.Zoom;
+            pictureBox_logo_camara.Width = 168;
+
             // desativa os componentes da versão anterior
 
             pictureBox_div_1.Visible = false;
@@ -438,11 +453,11 @@ namespace EGP_Tela_Inicial_04_02
 
 
             panel_exibir_ao_publico.Height = 38;
-            panel_exibir_ao_publico.BackColor = Color.FromArgb(239, 239, 239);
+            panel_exibir_ao_publico.BackColor = System.Drawing.Color.FromArgb(239, 239, 239);
 
             lbl_exibir_ao_publico.Text = "EXIBIR AO PÚBLICO";
-            lbl_exibir_ao_publico.Font = new Font(FontFamily.GenericSansSerif, 8, FontStyle.Bold);
-            lbl_exibir_ao_publico.ForeColor = Color.FromArgb(46, 84, 123);
+            lbl_exibir_ao_publico.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 8, FontStyle.Bold);
+            lbl_exibir_ao_publico.ForeColor = System.Drawing.Color.FromArgb(46, 84, 123);
 
             pictureBox_exibir_ao_publico.Width = 18;
             pictureBox_exibir_ao_publico.Height = 18;
@@ -455,8 +470,9 @@ namespace EGP_Tela_Inicial_04_02
             panel_menu_lateral.Width = lbl_exibir_ao_publico.Width + pictureBox_exibir_ao_publico.Width + 55;
             panel_menu_lateral.Left = this.Width - panel_menu_lateral.Width;
             panel_menu_lateral.Location = new Point(panel_menu_lateral.Left, this.Height - panel_menu_lateral.Height);
-            panel_menu_lateral.BackColor = Color.FromArgb(234, 244, 253);
+            panel_menu_lateral.BackColor = System.Drawing.Color.FromArgb(234, 244, 253);
             panel_menu_lateral.BorderStyle = BorderStyle.FixedSingle;
+            panel_menu_lateral.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
 
             pictureBox_exibir_ao_publico.Left = (panel_menu_lateral.Width / 2) - ((lbl_exibir_ao_publico.Width + pictureBox_exibir_ao_publico.Width) / 2);
             pictureBox_exibir_ao_publico.Location = new Point(pictureBox_exibir_ao_publico.Left, (panel_exibir_ao_publico.Height / 2) - (pictureBox_exibir_ao_publico.Height / 2));
@@ -466,26 +482,91 @@ namespace EGP_Tela_Inicial_04_02
 
             AdicionandoItensMenuLateral(panel_menu_lateral);
 
-            // menu
 
-            mzSombraPanel1.TipoDeSombra = MZSombraPanel.ShadowsPanel.Desplasada;
-            mzSombraPanel1.Dock = DockStyle.None;
-            mzSombraPanel1.Width = this.Width - 18;
-            mzSombraPanel1.Location = new Point(0, panel_cab_1.Height);
-            mzSombraPanel1.BackColor = Color.FromArgb(247, 247, 247);
+            // barra de menu rápido superior
 
+            mzSombraPanel_menu_superior.TipoDeSombra = MZSombraPanel.ShadowsPanel.Desplasada;
+            mzSombraPanel_menu_superior.Dock = DockStyle.None;
+            mzSombraPanel_menu_superior.Width = this.Width - 25;
+            mzSombraPanel_menu_superior.Height = 89;
+            mzSombraPanel_menu_superior.Location = new Point(8, panel_cab_1.Height);
+            mzSombraPanel_menu_superior.BackColor = System.Drawing.Color.FromArgb(247, 247, 247);
+            mzSombraPanel_menu_superior.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
 
+            // menu suspenso da versão anterior
             menuStrip_principal.Left = 0;
             menuStrip_principal.Height = 50;
             menuStrip_principal.Width = this.Width;
             menuStrip_principal.Location = new Point(menuStrip_principal.Left, 180);
-            menuStrip_principal.BackColor = Color.FromArgb(234, 244, 253);
+            menuStrip_principal.BackColor = System.Drawing.Color.FromArgb(234, 244, 253);
             menuStrip_principal.Renderer = new MyRenderer();
 
             // analisando o tamanho da lista
 
             AdicionaMenus();
-                             
+
+
+
+            // botão minimizar
+            btn_minimize_form.IconChar = IconChar.WindowMinimize;
+            btn_minimize_form.BackgroundImageLayout = ImageLayout.Center;
+            btn_minimize_form.SizeMode = PictureBoxSizeMode.StretchImage;
+            btn_minimize_form.Width = 30;
+            btn_minimize_form.Height = 30;
+            btn_minimize_form.IconFont = IconFont.Solid;
+            btn_minimize_form.Padding = new Padding(0, 0, 0, 8);
+            btn_minimize_form.IconColor = System.Drawing.Color.FromArgb(46, 84, 123);
+            this.Controls.Add(btn_minimize_form);
+            btn_minimize_form.Location = new Point(15, this.Height - btn_minimize_form.Height - (btn_minimize_form.Height / 2));
+            btn_minimize_form.BringToFront();
+            btn_minimize_form.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+            btn_minimize_form.Click += Btn_minimize_form_Click;
+
+            // botão maximizar
+            btn_maximize_form.IconChar = IconChar.WindowMaximize;
+            btn_maximize_form.BackgroundImageLayout = ImageLayout.Center;
+            btn_maximize_form.SizeMode = PictureBoxSizeMode.StretchImage;
+            btn_maximize_form.Width = 30;
+            btn_maximize_form.Height = 30;
+            btn_maximize_form.IconFont = IconFont.Solid;
+            btn_maximize_form.IconColor = System.Drawing.Color.FromArgb(46, 84, 123);
+            this.Controls.Add(btn_maximize_form);
+            btn_maximize_form.Location = new Point(btn_minimize_form.Left + btn_minimize_form.Width + 5, this.Height - btn_maximize_form.Height - (btn_maximize_form.Height / 2));
+            btn_maximize_form.BringToFront();
+            btn_maximize_form.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+            btn_maximize_form.Click += Btn_maximize_form_Click;
+
+            // botão fechar
+            btn_close_form.IconChar = IconChar.WindowClose;
+            btn_close_form.BackgroundImageLayout = ImageLayout.Center;
+            btn_close_form.SizeMode = PictureBoxSizeMode.StretchImage;
+            btn_close_form.Width = 30;
+            btn_close_form.Height = 30;
+            btn_close_form.IconFont = IconFont.Solid;
+            btn_close_form.IconColor = System.Drawing.Color.FromArgb(46, 84, 123);
+            this.Controls.Add(btn_close_form);
+            btn_close_form.Location = new Point(btn_maximize_form.Left + btn_maximize_form.Width + 5, this.Height - btn_close_form.Height - (btn_close_form.Height / 2));
+            btn_close_form.BringToFront();
+            btn_close_form.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
+            btn_close_form.Click += Btn_close_form_Click;
+        }
+
+        private void Btn_close_form_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void Btn_maximize_form_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void Btn_minimize_form_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         void AdicionaMenus()
@@ -591,7 +672,7 @@ namespace EGP_Tela_Inicial_04_02
             List<ToolStripSeparator> separadores = new List<ToolStripSeparator>();
             List<ToolStripMenuItem> itens = new List<ToolStripMenuItem>();
 
-            FontFamily fontFamily = new FontFamily("calibri");
+            System.Drawing.FontFamily fontFamily = new System.Drawing.FontFamily("calibri");
 
             for (int i = 0; i < nomes.Count; i++)
             {
@@ -682,9 +763,9 @@ namespace EGP_Tela_Inicial_04_02
             menu.Text = nomeMenu;
             menu.Width = 150;
             menu.Height = 49;
-            menu.ForeColor = Color.FromArgb(47, 47, 47);
+            menu.ForeColor = System.Drawing.Color.FromArgb(47, 47, 47);
             
-            FontFamily fontFamily = new FontFamily("calibri");
+            System.Drawing.FontFamily fontFamily = new System.Drawing.FontFamily("calibri");
             menu.Font = new Font(fontFamily, 10, FontStyle.Bold);
         }
 
@@ -786,7 +867,7 @@ namespace EGP_Tela_Inicial_04_02
                
                 panels[i].Height = 85;
                 panels[i].Width = 95;
-                panels[i].BackColor = Color.FromArgb(215, 231, 246);
+                panels[i].BackColor = System.Drawing.Color.FromArgb(215, 231, 246);
                 panels[i].BorderStyle = BorderStyle.None;
                 panels[i].BackgroundImage = images[i];
                 panels[i].BackgroundImageLayout = ImageLayout.Stretch;
@@ -919,17 +1000,17 @@ namespace EGP_Tela_Inicial_04_02
 
         private class MyColors : ProfessionalColorTable
         {
-            public override Color MenuItemSelected
+            public override System.Drawing.Color MenuItemSelected
             {
-                get { return Color.FromArgb(234, 244, 253); }
+                get { return System.Drawing.Color.FromArgb(234, 244, 253); }
             }
-            public override Color MenuItemSelectedGradientBegin
+            public override System.Drawing.Color MenuItemSelectedGradientBegin
             {
-                get { return Color.FromArgb(234, 244, 253); }
+                get { return System.Drawing.Color.FromArgb(234, 244, 253); }
             }
-            public override Color MenuItemSelectedGradientEnd
+            public override System.Drawing.Color MenuItemSelectedGradientEnd
             {
-                get { return Color.FromArgb(234, 244, 253); }
+                get { return System.Drawing.Color.FromArgb(234, 244, 253); }
             }
         }
 
