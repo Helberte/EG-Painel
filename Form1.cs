@@ -501,8 +501,11 @@ namespace EGP_Tela_Inicial_04_02
             menuStrip_principal.BackColor = System.Drawing.Color.FromArgb(234, 244, 253);
             menuStrip_principal.Renderer = new MyRenderer();
 
-            // analisando o tamanho da lista
 
+            // adiciona os menus rápidos
+            AdicionaMenusRapidos();
+
+            // lista de menus antiga
             AdicionaMenus();
 
 
@@ -550,6 +553,13 @@ namespace EGP_Tela_Inicial_04_02
             btn_close_form.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
             btn_close_form.Click += Btn_close_form_Click;
         }
+
+        // 03/02/2023
+        void AdicionaMenusRapidos()
+        {
+
+        }
+
 
         private void Btn_close_form_Click(object sender, EventArgs e)
         {
@@ -620,7 +630,7 @@ namespace EGP_Tela_Inicial_04_02
             {
                 while (contador < array_lista.Length)
                 {
-                    if (array_lista[contador].StartsWith("0"))
+                    if (array_lista[contador].StartsWith("0")) // irá criar uma lista dos itens que estão na posição 0
                         itens_menu_opcoes_0_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
                     else if (array_lista[contador].StartsWith("1"))
                         itens_menu_opcoes_1_nomes.Add(array_lista[contador].Substring(array_lista[contador].IndexOf('_') + 1, array_lista[contador].Length - 2));
