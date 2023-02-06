@@ -31,6 +31,9 @@ namespace EGP_Tela_Inicial_04_02
     {
         int left_panel;
         PictureBox mostra_menu_lateral;
+        PictureBox opc_menu_rapido;
+        
+
         class_verifica_acessos acessos;
         List<string> nomes = new List<string>();
         DateTime data;
@@ -557,9 +560,82 @@ namespace EGP_Tela_Inicial_04_02
         // 03/02/2023
         void AdicionaMenusRapidos()
         {
+            string menus_rapidos = acessos.RetornaMenusRapidos();
 
+            if (!string.IsNullOrEmpty(menus_rapidos))
+            {
+                string[] menu_rapido = menus_rapidos.Split('\n');
+                string nome_imagem = "";
+                string nome_substring = "";
+                int espaco_entre_categorias = 0;
+                int cont_categoria = 1;
+                 
+                //Entidade;entidade;CADASTRO
+                nome_substring = menu_rapido[0].Substring(menu_rapido[0].IndexOf(";") + 1);
+
+                //entidade;CADASTRO
+                string categoria_anterior = nome_substring.Substring(nome_substring.IndexOf(";") + 1);
+                //CADASTRO
+
+                for (int i = 0; i < menu_rapido.Length - 1; i++)
+                {
+
+                    opc_menu_rapido = new PictureBox();
+                    opc_menu_rapido.Height = 67;
+                    opc_menu_rapido.Width = 67;
+                    opc_menu_rapido.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+                    opc_menu_rapido.BackColor = System.Drawing.Color.Transparent;
+
+                    nome_substring = menu_rapido[i].Substring(menu_rapido[i].IndexOf(";") + 1);
+                    nome_imagem = nome_substring.Substring(0, nome_substring.IndexOf(";"));
+
+                    opc_menu_rapido.Image = Image.FromFile(@"imagens\iconesSuperiores\" + nome_imagem + ".png");
+                    opc_menu_rapido.SizeMode = PictureBoxSizeMode.Zoom;
+                    opc_menu_rapido.Tag = menu_rapido[i].Substring(0, menu_rapido[i].IndexOf(";"));
+                    opc_menu_rapido.Click += Opc_menu_rapido_Click;
+
+                    mzSombraPanel_menu_superior.Controls.Add(opc_menu_rapido);
+
+                    // compara a categoria anterior com a atual
+                    nome_substring = menu_rapido[i].Substring(menu_rapido[i].IndexOf(";") + 1);
+                    if (categoria_anterior == nome_substring.Substring(nome_substring.IndexOf(";") + 1))
+                    {
+                        if (espaco_entre_categorias != 0)
+                        {
+                            opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + espaco_entre_categorias, 7);
+                        }
+                        else
+                        {
+                            opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + 5 + espaco_entre_categorias, 7);
+                        }                                                
+                    }
+                    else
+                    {
+                        opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + (25 * cont_categoria), 7);
+                        
+                        espaco_entre_categorias = 25 * cont_categoria;
+                        cont_categoria++;
+                    }
+                                        
+
+                    toolTip1.IsBalloon = false;
+                    toolTip1.ToolTipIcon = ToolTipIcon.Info;
+                    toolTip1.ToolTipTitle = "Menu";
+                    toolTip1.SetToolTip(opc_menu_rapido, menu_rapido[i].Substring(0, menu_rapido[i].IndexOf(";")));
+
+                    nome_substring = menu_rapido[i].Substring(menu_rapido[i].IndexOf(";") + 1);
+                    categoria_anterior = nome_substring.Substring(nome_substring.IndexOf(";") + 1);
+
+                }
+            } 
+                   
         }
 
+        private void Opc_menu_rapido_Click(object sender, EventArgs e)
+        {
+            PictureBox botao = sender as PictureBox;
+            MessageBox.Show(botao.Tag.ToString());
+        }
 
         private void Btn_close_form_Click(object sender, EventArgs e)
         {
