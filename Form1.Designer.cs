@@ -80,6 +80,7 @@
             this.timer_hora = new System.Windows.Forms.Timer(this.components);
             this.mzSombraPanel_menu_superior = new MZControls.MZSombraPanel();
             this.pictureBox_logo_camara = new System.Windows.Forms.PictureBox();
+            this.mzSombraPanel_lateral_esquerda = new System.Windows.Forms.Panel();
             this.panel_cab_1.SuspendLayout();
             this.panel_cab_versao.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_div_6)).BeginInit();
@@ -356,7 +357,7 @@
             // panel_roda_1
             // 
             this.panel_roda_1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_1.Location = new System.Drawing.Point(0, 504);
+            this.panel_roda_1.Location = new System.Drawing.Point(0, 527);
             this.panel_roda_1.Name = "panel_roda_1";
             this.panel_roda_1.Size = new System.Drawing.Size(880, 10);
             this.panel_roda_1.TabIndex = 1;
@@ -364,7 +365,7 @@
             // panel_roda_2
             // 
             this.panel_roda_2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_2.Location = new System.Drawing.Point(0, 494);
+            this.panel_roda_2.Location = new System.Drawing.Point(0, 517);
             this.panel_roda_2.Name = "panel_roda_2";
             this.panel_roda_2.Size = new System.Drawing.Size(880, 10);
             this.panel_roda_2.TabIndex = 2;
@@ -373,7 +374,7 @@
             // 
             this.panel_roda_3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel_roda_3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_3.Location = new System.Drawing.Point(0, 484);
+            this.panel_roda_3.Location = new System.Drawing.Point(0, 507);
             this.panel_roda_3.Name = "panel_roda_3";
             this.panel_roda_3.Size = new System.Drawing.Size(880, 10);
             this.panel_roda_3.TabIndex = 3;
@@ -397,6 +398,7 @@
             this.menuStrip_principal.Size = new System.Drawing.Size(906, 60);
             this.menuStrip_principal.TabIndex = 4;
             this.menuStrip_principal.Text = "menuStrip1";
+            this.menuStrip_principal.Visible = false;
             // 
             // menu_opcoes_0
             // 
@@ -489,14 +491,14 @@
             // 
             // panel_cab_2
             // 
-            this.panel_cab_2.Location = new System.Drawing.Point(9, 189);
+            this.panel_cab_2.Location = new System.Drawing.Point(9, 168);
             this.panel_cab_2.Name = "panel_cab_2";
             this.panel_cab_2.Size = new System.Drawing.Size(901, 10);
             this.panel_cab_2.TabIndex = 5;
             // 
             // panel_cab_3
             // 
-            this.panel_cab_3.Location = new System.Drawing.Point(9, 205);
+            this.panel_cab_3.Location = new System.Drawing.Point(9, 179);
             this.panel_cab_3.Name = "panel_cab_3";
             this.panel_cab_3.Size = new System.Drawing.Size(901, 10);
             this.panel_cab_3.TabIndex = 6;
@@ -506,7 +508,7 @@
             this.panel_menu_inferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel_menu_inferior.Controls.Add(this.panel_ultimo_backup);
             this.panel_menu_inferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_menu_inferior.Location = new System.Drawing.Point(0, 413);
+            this.panel_menu_inferior.Location = new System.Drawing.Point(0, 436);
             this.panel_menu_inferior.Name = "panel_menu_inferior";
             this.panel_menu_inferior.Size = new System.Drawing.Size(880, 71);
             this.panel_menu_inferior.TabIndex = 7;
@@ -643,12 +645,21 @@
             this.pictureBox_logo_camara.TabIndex = 8;
             this.pictureBox_logo_camara.TabStop = false;
             // 
+            // mzSombraPanel_lateral_esquerda
+            // 
+            this.mzSombraPanel_lateral_esquerda.AutoScroll = true;
+            this.mzSombraPanel_lateral_esquerda.Location = new System.Drawing.Point(12, 206);
+            this.mzSombraPanel_lateral_esquerda.Name = "mzSombraPanel_lateral_esquerda";
+            this.mzSombraPanel_lateral_esquerda.Size = new System.Drawing.Size(187, 199);
+            this.mzSombraPanel_lateral_esquerda.TabIndex = 11;
+            // 
             // Form_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(880, 514);
+            this.ClientSize = new System.Drawing.Size(880, 537);
+            this.Controls.Add(this.mzSombraPanel_lateral_esquerda);
             this.Controls.Add(this.mzSombraPanel_menu_superior);
             this.Controls.Add(this.panel_menu_lateral);
             this.Controls.Add(this.panel_menu_inferior);
@@ -754,6 +765,7 @@
         private System.Windows.Forms.Timer timer_hora;
         private MZControls.MZSombraPanel mzSombraPanel_menu_superior;
         private System.Windows.Forms.PictureBox pictureBox_logo_camara;
+        private System.Windows.Forms.Panel mzSombraPanel_lateral_esquerda;
     }
 }
 

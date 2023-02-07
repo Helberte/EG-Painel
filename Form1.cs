@@ -32,10 +32,13 @@ namespace EGP_Tela_Inicial_04_02
         int left_panel;
         PictureBox mostra_menu_lateral;
         PictureBox opc_menu_rapido;
-        
+        Panel border_left_button;
 
         class_verifica_acessos acessos;
         List<string> nomes = new List<string>();
+        List<IconButton> lista_botoes_menu_lateral_esquerdo = new List<IconButton>();
+        List<Label> lista_labels_opcoes_menu_lateral_esquerdo = new List<Label>();
+
         DateTime data;
 
         Label lbl_painel_operador;
@@ -44,7 +47,9 @@ namespace EGP_Tela_Inicial_04_02
         IconPictureBox btn_close_form;
         IconPictureBox btn_minimize_form;
         IconPictureBox btn_maximize_form;
-
+        IconButton botao_lat_esquerda;
+        IconButton botao_ativo_esquerda;
+        IconPictureBox seta_baixo;
 
         string[] nomes_menu;
 
@@ -62,7 +67,25 @@ namespace EGP_Tela_Inicial_04_02
         {         
             InitializeComponent();
             this.Opacity = 0;
-            panel_cab_1.MouseDown += Panel_cab_1_MouseDown;           
+            panel_cab_1.MouseDown += Panel_cab_1_MouseDown;
+            border_left_button = new Panel();
+            seta_baixo = new IconPictureBox();  
+
+            border_left_button.Size = new Size(5, 55);
+            border_left_button.BackColor = System.Drawing.Color.FromArgb(0, 88, 255);
+
+            seta_baixo.Size = new Size(20, 20);
+            seta_baixo.IconChar = IconChar.ChevronDown;
+            seta_baixo.SizeMode = PictureBoxSizeMode.CenterImage;
+            seta_baixo.IconColor = System.Drawing.Color.FromArgb(0, 88, 255);
+            seta_baixo.IconSize = 22;
+            seta_baixo.BackColor = System.Drawing.Color.FromArgb(222,232,248);
+
+            mzSombraPanel_lateral_esquerda.Controls.Add(border_left_button);
+            mzSombraPanel_lateral_esquerda.Controls.Add(seta_baixo);
+
+            border_left_button.Visible = false;
+            seta_baixo.Visible = false;
         }
 
         // ESTUDAR A QUESTÃO DOS MDI INTERFACE DE MULTIPLAS TELAS
@@ -495,6 +518,7 @@ namespace EGP_Tela_Inicial_04_02
             mzSombraPanel_menu_superior.Location = new Point(8, panel_cab_1.Height);
             mzSombraPanel_menu_superior.BackColor = System.Drawing.Color.FromArgb(247, 247, 247);
             mzSombraPanel_menu_superior.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+            
 
             // menu suspenso da versão anterior
             menuStrip_principal.Left = 0;
@@ -505,8 +529,22 @@ namespace EGP_Tela_Inicial_04_02
             menuStrip_principal.Renderer = new MyRenderer();
 
 
+            // configurando mzSombraPanel lateral esquerda
+            //mzSombraPanel_lateral_esquerda.TipoDeSombra = MZSombraPanel.ShadowsPanel.Desplasada;
+            mzSombraPanel_lateral_esquerda.Width = 218;
+            mzSombraPanel_lateral_esquerda.Height = 470;
+            mzSombraPanel_lateral_esquerda.BackColor = System.Drawing.Color.FromArgb(247, 247, 247);
+            mzSombraPanel_lateral_esquerda.Location = new Point(8, mzSombraPanel_menu_superior.Top + mzSombraPanel_menu_superior.Height + 10);
+            ArredondaCantos(mzSombraPanel_lateral_esquerda);
+            mzSombraPanel_lateral_esquerda.Anchor = AnchorStyles.Top | AnchorStyles.Left;
+
+
             // adiciona os menus rápidos
             AdicionaMenusRapidos();
+
+            // adiciona menus laterais gerais
+            AdicionaMenuLateralEsquerda();
+
 
             // lista de menus antiga
             AdicionaMenus();
@@ -557,6 +595,167 @@ namespace EGP_Tela_Inicial_04_02
             btn_close_form.Click += Btn_close_form_Click;
         }
 
+        void AdicionaMenuLateralEsquerda()
+        {
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Cadastros", 0, 0, IconChar.Home));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Registros", 1, 1, IconChar.ChartSimple));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Acessar", 2, 2, IconChar.Envelope));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Exibir no Painel", 3, 3, IconChar.FileLines));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Configurações", 4, 4, IconChar.Gear));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Relatórios", 5, 5, IconChar.Clipboard));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Ajuda", 6, 6, IconChar.CircleQuestion));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Sair", 7, 7, IconChar.CircleLeft));
+
+        }
+
+        IconButton CriaBotaoLateralEsquerda(string text, int ordemBotao, int qt_button, IconChar icone)
+        {
+            botao_lat_esquerda = new IconButton();
+
+
+            botao_lat_esquerda.BackColor = System.Drawing.Color.Transparent;
+            botao_lat_esquerda.Height = 55;
+            botao_lat_esquerda.Width = 190;
+            botao_lat_esquerda.Text = text;
+            mzSombraPanel_lateral_esquerda.Controls.Add(botao_lat_esquerda);
+            botao_lat_esquerda.Tag = ordemBotao;
+            botao_lat_esquerda.Location = new Point(5, 18 + (botao_lat_esquerda.Height * qt_button ));
+            botao_lat_esquerda.FlatStyle = FlatStyle.Flat;
+            botao_lat_esquerda.FlatAppearance.BorderSize = 0;
+            botao_lat_esquerda.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 11, FontStyle.Regular);
+            botao_lat_esquerda.IconChar = icone;
+            botao_lat_esquerda.IconColor = System.Drawing.Color.FromArgb(0, 120, 111);
+            botao_lat_esquerda.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
+            botao_lat_esquerda.TextImageRelation = TextImageRelation.ImageBeforeText;
+            botao_lat_esquerda.IconSize = 28;
+            botao_lat_esquerda.TextAlign = ContentAlignment.MiddleLeft;
+            botao_lat_esquerda.ImageAlign = ContentAlignment.MiddleLeft;
+            botao_lat_esquerda.Padding = new Padding(10,0,0,0);
+
+            botao_lat_esquerda.Click += Botao_lat_esquerda_Click;
+
+            botao_lat_esquerda.BackgroundImage = null; 
+            
+            return botao_lat_esquerda;
+        }
+
+       
+
+        void DesativaBotaoEsquerda()
+        {
+            if (botao_ativo_esquerda != null)
+            {
+                botao_ativo_esquerda.BackgroundImage = null;
+                botao_ativo_esquerda.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
+                botao_ativo_esquerda.IconColor = System.Drawing.Color.FromArgb(0, 120, 111);                
+            }            
+        }
+
+        private void Botao_lat_esquerda_Click(object sender, EventArgs e)
+        {
+            DesativaBotaoEsquerda();
+
+            IconButton botao = sender as IconButton;
+
+            botao.BackgroundImage = Image.FromFile(@"imagens\botao_menu_lateral_esquerdo.png");
+            botao.BackgroundImageLayout = ImageLayout.Stretch;
+            botao.ForeColor = System.Drawing.Color.FromArgb(0, 88, 255);
+            botao.IconColor = System.Drawing.Color.FromArgb(0, 88, 255);
+
+            botao_ativo_esquerda = botao;
+
+            seta_baixo.Location = new Point(botao.Width - seta_baixo.Width, botao.Location.Y + ((botao.Height / 2) - (seta_baixo.Height / 2)));
+            seta_baixo.Visible = true;
+
+            border_left_button.Location = new Point(5, botao.Location.Y);
+            border_left_button.Visible = true;
+
+            RemoveBotoesOpcoesMenuLateralEsquerdo();
+            CriaBotoesOpcoesMenuLateralEsquerdo(botao);
+        }
+
+        void RemoveBotoesOpcoesMenuLateralEsquerdo()
+        {
+            if (lista_labels_opcoes_menu_lateral_esquerdo.Count != 0)
+            {
+                foreach (Label item in lista_labels_opcoes_menu_lateral_esquerdo)
+                {
+                    mzSombraPanel_lateral_esquerda.Controls.Remove(item);
+                    item.Dispose();
+                }
+                lista_labels_opcoes_menu_lateral_esquerdo.Clear();
+            }            
+        }
+
+        void CriaBotoesOpcoesMenuLateralEsquerdo(IconButton botaoSender)
+        {
+
+            lista_labels_opcoes_menu_lateral_esquerdo.Add(CrialabelOpcao("Entidade", botaoSender, 0));
+            lista_labels_opcoes_menu_lateral_esquerdo.Add(CrialabelOpcao("Legislatura", botaoSender, 1));
+            lista_labels_opcoes_menu_lateral_esquerdo.Add(CrialabelOpcao("Pessoas", botaoSender, 2));
+
+            RerganizaAlturaBotoes(botaoSender, 69);
+        }
+
+        Label CrialabelOpcao(string nome, IconButton iconButton, int qtOpcoes)
+        {
+            Label opcao = new Label();
+
+            opcao.Text = nome;
+            opcao.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
+            opcao.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            opcao.AutoSize = false;
+            opcao.Width = botao_lat_esquerda.Width;
+            opcao.Height = 23;
+            opcao.BackColor = System.Drawing.Color.Transparent;
+            opcao.TextAlign = ContentAlignment.MiddleLeft;
+            opcao.Padding = new Padding(50, 0, 0, 0);
+
+            mzSombraPanel_lateral_esquerda.Controls.Add(opcao);
+
+            opcao.Location = new Point(5, iconButton.Location.Y + iconButton.Height + (23 * qtOpcoes));
+            opcao.BringToFront();
+
+            return opcao;
+        }
+        void RerganizaAlturaBotoes(IconButton botaoSender, int heightLabls)
+        {
+            //ajustar altura apenas dos botões que tem a ordem maior que a ordem do botão atual
+
+            int ordem_button_atual = (int)botaoSender.Tag;
+            int controler = 0;
+
+            if (ordem_button_atual != 0)
+            {
+                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].BackgroundImage = null;
+                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
+                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].IconColor = System.Drawing.Color.FromArgb(0, 120, 111);
+
+                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].Location = new Point(5, lista_botoes_menu_lateral_esquerdo[ordem_button_atual - 1].Location.Y + lista_botoes_menu_lateral_esquerdo[ordem_button_atual - 1].Height);
+
+            }
+
+
+            for (int i = ordem_button_atual + 1; i < lista_botoes_menu_lateral_esquerdo.Count; i++)
+            {
+                if(controler == 0)
+                {
+                    lista_botoes_menu_lateral_esquerdo[i].Location = new Point(5, lista_botoes_menu_lateral_esquerdo[i - 1].Location.Y + lista_botoes_menu_lateral_esquerdo[i - 1].Height + heightLabls);
+                    controler++;
+                }
+                else
+                {
+                    lista_botoes_menu_lateral_esquerdo[i].Location = new Point(5, lista_botoes_menu_lateral_esquerdo[i - 1].Location.Y + lista_botoes_menu_lateral_esquerdo[i - 1].Height);
+                }
+
+                // botao anterior .Y + o heigth dele, + o total da lista suspensa que foi gerada
+            }
+            
+        } 
+
+
+
+
         // 03/02/2023
         void AdicionaMenusRapidos()
         {
@@ -593,6 +792,8 @@ namespace EGP_Tela_Inicial_04_02
                     opc_menu_rapido.SizeMode = PictureBoxSizeMode.Zoom;
                     opc_menu_rapido.Tag = menu_rapido[i].Substring(0, menu_rapido[i].IndexOf(";"));
                     opc_menu_rapido.Click += Opc_menu_rapido_Click;
+                    opc_menu_rapido.MouseMove += Opc_menu_rapido_MouseMove;
+                    opc_menu_rapido.MouseLeave += Opc_menu_rapido_MouseLeave;
 
                     mzSombraPanel_menu_superior.Controls.Add(opc_menu_rapido);
 
@@ -600,20 +801,13 @@ namespace EGP_Tela_Inicial_04_02
                     nome_substring = menu_rapido[i].Substring(menu_rapido[i].IndexOf(";") + 1);
                     if (categoria_anterior == nome_substring.Substring(nome_substring.IndexOf(";") + 1))
                     {
-                        if (espaco_entre_categorias != 0)
-                        {
-                            opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + espaco_entre_categorias, 7);
-                        }
-                        else
-                        {
-                            opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + 5 + espaco_entre_categorias, 7);
-                        }                                                
+                        opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + espaco_entre_categorias, 7);                            
                     }
                     else
                     {
-                        opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + (25 * cont_categoria), 7);
+                        opc_menu_rapido.Location = new Point((pictureBox_logo_camara.Left + pictureBox_logo_camara.Width) + (67 * i) + (37 * cont_categoria), 7);
                         
-                        espaco_entre_categorias = 25 * cont_categoria;
+                        espaco_entre_categorias = 37 * cont_categoria;
                         cont_categoria++;
                     }
                                         
@@ -629,6 +823,26 @@ namespace EGP_Tela_Inicial_04_02
                 }
             } 
                    
+        }
+
+        private void Opc_menu_rapido_MouseLeave(object sender, EventArgs e)
+        {
+            PictureBox botao = sender as PictureBox;
+
+            if (botao.Tag.ToString().ToUpper() == "ENTIDADE")
+            {
+                botao.Image = Image.FromFile(@"imagens\iconesSuperiores\entidade.png");
+            }
+        }
+
+        private void Opc_menu_rapido_MouseMove(object sender, MouseEventArgs e)
+        {
+            PictureBox botao = sender as PictureBox;
+
+            if(botao.Tag.ToString().ToUpper() == "ENTIDADE")
+            {
+                botao.Image = Image.FromFile(@"imagens\iconesSuperiores\entidade_2.png");
+            }
         }
 
         private void Opc_menu_rapido_Click(object sender, EventArgs e)
@@ -1107,6 +1321,26 @@ namespace EGP_Tela_Inicial_04_02
             lbl_nome_cidade.Text = "JI-PARANÁ - RO " + String.Format("{0: dd}", data).Trim() + "/" + String.Format("{0: MM}", data).Trim() + "/" + String.Format("{0: yyyy}", data).Trim();
         }
 
-       
+        private void ArredondaCantos(Control control)
+        {
+            using (GraphicsPath forma = new GraphicsPath())
+            {
+                forma.AddRectangle(new Rectangle(1, 1, control.Width, control.Height));
+                forma.AddRectangle(new Rectangle(1, 1, 10, 10));
+                forma.AddPie(1, 1, 20, 20, 180, 90);
+                forma.AddRectangle(new Rectangle(control.Width - 12, 1, 12, 13));
+                forma.AddPie(control.Width - 24, 1, 24, 26, 270, 90);
+                forma.AddRectangle(new Rectangle(1, control.Height - 10, 10, 10));
+                forma.AddPie(1, control.Height - 20, 20, 20, 90, 90);
+                forma.AddRectangle(new Rectangle(control.Width - 12, control.Height - 13, 13, 13));
+                forma.AddPie(control.Width - 24, control.Height - 26, 24, 26, 0, 90);
+                forma.SetMarkers();
+
+                control.Region = new Region(forma);
+            }
+
+            //https://pt.stackoverflow.com/questions/528084/%C3%89-poss%C3%ADvel-fazer-bordas-arredondadas-no-combobox-do-windows-forms-c
+        }
+
     }
 }
