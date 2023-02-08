@@ -50,8 +50,11 @@ namespace EGP_Tela_Inicial_04_02
         IconButton botao_lat_esquerda;
         IconButton botao_ativo_esquerda;
         IconPictureBox seta_baixo;
+        IconButton botao;
 
         string[] nomes_menu;
+        string[] array_menus;
+        string todos_menus = "";
 
 
         List<string> itens_menu_opcoes_0_nomes = new List<string>();
@@ -532,7 +535,7 @@ namespace EGP_Tela_Inicial_04_02
             // configurando mzSombraPanel lateral esquerda
             //mzSombraPanel_lateral_esquerda.TipoDeSombra = MZSombraPanel.ShadowsPanel.Desplasada;
             mzSombraPanel_lateral_esquerda.Width = 218;
-            mzSombraPanel_lateral_esquerda.Height = 470;
+            mzSombraPanel_lateral_esquerda.Height = 570;
             mzSombraPanel_lateral_esquerda.BackColor = System.Drawing.Color.FromArgb(247, 247, 247);
             mzSombraPanel_lateral_esquerda.Location = new Point(8, mzSombraPanel_menu_superior.Top + mzSombraPanel_menu_superior.Height + 10);
             ArredondaCantos(mzSombraPanel_lateral_esquerda);
@@ -597,18 +600,22 @@ namespace EGP_Tela_Inicial_04_02
 
         void AdicionaMenuLateralEsquerda()
         {
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Cadastros", 0, 0, IconChar.Home));
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Registros", 1, 1, IconChar.ChartSimple));
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Acessar", 2, 2, IconChar.Envelope));
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Exibir no Painel", 3, 3, IconChar.FileLines));
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Configurações", 4, 4, IconChar.Gear));
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Relatórios", 5, 5, IconChar.Clipboard));
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Ajuda", 6, 6, IconChar.CircleQuestion));
-            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Sair", 7, 7, IconChar.CircleLeft));
+            // carregar acessos do banco
+            todos_menus = acessos.RetornaMenusLateraisEsquerdo();
 
+            array_menus = todos_menus.Split('\n');
+           
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Cadastros", "cadastro", 0, 0, IconChar.Home));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Registros","registro", 1, 1, IconChar.ChartSimple));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Acessar","acesso", 2, 2, IconChar.Envelope));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Exibir no Painel", "exibir_no_painel", 3, 3, IconChar.FileLines));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Configurações", "configuracoes", 4, 4, IconChar.Gear));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Relatórios", "relatorio", 5, 5, IconChar.Clipboard));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Ajuda", "ajuda", 6, 6, IconChar.CircleQuestion));
+            lista_botoes_menu_lateral_esquerdo.Add(CriaBotaoLateralEsquerda(" Sair","sair", 7, 7, IconChar.CircleLeft));
         }
 
-        IconButton CriaBotaoLateralEsquerda(string text, int ordemBotao, int qt_button, IconChar icone)
+        IconButton CriaBotaoLateralEsquerda(string text, string label,  int ordemBotao, int qt_button, IconChar icone)
         {
             botao_lat_esquerda = new IconButton();
 
@@ -634,12 +641,11 @@ namespace EGP_Tela_Inicial_04_02
 
             botao_lat_esquerda.Click += Botao_lat_esquerda_Click;
 
-            botao_lat_esquerda.BackgroundImage = null; 
+            botao_lat_esquerda.BackgroundImage = null;
+                      
             
             return botao_lat_esquerda;
-        }
-
-       
+        }       
 
         void DesativaBotaoEsquerda()
         {
@@ -655,7 +661,7 @@ namespace EGP_Tela_Inicial_04_02
         {
             DesativaBotaoEsquerda();
 
-            IconButton botao = sender as IconButton;
+            botao = sender as IconButton;
 
             botao.BackgroundImage = Image.FromFile(@"imagens\botao_menu_lateral_esquerdo.png");
             botao.BackgroundImageLayout = ImageLayout.Stretch;
@@ -689,15 +695,68 @@ namespace EGP_Tela_Inicial_04_02
 
         void CriaBotoesOpcoesMenuLateralEsquerdo(IconButton botaoSender)
         {
+            string primeira_parte = "", segunda_parte = "", terceira_parte = "", quarta_parte = "";
+            int totalAltura = 0;
 
-            lista_labels_opcoes_menu_lateral_esquerdo.Add(CrialabelOpcao("Entidade", botaoSender, 0));
-            lista_labels_opcoes_menu_lateral_esquerdo.Add(CrialabelOpcao("Legislatura", botaoSender, 1));
-            lista_labels_opcoes_menu_lateral_esquerdo.Add(CrialabelOpcao("Pessoas", botaoSender, 2));
+            // descobre quantas opções terá neste menu para somar o total de sua altura
+            for (int i = 0; i < array_menus.Length; i++)
+            {
+                if (!string.IsNullOrEmpty(array_menus[i]))
+                {
+                    primeira_parte = array_menus[i].Substring(array_menus[i].IndexOf(";") + 1);
+                    segunda_parte = primeira_parte.Substring(primeira_parte.IndexOf(";") + 1);
+                    terceira_parte = segunda_parte.Substring(segunda_parte.IndexOf(";") + 1);
+                    quarta_parte = terceira_parte.Substring(0, terceira_parte.IndexOf(";"));
 
-            RerganizaAlturaBotoes(botaoSender, 69);
+                    if (quarta_parte == botaoSender.Tag.ToString())
+                    {
+                        totalAltura += 23;
+                    }
+                }                
+            }
+
+            RerganizaAlturaBotoes(botaoSender, totalAltura);
+            
+            int qtOpcoes = 0;
+            string label = "";
+
+            // se clicar no botão de sair, pergunta se deseja mesmo sair
+            if ((int)botaoSender.Tag == 7)
+            {
+                seta_baixo.Visible = false;
+                DialogResult result = MessageBox.Show("Deseja mesmo sair?", "Você está saindo do Sistema", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    Application.Exit();
+                }
+            }
+            else
+            {
+                // cria as labls que serão as opções 
+                for (int i = 0; i < array_menus.Length; i++)
+                {
+                    if (!string.IsNullOrEmpty(array_menus[i]))
+                    {
+                        primeira_parte = array_menus[i].Substring(array_menus[i].IndexOf(";") + 1);
+                        segunda_parte = primeira_parte.Substring(primeira_parte.IndexOf(";") + 1);
+                        terceira_parte = segunda_parte.Substring(segunda_parte.IndexOf(";") + 1);
+                        quarta_parte = terceira_parte.Substring(0, terceira_parte.IndexOf(";"));
+
+                        if (quarta_parte == botaoSender.Tag.ToString())
+                        {
+                            primeira_parte = array_menus[i].Substring(array_menus[i].IndexOf(";") + 1);
+                            label = primeira_parte.Substring(0, primeira_parte.IndexOf(";"));
+
+                            lista_labels_opcoes_menu_lateral_esquerdo.Add(CrialabelOpcao(array_menus[i].Substring(0, array_menus[i].IndexOf(";")), botaoSender, qtOpcoes, label));
+                            qtOpcoes++;
+                        }
+                    }
+                }
+            }           
         }
 
-        Label CrialabelOpcao(string nome, IconButton iconButton, int qtOpcoes)
+        Label CrialabelOpcao(string nome, IconButton iconButton, int qtOpcoes, string label)
         {
             Label opcao = new Label();
 
@@ -709,32 +768,84 @@ namespace EGP_Tela_Inicial_04_02
             opcao.Height = 23;
             opcao.BackColor = System.Drawing.Color.Transparent;
             opcao.TextAlign = ContentAlignment.MiddleLeft;
-            opcao.Padding = new Padding(50, 0, 0, 0);
+            opcao.Padding = new Padding(15, 0, 0, 0);
+            opcao.Tag = label;
 
             mzSombraPanel_lateral_esquerda.Controls.Add(opcao);
+
+            opcao.MouseMove += Opcao_MouseMove;
+            opcao.MouseLeave += Opcao_MouseLeave;
+            opcao.MouseClick += Opcao_MouseClick;
 
             opcao.Location = new Point(5, iconButton.Location.Y + iconButton.Height + (23 * qtOpcoes));
             opcao.BringToFront();
 
             return opcao;
         }
+
+        private void Opcao_MouseClick(object sender, MouseEventArgs e)
+        {
+            Label item = (Label)sender;
+
+            if (item.Tag.ToString() == "acessos")
+            {
+                form_acessos form_Acessos = new form_acessos();
+                form_Acessos.ShowDialog();
+            }
+            else if (item.Tag.ToString() == "entidade")
+            {
+                form_cadastro_camara form_Cadastro_Camara = new form_cadastro_camara();
+                form_Cadastro_Camara.ShowDialog();
+            }
+            else if (item.Tag.ToString() == "pessoas")
+            {
+                form_cadastro_participante form_Cadastro_Participante = new form_cadastro_participante();
+                form_Cadastro_Participante.ShowDialog();
+            }
+            
+        }
+
+        private void Opcao_MouseLeave(object sender, EventArgs e)
+        {
+            Label item = (Label)sender;
+            item.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
+        }
+
+        private void Opcao_MouseMove(object sender, MouseEventArgs e)
+        {
+            Label item = (Label)sender;
+            item.ForeColor = System.Drawing.Color.FromArgb(20, 20, 20);
+        }
+
         void RerganizaAlturaBotoes(IconButton botaoSender, int heightLabls)
         {
-            //ajustar altura apenas dos botões que tem a ordem maior que a ordem do botão atual
+            // ajustar altura apenas dos botões que tem a ordem maior que a ordem do botão atual
 
             int ordem_button_atual = (int)botaoSender.Tag;
             int controler = 0;
 
-            if (ordem_button_atual != 0)
+            if (ordem_button_atual != 0) // retira o primeiro botão
             {
-                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].BackgroundImage = null;
-                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
-                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].IconColor = System.Drawing.Color.FromArgb(0, 120, 111);
+                int diferenca = 0;
+                for (int i = 1; i <= ordem_button_atual; i++)
+                {
+                    diferenca = lista_botoes_menu_lateral_esquerdo[i].Location.Y - (lista_botoes_menu_lateral_esquerdo[i - 1].Location.Y + lista_botoes_menu_lateral_esquerdo[i - 1].Height);
 
-                lista_botoes_menu_lateral_esquerdo[ordem_button_atual].Location = new Point(5, lista_botoes_menu_lateral_esquerdo[ordem_button_atual - 1].Location.Y + lista_botoes_menu_lateral_esquerdo[ordem_button_atual - 1].Height);
-
+                    if (diferenca != 0)
+                    {
+                        if (i == ordem_button_atual)
+                        {
+                            lista_botoes_menu_lateral_esquerdo[i].Location = new Point(5, lista_botoes_menu_lateral_esquerdo[i].Location.Y - diferenca);
+                            border_left_button.Location = new Point(5, lista_botoes_menu_lateral_esquerdo[i].Location.Y);
+                            seta_baixo.Location = new Point(lista_botoes_menu_lateral_esquerdo[i].Width - seta_baixo.Width, lista_botoes_menu_lateral_esquerdo[i].Location.Y + ((lista_botoes_menu_lateral_esquerdo[i].Height / 2) - (seta_baixo.Height / 2)));
+                        }
+                        else
+                        {
+                            lista_botoes_menu_lateral_esquerdo[i].Location = new Point(5, lista_botoes_menu_lateral_esquerdo[i].Location.Y - diferenca);
+                        }                        
+                    }
+                }                
             }
-
 
             for (int i = ordem_button_atual + 1; i < lista_botoes_menu_lateral_esquerdo.Count; i++)
             {
@@ -747,13 +858,8 @@ namespace EGP_Tela_Inicial_04_02
                 {
                     lista_botoes_menu_lateral_esquerdo[i].Location = new Point(5, lista_botoes_menu_lateral_esquerdo[i - 1].Location.Y + lista_botoes_menu_lateral_esquerdo[i - 1].Height);
                 }
-
-                // botao anterior .Y + o heigth dele, + o total da lista suspensa que foi gerada
-            }
-            
+            }            
         } 
-
-
 
 
         // 03/02/2023
