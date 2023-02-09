@@ -29,6 +29,12 @@ namespace EGP_Tela_Inicial_04_02
 {
     public partial class Form_principal : Form
     {
+
+        // font
+        System.Drawing.FontFamily montserrat;
+        // https://cbsa.com.br/post/c---utilizar-fontes-ttf-sem-instalar---privatefontcollection.aspx
+        // artigo sobre fontes
+
         int left_panel;
         PictureBox mostra_menu_lateral;
         PictureBox opc_menu_rapido;
@@ -70,6 +76,11 @@ namespace EGP_Tela_Inicial_04_02
         {         
             InitializeComponent();
             this.Opacity = 0;
+
+            // inicializa a font
+            montserrat = new System.Drawing.FontFamily("Montserrat");
+
+
             panel_cab_1.MouseDown += Panel_cab_1_MouseDown;
             border_left_button = new Panel();
             seta_baixo = new IconPictureBox();  
@@ -199,14 +210,14 @@ namespace EGP_Tela_Inicial_04_02
 
             panel_cab_1.Controls.Add(lbl_painel_operador);
 
-            lbl_painel_operador.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            lbl_painel_operador.Font = new Font(montserrat, 10, FontStyle.Bold);
             lbl_painel_operador.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
             lbl_painel_operador.Location = new Point(15, (panel_cab_1.Height / 2) - (lbl_painel_operador.Height / 2));
 
             // usuario
             lbl_usuario.AutoSize = true;
             lbl_usuario.Text = "Usuário:";
-            lbl_usuario.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Bold);
+            lbl_usuario.Font = new Font(montserrat, 10, FontStyle.Bold);
             lbl_usuario.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
            
 
@@ -235,7 +246,7 @@ namespace EGP_Tela_Inicial_04_02
                 lbl_nome_usuario.Text = Class_gerencia_login.Nome_Usuario;
             #endregion
 
-            lbl_nome_usuario.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            lbl_nome_usuario.Font = new Font(montserrat, 10, FontStyle.Regular);
             lbl_nome_usuario.ForeColor = System.Drawing.Color.FromArgb(46, 84, 123);
 
             panel_cab_usuario.Left = lbl_painel_operador.Width + lbl_painel_operador.Left + 30;
@@ -263,7 +274,7 @@ namespace EGP_Tela_Inicial_04_02
             data = DateTime.Now;
             
             lbl_nome_cidade.Text = "Ji-Paraná - RO " + String.Format("{0: dd}", data).Trim() + "/" + String.Format("{0: MM}", data).Trim() + "/" + String.Format("{0: yyyy}", data).Trim();
-            lbl_nome_cidade.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            lbl_nome_cidade.Font = new Font(montserrat, 10, FontStyle.Regular);
             lbl_nome_cidade.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
 
             panel_cab_camara.Width = lbl_nome_cidade.Width + 25;
@@ -279,7 +290,7 @@ namespace EGP_Tela_Inicial_04_02
 
             panel_cab_1.Controls.Add(lbl_cab_hora);
 
-            lbl_cab_hora.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 15, FontStyle.Regular);
+            lbl_cab_hora.Font = new Font(montserrat, 15, FontStyle.Regular);
             lbl_cab_hora.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
             lbl_cab_hora.Location = new Point((panel_cab_1.Width - lbl_cab_hora.Width) - 15, (panel_cab_1.Height / 2) - (lbl_cab_hora.Height / 2));
             lbl_cab_hora.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -485,7 +496,7 @@ namespace EGP_Tela_Inicial_04_02
             panel_exibir_ao_publico.BackColor = System.Drawing.Color.FromArgb(239, 239, 239);
 
             lbl_exibir_ao_publico.Text = "EXIBIR AO PÚBLICO";
-            lbl_exibir_ao_publico.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 8, FontStyle.Bold);
+            lbl_exibir_ao_publico.Font = new Font(montserrat, 8, FontStyle.Bold);
             lbl_exibir_ao_publico.ForeColor = System.Drawing.Color.FromArgb(46, 84, 123);
 
             pictureBox_exibir_ao_publico.Width = 18;
@@ -494,22 +505,6 @@ namespace EGP_Tela_Inicial_04_02
             pictureBox_exibir_ao_publico.BorderStyle = BorderStyle.None;
 
             //panel_menu_lateral.Height = panel_menu_inferior.Top - (panel_cab_3.Top + panel_cab_3.Height);
-
-            panel_menu_lateral.Height = this.Height - panel_cab_1.Height - 120;
-            panel_menu_lateral.Width = lbl_exibir_ao_publico.Width + pictureBox_exibir_ao_publico.Width + 55;
-            panel_menu_lateral.Left = this.Width - panel_menu_lateral.Width;
-            panel_menu_lateral.Location = new Point(panel_menu_lateral.Left, this.Height - panel_menu_lateral.Height);
-            panel_menu_lateral.BackColor = System.Drawing.Color.FromArgb(234, 244, 253);
-            panel_menu_lateral.BorderStyle = BorderStyle.FixedSingle;
-            panel_menu_lateral.Anchor = AnchorStyles.Right | AnchorStyles.Bottom;
-
-            pictureBox_exibir_ao_publico.Left = (panel_menu_lateral.Width / 2) - ((lbl_exibir_ao_publico.Width + pictureBox_exibir_ao_publico.Width) / 2);
-            pictureBox_exibir_ao_publico.Location = new Point(pictureBox_exibir_ao_publico.Left, (panel_exibir_ao_publico.Height / 2) - (pictureBox_exibir_ao_publico.Height / 2));
-
-            lbl_exibir_ao_publico.Left = pictureBox_exibir_ao_publico.Left + pictureBox_exibir_ao_publico.Width;
-            lbl_exibir_ao_publico.Location = new Point(lbl_exibir_ao_publico.Left, (panel_exibir_ao_publico.Height / 2) - (lbl_exibir_ao_publico.Height / 2));
-
-            AdicionandoItensMenuLateral(panel_menu_lateral);
 
 
             // barra de menu rápido superior
@@ -521,6 +516,30 @@ namespace EGP_Tela_Inicial_04_02
             mzSombraPanel_menu_superior.Location = new Point(8, panel_cab_1.Height);
             mzSombraPanel_menu_superior.BackColor = System.Drawing.Color.FromArgb(247, 247, 247);
             mzSombraPanel_menu_superior.Anchor = AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top;
+            mzSombraPanel_menu_superior.AutoScroll = true;
+
+            // panel exibir no painel
+
+            panel_menu_lateral.Height = this.Height - mzSombraPanel_menu_superior.Location.Y - mzSombraPanel_menu_superior.Height - 60;
+            panel_menu_lateral.Width = 200;
+            panel_menu_lateral.Left = this.Width - panel_menu_lateral.Width - 26;            
+            panel_menu_lateral.BackColor = System.Drawing.Color.FromArgb(247, 247, 247);
+            panel_menu_lateral.BorderStyle = BorderStyle.FixedSingle;
+            panel_menu_lateral.Anchor = AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+            panel_menu_lateral.Location = new Point(panel_menu_lateral.Left, mzSombraPanel_menu_superior.Location.Y + mzSombraPanel_menu_superior.Height + 10);
+            panel_menu_lateral.BorderStyle = BorderStyle.None;
+            panel_menu_lateral.MinimumSize = new Size(200, 500);
+
+
+            pictureBox_exibir_ao_publico.Left = (panel_menu_lateral.Width / 2) - ((lbl_exibir_ao_publico.Width + pictureBox_exibir_ao_publico.Width) / 2);
+            pictureBox_exibir_ao_publico.Location = new Point(pictureBox_exibir_ao_publico.Left, (panel_exibir_ao_publico.Height / 2) - (pictureBox_exibir_ao_publico.Height / 2));
+
+            lbl_exibir_ao_publico.Left = pictureBox_exibir_ao_publico.Left + pictureBox_exibir_ao_publico.Width;
+            lbl_exibir_ao_publico.Location = new Point(lbl_exibir_ao_publico.Left, (panel_exibir_ao_publico.Height / 2) - (lbl_exibir_ao_publico.Height / 2));
+
+            AdicionandoItensMenuLateral(panel_menu_lateral);
+
+
             
 
             // menu suspenso da versão anterior
@@ -538,9 +557,17 @@ namespace EGP_Tela_Inicial_04_02
             mzSombraPanel_lateral_esquerda.Height = 570;
             mzSombraPanel_lateral_esquerda.BackColor = System.Drawing.Color.FromArgb(247, 247, 247);
             mzSombraPanel_lateral_esquerda.Location = new Point(8, mzSombraPanel_menu_superior.Top + mzSombraPanel_menu_superior.Height + 10);
-            ArredondaCantos(mzSombraPanel_lateral_esquerda);
-            mzSombraPanel_lateral_esquerda.Anchor = AnchorStyles.Top | AnchorStyles.Left;
-
+            mzSombraPanel_lateral_esquerda.Height = this.Height - mzSombraPanel_lateral_esquerda.Location.Y - 200;
+            mzSombraPanel_lateral_esquerda.MinimumSize = new Size(218, 500);           
+            mzSombraPanel_lateral_esquerda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom;
+            mzSombraPanel_lateral_esquerda.AutoScroll = true;
+            if (mzSombraPanel_lateral_esquerda is MZSombraPanel) // caso troque o componente para ser o mzsombraPanel
+            {
+                MZSombraPanel mz_sombra = (MZSombraPanel)mzSombraPanel_lateral_esquerda;
+                mz_sombra.TipoDeSombra = MZSombraPanel.ShadowsPanel.Desplasada;
+            }         
+               
+            
 
             // adiciona os menus rápidos
             AdicionaMenusRapidos();
@@ -565,7 +592,7 @@ namespace EGP_Tela_Inicial_04_02
             btn_minimize_form.IconColor = System.Drawing.Color.FromArgb(46, 84, 123);
             this.Controls.Add(btn_minimize_form);
             btn_minimize_form.Location = new Point(15, this.Height - btn_minimize_form.Height - (btn_minimize_form.Height / 2));
-            btn_minimize_form.BringToFront();
+            btn_minimize_form.BringToFront();            
             btn_minimize_form.Anchor = AnchorStyles.Left | AnchorStyles.Bottom;
             btn_minimize_form.Click += Btn_minimize_form_Click;
 
@@ -629,7 +656,7 @@ namespace EGP_Tela_Inicial_04_02
             botao_lat_esquerda.Location = new Point(5, 18 + (botao_lat_esquerda.Height * qt_button ));
             botao_lat_esquerda.FlatStyle = FlatStyle.Flat;
             botao_lat_esquerda.FlatAppearance.BorderSize = 0;
-            botao_lat_esquerda.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 11, FontStyle.Regular);
+            botao_lat_esquerda.Font = new Font(montserrat, 11, FontStyle.Regular);
             botao_lat_esquerda.IconChar = icone;
             botao_lat_esquerda.IconColor = System.Drawing.Color.FromArgb(0, 120, 111);
             botao_lat_esquerda.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
@@ -762,7 +789,7 @@ namespace EGP_Tela_Inicial_04_02
 
             opcao.Text = nome;
             opcao.ForeColor = System.Drawing.Color.FromArgb(0, 120, 111);
-            opcao.Font = new Font(System.Drawing.FontFamily.GenericSansSerif, 10, FontStyle.Regular);
+            opcao.Font = new Font(montserrat, 10, FontStyle.Regular);
             opcao.AutoSize = false;
             opcao.Width = botao_lat_esquerda.Width;
             opcao.Height = 23;
@@ -896,7 +923,7 @@ namespace EGP_Tela_Inicial_04_02
 
                     opc_menu_rapido.Image = Image.FromFile(@"imagens\iconesSuperiores\" + nome_imagem + ".png");
                     opc_menu_rapido.SizeMode = PictureBoxSizeMode.Zoom;
-                    opc_menu_rapido.Tag = menu_rapido[i].Substring(0, menu_rapido[i].IndexOf(";"));
+                    opc_menu_rapido.Tag = nome_imagem;
                     opc_menu_rapido.Click += Opc_menu_rapido_Click;
                     opc_menu_rapido.MouseMove += Opc_menu_rapido_MouseMove;
                     opc_menu_rapido.MouseLeave += Opc_menu_rapido_MouseLeave;
@@ -934,21 +961,21 @@ namespace EGP_Tela_Inicial_04_02
         private void Opc_menu_rapido_MouseLeave(object sender, EventArgs e)
         {
             PictureBox botao = sender as PictureBox;
+            FileInfo file = new FileInfo(@"imagens\iconesSuperiores\" + botao.Tag.ToString() + ".png");
 
-            if (botao.Tag.ToString().ToUpper() == "ENTIDADE")
-            {
-                botao.Image = Image.FromFile(@"imagens\iconesSuperiores\entidade.png");
-            }
+            if (file.Exists)            
+               botao.Image = Image.FromFile(@"imagens\iconesSuperiores\" + botao.Tag.ToString() + ".png");            
+            
         }
 
         private void Opc_menu_rapido_MouseMove(object sender, MouseEventArgs e)
         {
             PictureBox botao = sender as PictureBox;
 
-            if(botao.Tag.ToString().ToUpper() == "ENTIDADE")
-            {
-                botao.Image = Image.FromFile(@"imagens\iconesSuperiores\entidade_2.png");
-            }
+            FileInfo file = new FileInfo(@"imagens\iconesSuperiores\" + botao.Tag.ToString() + "_2.png");
+            if (file.Exists)
+                botao.Image = Image.FromFile(@"imagens\iconesSuperiores\" + botao.Tag.ToString() + "_2.png");          
+            
         }
 
         private void Opc_menu_rapido_Click(object sender, EventArgs e)
@@ -1448,5 +1475,9 @@ namespace EGP_Tela_Inicial_04_02
             //https://pt.stackoverflow.com/questions/528084/%C3%89-poss%C3%ADvel-fazer-bordas-arredondadas-no-combobox-do-windows-forms-c
         }
 
+        private void mzSombraPanel_lateral_esquerda_SizeChanged_1(object sender, EventArgs e)
+        {
+            ArredondaCantos((Panel)sender);
+        }
     }
 }

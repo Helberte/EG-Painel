@@ -357,7 +357,7 @@
             // panel_roda_1
             // 
             this.panel_roda_1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_1.Location = new System.Drawing.Point(0, 527);
+            this.panel_roda_1.Location = new System.Drawing.Point(0, 532);
             this.panel_roda_1.Name = "panel_roda_1";
             this.panel_roda_1.Size = new System.Drawing.Size(880, 10);
             this.panel_roda_1.TabIndex = 1;
@@ -365,7 +365,7 @@
             // panel_roda_2
             // 
             this.panel_roda_2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_2.Location = new System.Drawing.Point(0, 517);
+            this.panel_roda_2.Location = new System.Drawing.Point(0, 522);
             this.panel_roda_2.Name = "panel_roda_2";
             this.panel_roda_2.Size = new System.Drawing.Size(880, 10);
             this.panel_roda_2.TabIndex = 2;
@@ -374,7 +374,7 @@
             // 
             this.panel_roda_3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.panel_roda_3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_roda_3.Location = new System.Drawing.Point(0, 507);
+            this.panel_roda_3.Location = new System.Drawing.Point(0, 512);
             this.panel_roda_3.Name = "panel_roda_3";
             this.panel_roda_3.Size = new System.Drawing.Size(880, 10);
             this.panel_roda_3.TabIndex = 3;
@@ -508,7 +508,7 @@
             this.panel_menu_inferior.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel_menu_inferior.Controls.Add(this.panel_ultimo_backup);
             this.panel_menu_inferior.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_menu_inferior.Location = new System.Drawing.Point(0, 436);
+            this.panel_menu_inferior.Location = new System.Drawing.Point(0, 441);
             this.panel_menu_inferior.Name = "panel_menu_inferior";
             this.panel_menu_inferior.Size = new System.Drawing.Size(880, 71);
             this.panel_menu_inferior.TabIndex = 7;
@@ -573,9 +573,10 @@
             // 
             this.panel_menu_lateral.AutoScroll = true;
             this.panel_menu_lateral.Controls.Add(this.panel_exibir_ao_publico);
-            this.panel_menu_lateral.Location = new System.Drawing.Point(693, 221);
+            this.panel_menu_lateral.Location = new System.Drawing.Point(693, 195);
+            this.panel_menu_lateral.Margin = new System.Windows.Forms.Padding(0);
             this.panel_menu_lateral.Name = "panel_menu_lateral";
-            this.panel_menu_lateral.Size = new System.Drawing.Size(162, 172);
+            this.panel_menu_lateral.Size = new System.Drawing.Size(162, 198);
             this.panel_menu_lateral.TabIndex = 8;
             // 
             // panel_exibir_ao_publico
@@ -585,7 +586,7 @@
             this.panel_exibir_ao_publico.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel_exibir_ao_publico.Location = new System.Drawing.Point(0, 0);
             this.panel_exibir_ao_publico.Name = "panel_exibir_ao_publico";
-            this.panel_exibir_ao_publico.Size = new System.Drawing.Size(162, 35);
+            this.panel_exibir_ao_publico.Size = new System.Drawing.Size(162, 41);
             this.panel_exibir_ao_publico.TabIndex = 0;
             // 
             // lbl_exibir_ao_publico
@@ -647,18 +648,18 @@
             // 
             // mzSombraPanel_lateral_esquerda
             // 
-            this.mzSombraPanel_lateral_esquerda.AutoScroll = true;
-            this.mzSombraPanel_lateral_esquerda.Location = new System.Drawing.Point(12, 206);
+            this.mzSombraPanel_lateral_esquerda.Location = new System.Drawing.Point(12, 195);
             this.mzSombraPanel_lateral_esquerda.Name = "mzSombraPanel_lateral_esquerda";
-            this.mzSombraPanel_lateral_esquerda.Size = new System.Drawing.Size(187, 199);
-            this.mzSombraPanel_lateral_esquerda.TabIndex = 11;
+            this.mzSombraPanel_lateral_esquerda.Size = new System.Drawing.Size(188, 225);
+            this.mzSombraPanel_lateral_esquerda.TabIndex = 13;
+            this.mzSombraPanel_lateral_esquerda.SizeChanged += new System.EventHandler(this.mzSombraPanel_lateral_esquerda_SizeChanged_1);
             // 
             // Form_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(880, 537);
+            this.ClientSize = new System.Drawing.Size(880, 542);
             this.Controls.Add(this.mzSombraPanel_lateral_esquerda);
             this.Controls.Add(this.mzSombraPanel_menu_superior);
             this.Controls.Add(this.panel_menu_lateral);
