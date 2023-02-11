@@ -28,115 +28,121 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ed_senha = new System.Windows.Forms.TextBox();
-            this.ed_usuario = new System.Windows.Forms.TextBox();
             this.ed_codigo = new System.Windows.Forms.TextBox();
-            this.pictureBox_bt_acessar = new System.Windows.Forms.PictureBox();
-            this.pictureBox_bt_sair = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_acessar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_sair)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ed_usuario = new System.Windows.Forms.TextBox();
+            this.ed_senha = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox_bt_acessar = new FontAwesome.Sharp.IconButton();
+            this.pictureBox_bt_sair = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
-            // 
-            // ed_senha
-            // 
-            this.ed_senha.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ed_senha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ed_senha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ed_senha.Location = new System.Drawing.Point(330, 324);
-            this.ed_senha.MaxLength = 8;
-            this.ed_senha.Multiline = true;
-            this.ed_senha.Name = "ed_senha";
-            this.ed_senha.Size = new System.Drawing.Size(201, 20);
-            this.ed_senha.TabIndex = 10;
-            this.ed_senha.Enter += new System.EventHandler(this.ed_senha_Enter);
-            this.ed_senha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_senha_KeyPress);
-            this.ed_senha.Leave += new System.EventHandler(this.ed_senha_Leave);
-            // 
-            // ed_usuario
-            // 
-            this.ed_usuario.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ed_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ed_usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ed_usuario.Location = new System.Drawing.Point(330, 268);
-            this.ed_usuario.MaxLength = 100;
-            this.ed_usuario.Multiline = true;
-            this.ed_usuario.Name = "ed_usuario";
-            this.ed_usuario.Size = new System.Drawing.Size(201, 20);
-            this.ed_usuario.TabIndex = 9;
-            this.ed_usuario.Enter += new System.EventHandler(this.ed_usuario_Enter);
-            this.ed_usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_usuario_KeyPress);
-            this.ed_usuario.Leave += new System.EventHandler(this.ed_usuario_Leave);
             // 
             // ed_codigo
             // 
-            this.ed_codigo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.ed_codigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.ed_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ed_codigo.Location = new System.Drawing.Point(330, 211);
+            this.ed_codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ed_codigo.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ed_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ed_codigo.Location = new System.Drawing.Point(61, 89);
             this.ed_codigo.MaxLength = 100;
-            this.ed_codigo.Multiline = true;
             this.ed_codigo.Name = "ed_codigo";
-            this.ed_codigo.Size = new System.Drawing.Size(201, 20);
-            this.ed_codigo.TabIndex = 8;
+            this.ed_codigo.Size = new System.Drawing.Size(275, 27);
+            this.ed_codigo.TabIndex = 19;
             this.ed_codigo.Enter += new System.EventHandler(this.ed_codigo_Enter);
             this.ed_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_codigo_KeyPress);
             this.ed_codigo.Leave += new System.EventHandler(this.ed_codigo_Leave);
             // 
+            // ed_usuario
+            // 
+            this.ed_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ed_usuario.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.ed_usuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ed_usuario.Location = new System.Drawing.Point(61, 150);
+            this.ed_usuario.MaxLength = 100;
+            this.ed_usuario.Name = "ed_usuario";
+            this.ed_usuario.Size = new System.Drawing.Size(275, 27);
+            this.ed_usuario.TabIndex = 20;
+            this.ed_usuario.Enter += new System.EventHandler(this.ed_usuario_Enter);
+            this.ed_usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_usuario_KeyPress);
+            this.ed_usuario.Leave += new System.EventHandler(this.ed_usuario_Leave);
+            // 
+            // ed_senha
+            // 
+            this.ed_senha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ed_senha.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.ed_senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.ed_senha.Location = new System.Drawing.Point(61, 210);
+            this.ed_senha.MaxLength = 8;
+            this.ed_senha.Name = "ed_senha";
+            this.ed_senha.Size = new System.Drawing.Size(275, 27);
+            this.ed_senha.TabIndex = 21;
+            this.ed_senha.Enter += new System.EventHandler(this.ed_senha_Enter);
+            this.ed_senha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_senha_KeyPress);
+            this.ed_senha.Leave += new System.EventHandler(this.ed_senha_Leave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(111)))));
+            this.label1.Location = new System.Drawing.Point(93, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(209, 22);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Acesse com a sua conta";
+            // 
             // pictureBox_bt_acessar
             // 
-            this.pictureBox_bt_acessar.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox_bt_acessar.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(355, 367);
+            this.pictureBox_bt_acessar.BackColor = System.Drawing.Color.Tan;
+            this.pictureBox_bt_acessar.FlatAppearance.BorderSize = 0;
+            this.pictureBox_bt_acessar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pictureBox_bt_acessar.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pictureBox_bt_acessar.ForeColor = System.Drawing.Color.White;
+            this.pictureBox_bt_acessar.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.pictureBox_bt_acessar.IconColor = System.Drawing.Color.Black;
+            this.pictureBox_bt_acessar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(61, 281);
             this.pictureBox_bt_acessar.Name = "pictureBox_bt_acessar";
-            this.pictureBox_bt_acessar.Size = new System.Drawing.Size(70, 30);
-            this.pictureBox_bt_acessar.TabIndex = 12;
-            this.pictureBox_bt_acessar.TabStop = false;
+            this.pictureBox_bt_acessar.Size = new System.Drawing.Size(275, 39);
+            this.pictureBox_bt_acessar.TabIndex = 25;
+            this.pictureBox_bt_acessar.Text = "Entrar";
+            this.pictureBox_bt_acessar.UseVisualStyleBackColor = false;
             this.pictureBox_bt_acessar.Click += new System.EventHandler(this.pictureBox_bt_acessar_Click);
             // 
             // pictureBox_bt_sair
             // 
-            this.pictureBox_bt_sair.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox_bt_sair.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox_bt_sair.Location = new System.Drawing.Point(431, 367);
+            this.pictureBox_bt_sair.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.pictureBox_bt_sair.FlatAppearance.BorderSize = 0;
+            this.pictureBox_bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pictureBox_bt_sair.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pictureBox_bt_sair.ForeColor = System.Drawing.Color.White;
+            this.pictureBox_bt_sair.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.pictureBox_bt_sair.IconColor = System.Drawing.Color.Black;
+            this.pictureBox_bt_sair.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.pictureBox_bt_sair.Location = new System.Drawing.Point(61, 344);
             this.pictureBox_bt_sair.Name = "pictureBox_bt_sair";
-            this.pictureBox_bt_sair.Size = new System.Drawing.Size(72, 30);
-            this.pictureBox_bt_sair.TabIndex = 11;
-            this.pictureBox_bt_sair.TabStop = false;
+            this.pictureBox_bt_sair.Size = new System.Drawing.Size(275, 38);
+            this.pictureBox_bt_sair.TabIndex = 26;
+            this.pictureBox_bt_sair.Text = "Sair";
+            this.pictureBox_bt_sair.UseVisualStyleBackColor = false;
             this.pictureBox_bt_sair.Click += new System.EventHandler(this.pictureBox_bt_sair_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::EGP_Tela_Inicial_04_02.Properties.Resources._500;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(856, 501);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
             // 
             // Form_login_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(856, 501);
-            this.Controls.Add(this.pictureBox_bt_acessar);
+            this.ClientSize = new System.Drawing.Size(400, 419);
             this.Controls.Add(this.pictureBox_bt_sair);
-            this.Controls.Add(this.ed_senha);
-            this.Controls.Add(this.ed_usuario);
+            this.Controls.Add(this.pictureBox_bt_acessar);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ed_codigo);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.ed_usuario);
+            this.Controls.Add(this.ed_senha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form_login_inicial";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form_login_inicial";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_login_inicial_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_acessar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_bt_sair)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_login_inicial_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -144,11 +150,11 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox_bt_acessar;
-        private System.Windows.Forms.PictureBox pictureBox_bt_sair;
-        private System.Windows.Forms.TextBox ed_senha;
-        private System.Windows.Forms.TextBox ed_usuario;
         private System.Windows.Forms.TextBox ed_codigo;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox ed_usuario;
+        private System.Windows.Forms.TextBox ed_senha;
+        private System.Windows.Forms.Label label1;
+        private FontAwesome.Sharp.IconButton pictureBox_bt_acessar;
+        private FontAwesome.Sharp.IconButton pictureBox_bt_sair;
     }
 }
