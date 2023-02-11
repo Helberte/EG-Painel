@@ -221,6 +221,7 @@
             this.Controls.Add(this.mzSombraPanel_menu_superior);
             this.Controls.Add(this.panel_menu_lateral);
             this.Controls.Add(this.panel_cab_1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form_principal";

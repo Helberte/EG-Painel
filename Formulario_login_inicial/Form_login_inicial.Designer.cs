@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_login_inicial));
             this.ed_codigo = new System.Windows.Forms.TextBox();
             this.ed_usuario = new System.Windows.Forms.TextBox();
             this.ed_senha = new System.Windows.Forms.TextBox();
@@ -39,12 +40,12 @@
             // ed_codigo
             // 
             this.ed_codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ed_codigo.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ed_codigo.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ed_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ed_codigo.Location = new System.Drawing.Point(61, 89);
+            this.ed_codigo.Location = new System.Drawing.Point(61, 94);
             this.ed_codigo.MaxLength = 100;
             this.ed_codigo.Name = "ed_codigo";
-            this.ed_codigo.Size = new System.Drawing.Size(275, 27);
+            this.ed_codigo.Size = new System.Drawing.Size(275, 26);
             this.ed_codigo.TabIndex = 19;
             this.ed_codigo.Enter += new System.EventHandler(this.ed_codigo_Enter);
             this.ed_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_codigo_KeyPress);
@@ -55,7 +56,7 @@
             this.ed_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ed_usuario.Font = new System.Drawing.Font("Montserrat", 12F);
             this.ed_usuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ed_usuario.Location = new System.Drawing.Point(61, 150);
+            this.ed_usuario.Location = new System.Drawing.Point(61, 140);
             this.ed_usuario.MaxLength = 100;
             this.ed_usuario.Name = "ed_usuario";
             this.ed_usuario.Size = new System.Drawing.Size(275, 27);
@@ -69,7 +70,7 @@
             this.ed_senha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ed_senha.Font = new System.Drawing.Font("Montserrat", 12F);
             this.ed_senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ed_senha.Location = new System.Drawing.Point(61, 210);
+            this.ed_senha.Location = new System.Drawing.Point(61, 187);
             this.ed_senha.MaxLength = 8;
             this.ed_senha.Name = "ed_senha";
             this.ed_senha.Size = new System.Drawing.Size(275, 27);
@@ -99,7 +100,7 @@
             this.pictureBox_bt_acessar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.pictureBox_bt_acessar.IconColor = System.Drawing.Color.Black;
             this.pictureBox_bt_acessar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(61, 281);
+            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(61, 255);
             this.pictureBox_bt_acessar.Name = "pictureBox_bt_acessar";
             this.pictureBox_bt_acessar.Size = new System.Drawing.Size(275, 39);
             this.pictureBox_bt_acessar.TabIndex = 25;
@@ -117,7 +118,7 @@
             this.pictureBox_bt_sair.IconChar = FontAwesome.Sharp.IconChar.None;
             this.pictureBox_bt_sair.IconColor = System.Drawing.Color.Black;
             this.pictureBox_bt_sair.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pictureBox_bt_sair.Location = new System.Drawing.Point(61, 344);
+            this.pictureBox_bt_sair.Location = new System.Drawing.Point(61, 313);
             this.pictureBox_bt_sair.Name = "pictureBox_bt_sair";
             this.pictureBox_bt_sair.Size = new System.Drawing.Size(275, 38);
             this.pictureBox_bt_sair.TabIndex = 26;
@@ -131,16 +132,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(400, 419);
+            this.Controls.Add(this.ed_codigo);
             this.Controls.Add(this.pictureBox_bt_sair);
             this.Controls.Add(this.pictureBox_bt_acessar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ed_codigo);
             this.Controls.Add(this.ed_usuario);
             this.Controls.Add(this.ed_senha);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_login_inicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form_login_inicial";
+            this.Text = "Login EP";
             this.Load += new System.EventHandler(this.Form_login_inicial_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_login_inicial_MouseDown);
             this.ResumeLayout(false);

@@ -60,6 +60,7 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
             //pictureBox_bt_sair.Left = (this.Width / 2) + 9;
             //pictureBox_bt_sair.Location = new Point(pictureBox_bt_sair.Left, pictureBox_bt_acessar.Top);
 
+
             this.Focus();
         }
 
