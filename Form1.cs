@@ -59,7 +59,6 @@ namespace EGP_Tela_Inicial_04_02
 
         string[] array_menus;
         string todos_menus = "";
-
         
 
         public Form_principal()
