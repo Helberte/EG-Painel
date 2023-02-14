@@ -32,9 +32,6 @@ C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EG_PAINEL.csproj.GenerateR
 C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EG_PAINEL.csproj.CoreCompileInputs.cache
 C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.exe
 C:\PROJETOS - C#\EGP\EGP_Tela_Inicial_04_02\obj\Debug\EGP_Tela_Inicial_04_02.pdb
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe.config
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.pdb
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_camara.resources
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_de_partido.resources
@@ -46,8 +43,6 @@ C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Formulario_l
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Properties.Resources.resources
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.GenerateResource.cache
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.CoreCompileInputs.cache
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.exe
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.pdb
 C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csprojAssemblyReference.cache
 C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.Form_principal.resources
 C:\Helberte\EGP-PAINEL-V-1.01\obj\Debug\EGP_PAINEL.Formularios.form_cadastro_camara.resources
@@ -91,7 +86,12 @@ D:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.pdb
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\MZControls.dll
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG_PAINEL.csproj.CopyComplete
 C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\FontAwesome.Sharp.dll
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.exe.manifest
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EGP_Tela_Inicial_04_02.application
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.exe.manifest
-C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EGP_Tela_Inicial_04_02.application
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EG Painel.exe.config
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EG Painel.exe.manifest
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EG Painel.application
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EG Painel.exe
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\bin\Debug\EG Painel.pdb
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG Painel.exe.manifest
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG Painel.application
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG Painel.exe
+C:\PROJETOS - C#\EGP-PAINEL-V-1.01\obj\Debug\EG Painel.pdb

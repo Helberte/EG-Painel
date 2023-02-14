@@ -73,6 +73,16 @@ namespace EGP_Tela_Inicial_04_02.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap borda_botao_acessar {
+            get {
+                object obj = ResourceManager.GetObject("borda_botao_acessar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_1 {
             get {
                 object obj = ResourceManager.GetObject("logo_1", resourceCulture);

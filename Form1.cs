@@ -20,6 +20,7 @@ using EGP_PAINEL.Formularios;
 using EGP_Tela_Inicial_04_02.Classes;
 using EGP_Tela_Inicial_04_02.Formulario_login_inicial;
 using EGP_Tela_Inicial_04_02.Formularios;
+using EGP_Tela_Inicial_04_02.Classes.Configuracao;
 using MZControls;
 using FontAwesome.Sharp;
 using System.Drawing.Drawing2D;
@@ -65,7 +66,7 @@ namespace EGP_Tela_Inicial_04_02
             InitializeComponent();
             this.Opacity = 0;
 
-            montserrat = new System.Drawing.FontFamily("Montserrat");
+            montserrat = Configuracoes_sistema.GetFontMontserrat();
 
             panel_cab_1.MouseDown += Mover_tela_cabecalho_MouseDown;
             border_left_button = new Panel();

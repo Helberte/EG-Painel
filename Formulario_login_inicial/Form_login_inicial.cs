@@ -9,16 +9,19 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using EGP_Tela_Inicial_04_02.Classes.Configuracao;
 
 namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 {
     public partial class Form_login_inicial : Form
     {
-        string texto_padrao_ed_usuario = "Digite seu nome ou e-mail";
-        string texto_padrao_ed_senha = "Digite sua senha de até 8 dígitos";
+        string texto_padrao_ed_usuario = "Usuário";
+        string texto_padrao_ed_senha = "Senha";
+        System.Drawing.FontFamily montserrat;
 
         public Form_login_inicial()
         {
+            this.Opacity = 0;
             InitializeComponent();
         }
 
@@ -27,16 +30,31 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
             ed_usuario.Text = texto_padrao_ed_usuario;           
             ed_senha.Text = texto_padrao_ed_senha;
 
-            this.Opacity = 0;
+            montserrat = Configuracoes_sistema.GetFontMontserrat();
             ArredondaCantos(panel_center);
-
             EstilizaTelaLogin();
+
+            lbl_esqueceu_senha.MouseLeave += Lbl_esqueceu_senha_MouseLeave;
+            lbl_esqueceu_senha.MouseMove += Lbl_esqueceu_senha_MouseMove;
 
             this.Opacity = 1;
             this.Focus();
-        }                
+        }
 
-     
+        private void Lbl_esqueceu_senha_MouseMove(object sender, MouseEventArgs e)
+        {
+            Label label = sender as Label;
+
+            label.ForeColor = System.Drawing.Color.FromArgb(9, 28, 38);
+        }
+
+        private void Lbl_esqueceu_senha_MouseLeave(object sender, EventArgs e)
+        {
+            Label label = sender as Label;
+
+            label.ForeColor = System.Drawing.Color.FromArgb(24, 81, 117);
+        }
+
         private void ed_usuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar("'"))
@@ -159,6 +177,33 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 
             this.MinimumSize = new Size(480, 600);
 
+            ed_senha.ForeColor = Color.FromArgb(160, 156, 153);
+
+            iconPictureBox_logo.Size = new Size(239,70);
+            iconPictureBox_logo.Location = new Point((panel_center.Width / 2) - (iconPictureBox_logo.Width / 2), 60);
+
+            ed_usuario.Width = 287;
+            ed_senha.Width = 287;
+            ed_usuario.BorderStyle = BorderStyle.Fixed3D;
+            ed_usuario.Location = new Point((panel_center.Width / 2) - (ed_usuario.Width / 2), iconPictureBox_logo.Location.Y + iconPictureBox_logo.Height + 50);
+            ed_senha.Location = new Point((panel_center.Width / 2) - (ed_senha.Width / 2), ed_usuario.Location.Y + ed_usuario.Height + 15);
+            ed_senha.BorderStyle = BorderStyle.Fixed3D;
+
+            lbl_usuario.Font = new Font(montserrat, 10, FontStyle.Regular);
+            lbl_usuario.Location = new Point(ed_usuario.Left - 4, ed_usuario.Location.Y - lbl_usuario.Height - 3);
+            lbl_usuario.ForeColor = System.Drawing.Color.FromArgb(24,81,117);
+
+            pictureBox_bt_acessar.Font = new Font(montserrat, 12, FontStyle.Bold);
+            pictureBox_bt_acessar.Size = new Size(140, 39);
+            pictureBox_bt_acessar.Location = new Point(ed_senha.Left, ed_senha.Location.Y + ed_senha.Height + 50);
+
+            checkBox_lembrar.Font = new Font(montserrat, 10, FontStyle.Regular);
+            checkBox_lembrar.ForeColor = System.Drawing.Color.FromArgb(24, 81, 117);
+            checkBox_lembrar.Location = new Point((ed_senha.Left + ed_senha.Width) - checkBox_lembrar.Width + 5, pictureBox_bt_acessar.Location.Y + 7);
+
+            lbl_esqueceu_senha.Font = new Font(montserrat, 10, FontStyle.Regular);
+            lbl_esqueceu_senha.ForeColor = System.Drawing.Color.FromArgb(24, 81, 117);
+            lbl_esqueceu_senha.Location = new Point((panel_center.Width / 2) - (lbl_esqueceu_senha.Width / 2), pictureBox_bt_acessar.Top + pictureBox_bt_acessar.Height + 40);
         }
     }
 }
