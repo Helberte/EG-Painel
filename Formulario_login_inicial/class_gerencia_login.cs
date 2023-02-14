@@ -13,7 +13,6 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
     public class Class_gerencia_login
     {
         
-        private int codigo_usuario;
         private string usuario_login;
         private string senha;
 
@@ -26,9 +25,8 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
         public static string Nome_Usuario = "";
 
 
-        public Class_gerencia_login(int codigo_usuario, string usuario_login, string senha)
+        public Class_gerencia_login(string usuario_login, string senha)
         {
-            this.codigo_usuario = codigo_usuario;
             this.usuario_login = usuario_login;
             this.senha = senha;
             this.conexao = new Conexao();

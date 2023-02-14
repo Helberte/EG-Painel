@@ -33,8 +33,7 @@ namespace EGP_Tela_Inicial_04_02
         // font
         System.Drawing.FontFamily montserrat;
         // https://cbsa.com.br/post/c---utilizar-fontes-ttf-sem-instalar---privatefontcollection.aspx
-        // artigo sobre fontes
-
+        
 
         IconPictureBox mostra_menu_lateral;
         PictureBox opc_menu_rapido;
@@ -66,9 +65,7 @@ namespace EGP_Tela_Inicial_04_02
             InitializeComponent();
             this.Opacity = 0;
 
-            // inicializa a font
             montserrat = new System.Drawing.FontFamily("Montserrat");
-
 
             panel_cab_1.MouseDown += Mover_tela_cabecalho_MouseDown;
             border_left_button = new Panel();
@@ -91,9 +88,7 @@ namespace EGP_Tela_Inicial_04_02
             seta_baixo.Visible = false;
         }
 
-        // ESTUDAR A QUESTÃO DOS MDI INTERFACE DE MULTIPLAS TELAS
-
-
+    
         private void Form_principal_Load(object sender, EventArgs e)
         {
             acessos = new class_verifica_acessos(Class_gerencia_login.ID_Usuario);
@@ -298,8 +293,7 @@ namespace EGP_Tela_Inicial_04_02
             iconPictureBox_exibir_ao_publico.Height = 18;
             iconPictureBox_exibir_ao_publico.SizeMode = PictureBoxSizeMode.StretchImage;
             iconPictureBox_exibir_ao_publico.BorderStyle = BorderStyle.None;
-
-         
+                     
             // barra de menu rápido superior
             mzSombraPanel_menu_superior.TipoDeSombra = MZSombraPanel.ShadowsPanel.Desplasada;
             mzSombraPanel_menu_superior.Dock = DockStyle.None;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -13,7 +14,6 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 {
     public partial class Form_login_inicial : Form
     {
-        string texto_padrao_ed_codigo = "Digite seu código";
         string texto_padrao_ed_usuario = "Digite seu nome ou e-mail";
         string texto_padrao_ed_senha = "Digite sua senha de até 8 dígitos";
 
@@ -23,84 +23,20 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
         }
 
         private void Form_login_inicial_Load(object sender, EventArgs e)
-        {
-            //int eds_altura = 25;
-
-            //ed_codigo.Height = eds_altura;
-            //ed_codigo.Width = (this.Width / 3) - 130;
-            //ed_codigo.Left = (this.Width / 2) - ((ed_codigo.Width / 2) + 2);
-            //ed_codigo.Location = new Point(ed_codigo.Left, (this.Height / 2) - 56);
-            ed_codigo.Text = texto_padrao_ed_codigo;
-            //ed_codigo.ForeColor = Color.FromArgb(160, 156, 153);
-
-            //ed_usuario.Height = eds_altura;
-            //ed_usuario.Width = ed_codigo.Width;
-            //ed_usuario.Left = ed_codigo.Left;
-            //ed_usuario.Location = new Point(ed_usuario.Left, ed_codigo.Location.Y + ed_codigo.Height + 63);
-            ed_usuario.Text = texto_padrao_ed_usuario;
-            //ed_usuario.ForeColor = Color.FromArgb(160, 156, 153);
-
-            //ed_senha.Height = eds_altura;
-            //ed_senha.Width = ed_codigo.Width;
-            //ed_senha.Left = ed_codigo.Left;
-            //ed_senha.Location = new Point(ed_senha.Left, ed_usuario.Location.Y + ed_usuario.Height + 61);
+        {            
+            ed_usuario.Text = texto_padrao_ed_usuario;           
             ed_senha.Text = texto_padrao_ed_senha;
-            //ed_senha.ForeColor = Color.FromArgb(160, 156, 153);
 
-            //int bts_largura = 107;
-            //int bts_altura = 42;
+            this.Opacity = 0;
+            ArredondaCantos(panel_center);
 
-            //pictureBox_bt_acessar.Width = bts_largura;
-            //pictureBox_bt_acessar.Left = ((this.Width / 2) - pictureBox_bt_acessar.Width) - 6;
-            //pictureBox_bt_acessar.Height = bts_altura;
-            //pictureBox_bt_acessar.Location = new Point(pictureBox_bt_acessar.Left, ed_senha.Location.Y + ed_senha.Height + 39);
+            EstilizaTelaLogin();
 
-            //pictureBox_bt_sair.Height = bts_altura;
-            //pictureBox_bt_sair.Width = bts_largura;
-            //pictureBox_bt_sair.Left = (this.Width / 2) + 9;
-            //pictureBox_bt_sair.Location = new Point(pictureBox_bt_sair.Left, pictureBox_bt_acessar.Top);
-
-
+            this.Opacity = 1;
             this.Focus();
-        }
+        }                
 
-        private void ed_codigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar))
-            {
-                if (e.KeyChar != (char)Keys.Back)
-                {
-                    if (e.KeyChar == (char)Keys.Enter)
-                    {
-                        e.Handled = true;
-                        ed_usuario.Focus();
-                    }
-                    else
-                    {
-                        e.Handled = true;
-                    }
-                }
-            }
-        }
-
-        private void ed_codigo_Enter(object sender, EventArgs e)
-        {
-            if (ed_codigo.Text == texto_padrao_ed_codigo)
-            {
-                ed_codigo.Clear();
-                ed_codigo.ForeColor = Color.Black;
-            }
-        }
-
-        private void ed_codigo_Leave(object sender, EventArgs e)
-        {
-            if (string.IsNullOrEmpty(ed_codigo.Text))
-            {
-                ed_codigo.Text = texto_padrao_ed_codigo;
-                ed_codigo.ForeColor = Color.FromArgb(160, 156, 153);
-            }
-        }
-
+     
         private void ed_usuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar("'"))
@@ -145,12 +81,7 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 
         private void ed_senha_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-            {
-                e.Handled = true;
-                ed_codigo.Focus();
-            }
-            else if (!char.IsDigit(e.KeyChar))
+            if (!char.IsDigit(e.KeyChar))
             {
                 if (e.KeyChar != (char)Keys.Back)
                 {
@@ -181,19 +112,12 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
 
         private void pictureBox_bt_acessar_Click(object sender, EventArgs e)
         {
-            int codigo = 0;
-            Class_gerencia_login _Login = new Class_gerencia_login(int.TryParse(ed_codigo.Text, out codigo) ? codigo : 0, ed_usuario.Text, ed_senha.Text);
+            Class_gerencia_login _Login = new Class_gerencia_login(ed_usuario.Text, ed_senha.Text);
 
             if (_Login.ValidarUsuario())            
-                this.Close();
-                                  
+                this.Close();                                  
         }
-
-        private void pictureBox_bt_sair_Click(object sender, EventArgs e)
-        {
-            Class_gerencia_login.Status = 0;
-            this.Close();
-        }
+             
 
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -204,6 +128,37 @@ namespace EGP_Tela_Inicial_04_02.Formulario_login_inicial
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void ArredondaCantos(Control control)
+        {
+            using (GraphicsPath forma = new GraphicsPath())
+            {
+                forma.AddRectangle(new Rectangle(1, 1, control.Width, control.Height));
+                forma.AddRectangle(new Rectangle(1, 1, 10, 10));
+                forma.AddPie(1, 1, 20, 20, 180, 90);
+                forma.AddRectangle(new Rectangle(control.Width - 12, 1, 12, 13));
+                forma.AddPie(control.Width - 24, 1, 24, 26, 270, 90);
+                forma.AddRectangle(new Rectangle(1, control.Height - 10, 10, 10));
+                forma.AddPie(1, control.Height - 20, 20, 20, 90, 90);
+                forma.AddRectangle(new Rectangle(control.Width - 12, control.Height - 13, 13, 13));
+                forma.AddPie(control.Width - 24, control.Height - 26, 24, 26, 0, 90);
+                forma.SetMarkers();
+
+                control.Region = new Region(forma);
+            }
+
+            //https://pt.stackoverflow.com/questions/528084/%C3%89-poss%C3%ADvel-fazer-bordas-arredondadas-no-combobox-do-windows-forms-c
+        }
+
+        void EstilizaTelaLogin()
+        {
+            panel_center.Size = new Size(400, 500);
+            panel_center.Location = new Point((this.Width / 2) - (panel_center.Width / 2), (this.Height / 2) - (panel_center.Height / 2) - 20);
+            panel_center.Anchor = AnchorStyles.None;
+
+            this.MinimumSize = new Size(480, 600);
+
         }
     }
 }

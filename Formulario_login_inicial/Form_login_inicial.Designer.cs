@@ -29,34 +29,25 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_login_inicial));
-            this.ed_codigo = new System.Windows.Forms.TextBox();
             this.ed_usuario = new System.Windows.Forms.TextBox();
             this.ed_senha = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.panel_center = new System.Windows.Forms.Panel();
+            this.lbl_usuario = new System.Windows.Forms.Label();
+            this.iconPictureBox_logo = new FontAwesome.Sharp.IconPictureBox();
             this.pictureBox_bt_acessar = new FontAwesome.Sharp.IconButton();
-            this.pictureBox_bt_sair = new FontAwesome.Sharp.IconButton();
+            this.checkBox_lembrar = new System.Windows.Forms.CheckBox();
+            this.lbl_esqueceu_senha = new System.Windows.Forms.Label();
+            this.lbl_voltar = new System.Windows.Forms.Label();
+            this.panel_center.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox_logo)).BeginInit();
             this.SuspendLayout();
-            // 
-            // ed_codigo
-            // 
-            this.ed_codigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.ed_codigo.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ed_codigo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ed_codigo.Location = new System.Drawing.Point(61, 94);
-            this.ed_codigo.MaxLength = 100;
-            this.ed_codigo.Name = "ed_codigo";
-            this.ed_codigo.Size = new System.Drawing.Size(275, 26);
-            this.ed_codigo.TabIndex = 19;
-            this.ed_codigo.Enter += new System.EventHandler(this.ed_codigo_Enter);
-            this.ed_codigo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_codigo_KeyPress);
-            this.ed_codigo.Leave += new System.EventHandler(this.ed_codigo_Leave);
             // 
             // ed_usuario
             // 
             this.ed_usuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ed_usuario.Font = new System.Drawing.Font("Montserrat", 12F);
             this.ed_usuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ed_usuario.Location = new System.Drawing.Point(61, 140);
+            this.ed_usuario.Location = new System.Drawing.Point(41, 173);
             this.ed_usuario.MaxLength = 100;
             this.ed_usuario.Name = "ed_usuario";
             this.ed_usuario.Size = new System.Drawing.Size(275, 27);
@@ -70,7 +61,7 @@
             this.ed_senha.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.ed_senha.Font = new System.Drawing.Font("Montserrat", 12F);
             this.ed_senha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ed_senha.Location = new System.Drawing.Point(61, 187);
+            this.ed_senha.Location = new System.Drawing.Point(41, 218);
             this.ed_senha.MaxLength = 8;
             this.ed_senha.Name = "ed_senha";
             this.ed_senha.Size = new System.Drawing.Size(275, 27);
@@ -79,16 +70,47 @@
             this.ed_senha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ed_senha_KeyPress);
             this.ed_senha.Leave += new System.EventHandler(this.ed_senha_Leave);
             // 
-            // label1
+            // panel_center
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(120)))), ((int)(((byte)(111)))));
-            this.label1.Location = new System.Drawing.Point(93, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(209, 22);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Acesse com a sua conta";
+            this.panel_center.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel_center.BackColor = System.Drawing.Color.White;
+            this.panel_center.Controls.Add(this.lbl_voltar);
+            this.panel_center.Controls.Add(this.lbl_esqueceu_senha);
+            this.panel_center.Controls.Add(this.checkBox_lembrar);
+            this.panel_center.Controls.Add(this.lbl_usuario);
+            this.panel_center.Controls.Add(this.iconPictureBox_logo);
+            this.panel_center.Controls.Add(this.ed_senha);
+            this.panel_center.Controls.Add(this.ed_usuario);
+            this.panel_center.Controls.Add(this.pictureBox_bt_acessar);
+            this.panel_center.Location = new System.Drawing.Point(258, 33);
+            this.panel_center.Name = "panel_center";
+            this.panel_center.Size = new System.Drawing.Size(400, 500);
+            this.panel_center.TabIndex = 27;
+            // 
+            // lbl_usuario
+            // 
+            this.lbl_usuario.AutoSize = true;
+            this.lbl_usuario.Location = new System.Drawing.Point(38, 145);
+            this.lbl_usuario.Name = "lbl_usuario";
+            this.lbl_usuario.Size = new System.Drawing.Size(43, 13);
+            this.lbl_usuario.TabIndex = 28;
+            this.lbl_usuario.Text = "Usuário";
+            // 
+            // iconPictureBox_logo
+            // 
+            this.iconPictureBox_logo.BackColor = System.Drawing.Color.Transparent;
+            this.iconPictureBox_logo.BackgroundImage = global::EGP_Tela_Inicial_04_02.Properties.Resources.logo_1;
+            this.iconPictureBox_logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.iconPictureBox_logo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox_logo.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconPictureBox_logo.IconColor = System.Drawing.SystemColors.ControlText;
+            this.iconPictureBox_logo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPictureBox_logo.IconSize = 67;
+            this.iconPictureBox_logo.Location = new System.Drawing.Point(77, 49);
+            this.iconPictureBox_logo.Name = "iconPictureBox_logo";
+            this.iconPictureBox_logo.Size = new System.Drawing.Size(239, 67);
+            this.iconPictureBox_logo.TabIndex = 27;
+            this.iconPictureBox_logo.TabStop = false;
             // 
             // pictureBox_bt_acessar
             // 
@@ -100,63 +122,73 @@
             this.pictureBox_bt_acessar.IconChar = FontAwesome.Sharp.IconChar.None;
             this.pictureBox_bt_acessar.IconColor = System.Drawing.Color.Black;
             this.pictureBox_bt_acessar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(61, 255);
+            this.pictureBox_bt_acessar.Location = new System.Drawing.Point(41, 287);
             this.pictureBox_bt_acessar.Name = "pictureBox_bt_acessar";
-            this.pictureBox_bt_acessar.Size = new System.Drawing.Size(275, 39);
+            this.pictureBox_bt_acessar.Size = new System.Drawing.Size(102, 39);
             this.pictureBox_bt_acessar.TabIndex = 25;
             this.pictureBox_bt_acessar.Text = "Entrar";
             this.pictureBox_bt_acessar.UseVisualStyleBackColor = false;
             this.pictureBox_bt_acessar.Click += new System.EventHandler(this.pictureBox_bt_acessar_Click);
             // 
-            // pictureBox_bt_sair
+            // checkBox_lembrar
             // 
-            this.pictureBox_bt_sair.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.pictureBox_bt_sair.FlatAppearance.BorderSize = 0;
-            this.pictureBox_bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.pictureBox_bt_sair.Font = new System.Drawing.Font("Montserrat Medium", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pictureBox_bt_sair.ForeColor = System.Drawing.Color.White;
-            this.pictureBox_bt_sair.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.pictureBox_bt_sair.IconColor = System.Drawing.Color.Black;
-            this.pictureBox_bt_sair.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.pictureBox_bt_sair.Location = new System.Drawing.Point(61, 313);
-            this.pictureBox_bt_sair.Name = "pictureBox_bt_sair";
-            this.pictureBox_bt_sair.Size = new System.Drawing.Size(275, 38);
-            this.pictureBox_bt_sair.TabIndex = 26;
-            this.pictureBox_bt_sair.Text = "Sair";
-            this.pictureBox_bt_sair.UseVisualStyleBackColor = false;
-            this.pictureBox_bt_sair.Click += new System.EventHandler(this.pictureBox_bt_sair_Click);
+            this.checkBox_lembrar.AutoSize = true;
+            this.checkBox_lembrar.Location = new System.Drawing.Point(235, 299);
+            this.checkBox_lembrar.Name = "checkBox_lembrar";
+            this.checkBox_lembrar.Size = new System.Drawing.Size(81, 17);
+            this.checkBox_lembrar.TabIndex = 29;
+            this.checkBox_lembrar.Text = "Lembrar-me";
+            this.checkBox_lembrar.UseVisualStyleBackColor = true;
+            // 
+            // lbl_esqueceu_senha
+            // 
+            this.lbl_esqueceu_senha.AutoSize = true;
+            this.lbl_esqueceu_senha.Location = new System.Drawing.Point(130, 363);
+            this.lbl_esqueceu_senha.Name = "lbl_esqueceu_senha";
+            this.lbl_esqueceu_senha.Size = new System.Drawing.Size(113, 13);
+            this.lbl_esqueceu_senha.TabIndex = 30;
+            this.lbl_esqueceu_senha.Text = "Esqueceu sua senha?";
+            // 
+            // lbl_voltar
+            // 
+            this.lbl_voltar.AutoSize = true;
+            this.lbl_voltar.Location = new System.Drawing.Point(130, 386);
+            this.lbl_voltar.Name = "lbl_voltar";
+            this.lbl_voltar.Size = new System.Drawing.Size(107, 13);
+            this.lbl_voltar.TabIndex = 31;
+            this.lbl_voltar.Text = "Voltar para executiva";
             // 
             // Form_login_inicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(136)))), ((int)(((byte)(187)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(400, 419);
-            this.Controls.Add(this.ed_codigo);
-            this.Controls.Add(this.pictureBox_bt_sair);
-            this.Controls.Add(this.pictureBox_bt_acessar);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.ed_usuario);
-            this.Controls.Add(this.ed_senha);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(894, 570);
+            this.Controls.Add(this.panel_center);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form_login_inicial";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login EP";
+            this.Text = "Login EG-Painel";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form_login_inicial_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form_login_inicial_MouseDown);
+            this.panel_center.ResumeLayout(false);
+            this.panel_center.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox_logo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox ed_codigo;
         private System.Windows.Forms.TextBox ed_usuario;
         private System.Windows.Forms.TextBox ed_senha;
-        private System.Windows.Forms.Label label1;
         private FontAwesome.Sharp.IconButton pictureBox_bt_acessar;
-        private FontAwesome.Sharp.IconButton pictureBox_bt_sair;
+        private System.Windows.Forms.Panel panel_center;
+        private FontAwesome.Sharp.IconPictureBox iconPictureBox_logo;
+        private System.Windows.Forms.Label lbl_usuario;
+        private System.Windows.Forms.Label lbl_voltar;
+        private System.Windows.Forms.Label lbl_esqueceu_senha;
+        private System.Windows.Forms.CheckBox checkBox_lembrar;
     }
 }

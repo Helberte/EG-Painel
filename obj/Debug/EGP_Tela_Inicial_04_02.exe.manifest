@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EGP_Tela_Inicial_04_02.exe" size="1651624">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="EGP_Tela_Inicial_04_02.exe" size="1689000">
       <assemblyIdentity name="EGP_Tela_Inicial_04_02" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>iOQy5VODBoVd4P8+s5cQ2853RFzL9D6Taa1eDW8R/Cc=</dsig:DigestValue>
+        <dsig:DigestValue>6i1KXIn7Q4y3Wrn7Mj+EZC6qz19Ab1wRUa8zv5Y1XQE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
