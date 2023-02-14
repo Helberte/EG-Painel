@@ -62,10 +62,11 @@ namespace EGP_Tela_Inicial_04_02
         
 
         public Form_principal()
-        {         
-            InitializeComponent();
+        {
             this.Opacity = 0;
 
+            InitializeComponent();
+            
             montserrat = Configuracoes_sistema.GetFontMontserrat();
 
             panel_cab_1.MouseDown += Mover_tela_cabecalho_MouseDown;
